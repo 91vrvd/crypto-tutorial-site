@@ -874,6 +874,14 @@
       }
 
       @media (max-width: 760px) {
+        html,
+        body {
+          height: auto;
+          min-height: 100%;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
         body {
           background: linear-gradient(135deg, #fffdf7 0%, #f7f3e8 100%);
         }
@@ -887,7 +895,20 @@
           left: 10px;
           right: 10px;
           min-height: 54px;
+          padding: 10px 12px;
+          gap: 10px;
           border-radius: 20px;
+        }
+
+        .brand {
+          gap: 8px;
+        }
+
+        .brand-mark {
+          width: 30px;
+          height: 30px;
+          border-radius: 10px;
+          flex: 0 0 auto;
         }
 
         .brand-subtitle,
@@ -896,7 +917,18 @@
         }
 
         .brand-title {
-          font-size: 15px;
+          font-size: 14px;
+          line-height: 1.25;
+          white-space: normal;
+        }
+
+        .top-actions {
+          flex: 0 0 auto;
+        }
+
+        .progress-pill {
+          min-height: 30px;
+          padding: 0 10px;
         }
 
         .mobile-tabs {
@@ -938,13 +970,33 @@
           color: var(--ink);
         }
 
+        .deck {
+          display: block;
+          width: 100%;
+          height: auto;
+          min-height: 100dvh;
+          transform: none !important;
+          transition: none;
+        }
+
         .slide {
-          padding: 78px 12px 88px;
+          display: none;
+          width: 100%;
+          height: auto;
+          min-height: 100dvh;
+          padding: 78px 12px 96px;
+        }
+
+        .slide.is-active {
+          display: block;
         }
 
         .slide-frame {
-          height: calc(100dvh - 166px);
-          padding: 22px;
+          width: 100%;
+          height: auto;
+          min-height: calc(100dvh - 184px);
+          overflow: visible;
+          padding: 20px;
           border-radius: 24px;
         }
 
@@ -961,7 +1013,8 @@
         }
 
         .slide-title {
-          font-size: 28px;
+          font-size: 27px;
+          overflow-wrap: anywhere;
         }
 
         .lead {
@@ -1000,6 +1053,77 @@
 
         .ref-actions .btn {
           flex: 1 1 120px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .deck-topbar {
+          left: 8px;
+          right: 8px;
+          padding: 9px 10px;
+        }
+
+        .brand-title {
+          font-size: 13px;
+        }
+
+        .progress-pill {
+          font-size: 11px;
+          padding: 0 8px;
+        }
+
+        .slide {
+          padding: 76px 8px 94px;
+        }
+
+        .slide-frame {
+          padding: 16px;
+          border-radius: 22px;
+        }
+
+        .slide-head {
+          grid-template-columns: 58px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .slide-no {
+          width: 58px;
+          height: 58px;
+          border-radius: 18px;
+          font-size: 24px;
+          box-shadow: 5px 5px 0 rgba(23, 23, 42, 0.1);
+        }
+
+        .script {
+          max-width: 100%;
+          font-size: 11px;
+          white-space: normal;
+        }
+
+        .slide-title {
+          font-size: 24px;
+        }
+
+        .tile,
+        .ref-tile,
+        .quiz-panel,
+        .warning,
+        .risk-box,
+        .next-box {
+          padding: 16px;
+          border-radius: 20px;
+        }
+
+        .step {
+          grid-template-columns: 36px 1fr;
+          gap: 12px;
+          padding: 14px;
+        }
+
+        .step-no {
+          width: 36px;
+          height: 36px;
+          border-radius: 12px;
         }
 
       }
@@ -1798,6 +1922,7 @@
       let touchStartX = 0;
       let touchStartY = 0;
       let quizIndex = 0;
+      let mobileBottomHinted = false;
 
       deck.innerHTML = slideHtml.join("");
 
@@ -1816,6 +1941,9 @@
         const next = Math.max(0, Math.min(chapters.length - 1, index));
         currentIndex = next;
         deck.style.transform = `translate3d(${-currentIndex * 100}vw, 0, 0)`;
+        deck.querySelectorAll(".slide").forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === currentIndex);
+        });
         progress.textContent = `${chapters[currentIndex].no} / ${String(chapters.length).padStart(2, "0")}`;
         prevButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex === chapters.length - 1;
@@ -1832,7 +1960,12 @@
           }
         });
         const frame = deck.children[currentIndex]?.querySelector("[data-slide-frame]");
-        if (frame) frame.scrollTop = 0;
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          mobileBottomHinted = false;
+          window.scrollTo({ top: 0, behavior: "auto" });
+        } else if (frame) {
+          frame.scrollTop = 0;
+        }
       }
 
       function showToast(message) {
@@ -1845,6 +1978,7 @@
       function setupBottomHints() {
         document.querySelectorAll("[data-slide-frame]").forEach((frame, index) => {
           frame.addEventListener("scroll", () => {
+            if (window.matchMedia("(max-width: 760px)").matches) return;
             const canScroll = frame.scrollHeight > frame.clientHeight + 8;
             const atBottom = frame.scrollTop + frame.clientHeight >= frame.scrollHeight - 6;
             if (canScroll && atBottom && frame.dataset.bottomHinted !== "true") {
@@ -1856,6 +1990,20 @@
             }
           }, { passive: true });
         });
+
+        window.addEventListener("scroll", () => {
+          if (!window.matchMedia("(max-width: 760px)").matches) return;
+          const doc = document.documentElement;
+          const canScroll = doc.scrollHeight > window.innerHeight + 8;
+          const atBottom = window.scrollY + window.innerHeight >= doc.scrollHeight - 8;
+          if (canScroll && atBottom && !mobileBottomHinted) {
+            mobileBottomHinted = true;
+            showToast(currentIndex < chapters.length - 1 ? "已经到底，向左滑或点底部进入下一章" : "已经到底，可以用底部章节回看");
+          }
+          if (!atBottom) {
+            mobileBottomHinted = false;
+          }
+        }, { passive: true });
       }
 
       setupBottomHints();
