@@ -825,6 +825,194 @@
         box-shadow: 0 18px 44px rgba(23, 23, 42, 0.18);
       }
 
+      /* ── Share Module ── */
+      .share-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 0 14px;
+        border: 1px solid rgba(23, 23, 42, 0.1);
+        border-radius: 999px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .share-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(23, 23, 42, 0.1);
+      }
+
+      .share-overlay {
+        position: fixed;
+        z-index: 50;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(23, 23, 42, 0.38);
+      }
+
+      .share-overlay.hidden {
+        display: none;
+      }
+
+      .share-panel {
+        width: min(440px, calc(100vw - 32px));
+        max-height: calc(100dvh - 80px);
+        overflow: auto;
+        padding: 28px;
+        border: 2px dashed var(--line);
+        border-radius: 28px;
+        background: var(--panel);
+        box-shadow: 0 24px 80px rgba(23, 23, 42, 0.16);
+      }
+
+      .share-panel h2 {
+        margin: 0 0 6px;
+        font-size: 22px;
+        font-weight: 950;
+      }
+
+      .share-panel .sub {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .share-link-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .share-link-row input {
+        flex: 1;
+        min-width: 0;
+        height: 44px;
+        padding: 0 14px;
+        border: 1px solid rgba(23, 23, 42, 0.14);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .share-platforms {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .share-platform {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        min-height: 78px;
+        padding: 14px 8px;
+        border: 1px solid rgba(23, 23, 42, 0.1);
+        border-radius: 20px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 850;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .share-platform:hover {
+        transform: translateY(-2px);
+        border-color: rgba(43, 127, 216, 0.34);
+      }
+
+      .share-platform .icon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        font-size: 20px;
+      }
+
+      .share-platform .icon.wechat  { background: #e8faea; }
+      .share-platform .icon.telegram{ background: #e4effa; }
+      .share-platform .icon.twitter { background: #f0f0f0; }
+      .share-platform .icon.whatsapp{ background: #e8faea; }
+      .share-platform .icon.email   { background: #fdf0d5; }
+      .share-platform .icon.copy    { background: rgba(43,127,216,0.1); }
+
+      .share-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .share-divider::before,
+      .share-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(23, 23, 42, 0.1);
+      }
+
+      .share-native {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid rgba(23, 23, 42, 0.14);
+        border-radius: 999px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .share-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(23, 23, 42, 0.1);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .share-qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 24px;
+        border: 1px solid rgba(23, 23, 42, 0.1);
+        border-radius: 24px;
+        background: #fff;
+      }
+
+      .share-qr canvas {
+        border: 1px solid rgba(23, 23, 42, 0.08);
+        border-radius: 16px;
+      }
+
+      .share-qr span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 750;
+      }
+
       .hidden {
         display: none;
       }
@@ -1140,7 +1328,8 @@
         </div>
       </div>
       <div class="top-actions">
-        <span class="progress-pill" id="deckProgress">01 / 10</span>
+        <button class="share-btn" type="button" id="openShare" aria-label="分享给朋友">📤 分享</button>
+        <span class="progress-pill" id="deckProgress">01 / 11</span>
         <span class="hint-pill">方向键 / 左右按钮 / 滑动切换章节</span>
       </div>
     </header>
@@ -1154,6 +1343,51 @@
     <main class="deck" id="deck"></main>
     <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
 
+    <!-- Share Modal -->
+    <div class="share-overlay hidden" id="shareOverlay" role="dialog" aria-label="分享弹窗">
+      <div class="share-panel" style="position: relative;">
+        <button class="share-close" type="button" id="closeShare" aria-label="关闭">✕</button>
+        <h2>📤 分享给朋友</h2>
+        <p class="sub">把这个教程分享给刚入门的朋友，帮他们少走弯路</p>
+
+        <div class="share-link-row">
+          <input type="text" id="shareLinkInput" readonly aria-label="页面链接" />
+          <button class="btn yellow" type="button" id="copyLinkBtn">复制</button>
+        </div>
+
+        <p class="share-divider">分享到</p>
+
+        <div class="share-platforms">
+          <button class="share-platform" type="button" data-share="wechat">
+            <span class="icon wechat">💬</span>
+            <span>微信</span>
+          </button>
+          <button class="share-platform" type="button" data-share="telegram">
+            <span class="icon telegram">✈️</span>
+            <span>Telegram</span>
+          </button>
+          <button class="share-platform" type="button" data-share="twitter">
+            <span class="icon twitter">𝕏</span>
+            <span>Twitter</span>
+          </button>
+          <button class="share-platform" type="button" data-share="whatsapp">
+            <span class="icon whatsapp">📱</span>
+            <span>WhatsApp</span>
+          </button>
+          <button class="share-platform" type="button" data-share="email">
+            <span class="icon email">📧</span>
+            <span>邮件</span>
+          </button>
+          <button class="share-platform" type="button" data-share="copy">
+            <span class="icon copy">📋</span>
+            <span>复制链接</span>
+          </button>
+        </div>
+
+        <button class="share-native hidden" type="button" id="nativeShare">📤 系统分享</button>
+      </div>
+    </div>
+
     <script>
       const chapters = [
         { no: "01", short: "安全", title: "安全与防骗", en: "Security & Anti-Scam Basics", label: "Safety First" },
@@ -1165,7 +1399,8 @@
         { no: "07", short: "美股", title: "美股购买", en: "Tokenized Stock Products", label: "Advanced" },
         { no: "08", short: "工具", title: "美股工具集", en: "Research Tool Kit", label: "Research" },
         { no: "09", short: "FAQ", title: "FAQ", en: "Common Questions", label: "Review" },
-        { no: "10", short: "测验", title: "闯关测验", en: "Learning Check", label: "Quiz" }
+        { no: "10", short: "测验", title: "闯关测验", en: "Learning Check", label: "Quiz" },
+        { no: "11", short: "分享", title: "分享给朋友", en: "Share With Friends", label: "Share" }
       ];
 
       const images = {
@@ -1899,6 +2134,78 @@
         return slideShell(9, "用几道题检查你是否真的理解安全、基础概念、转账、钱包和进阶产品风险。", body);
       }
 
+      function shareSlide() {
+        const shareUrl = window.location.href;
+        const shareTitle = "币圈新手入门完全指南 — 先学安全，再学注册";
+        const shareDesc = "一个给新手的安全第一课：安全、基础概念、交易所、钱包、U 卡、美股，10 步入门不踩坑。";
+
+        const platformLinks = [
+          { name: "微信", icon: "💬", tip: "点击复制链接后粘贴到微信发送给朋友", color: "wechat" },
+          { name: "Telegram", icon: "✈️", tip: "通过 Telegram 发送给朋友或群组", color: "telegram", href: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}` },
+          { name: "Twitter / X", icon: "𝕏", tip: "发推分享给你的关注者", color: "twitter", href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}` },
+          { name: "WhatsApp", icon: "📱", tip: "通过 WhatsApp 发送给联系人", color: "whatsapp", href: `https://wa.me/?text=${encodeURIComponent(shareTitle + " " + shareUrl)}` },
+          { name: "邮件", icon: "📧", tip: "通过邮件发送给朋友", color: "email", href: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareDesc + "\\n\\n" + shareUrl)}` },
+          { name: "复制链接", icon: "📋", tip: "复制后粘贴到任意聊天或社交平台", color: "copy" }
+        ];
+
+        const platformCards = platformLinks.map((p) => {
+          if (p.href) {
+            return `
+              <a class="share-platform" href="${p.href}" target="_blank" rel="noreferrer">
+                <span class="icon ${p.color}">${p.icon}</span>
+                <span>${p.name}</span>
+              </a>`;
+          }
+          return `
+            <button class="share-platform" type="button" data-share="${p.name === "微信" ? "wechat" : "copy"}">
+              <span class="icon ${p.color}">${p.icon}</span>
+              <span>${p.name}</span>
+            </button>`;
+        }).join("");
+
+        const body = `
+          <div class="split">
+            <div class="content-stack">
+              <div class="warning">
+                <strong>把这个教程分享给刚入门的朋友</strong>
+                <p>币圈对新手最大的问题不是学不会，而是不知道从哪开始。帮朋友省掉试错成本，先看完安全再操作。</p>
+              </div>
+
+              <div class="share-link-row">
+                <input type="text" id="slideShareLink" readonly value="${shareUrl}" aria-label="页面链接" />
+                <button class="btn yellow" type="button" id="slideCopyLink">复制</button>
+              </div>
+
+              <p class="share-divider">选择分享方式</p>
+
+              <div class="share-platforms">
+                ${platformCards}
+              </div>
+
+              <button class="share-native hidden" type="button" id="slideNativeShare">📤 系统分享（支持的系统会自动显示）</button>
+            </div>
+
+            <div class="content-stack">
+              <div class="share-qr" id="qrContainer">
+                <canvas id="qrCanvas" width="200" height="200"></canvas>
+                <span>扫描二维码打开教程</span>
+              </div>
+
+              <div class="tile yellow-tile">
+                <h3>💡 分享小技巧</h3>
+                <p>微信可以直接发送链接；Telegram / Twitter 点击按钮即可；如果朋友打不开，提醒他们用浏览器打开。</p>
+              </div>
+
+              <div class="tile blue-tile">
+                <h3>🔗 邀请朋友一起学</h3>
+                <p>你也可以把教程里的邀请码页面分享给朋友，大家一起走完 10 章学习路径，互相提醒注意安全。</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return slideShell(10, "帮朋友省掉试错成本——把这个教程分享出去。", body);
+      }
+
       const slideHtml = [
         safetySlide(),
         basicsSlide(),
@@ -1909,7 +2216,8 @@
         stockSlide(),
         toolsSlide(),
         faqSlide(),
-        quizSlide()
+        quizSlide(),
+        shareSlide()
       ];
 
       const deck = document.querySelector("#deck");
@@ -2009,37 +2317,8 @@
 
       setupBottomHints();
 
-      document.addEventListener("click", (event) => {
-        const goButton = event.target.closest("[data-go]");
-        if (goButton) {
-          goTo(Number(goButton.dataset.go));
-          return;
-        }
-
-        const copyButton = event.target.closest("[data-copy]");
-        if (copyButton) {
-          navigator.clipboard?.writeText(copyButton.dataset.copy).then(() => {
-            showToast(`已复制：${copyButton.dataset.copy}`);
-          }).catch(() => {
-            showToast(`邀请码：${copyButton.dataset.copy}`);
-          });
-          return;
-        }
-
-        const localButton = event.target.closest("[data-local-target]");
-        if (localButton) {
-          const target = document.querySelector(localButton.dataset.localTarget);
-          target?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-
       prevButton.addEventListener("click", () => goTo(currentIndex - 1));
       nextButton.addEventListener("click", () => goTo(currentIndex + 1));
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowLeft") goTo(currentIndex - 1);
-        if (event.key === "ArrowRight") goTo(currentIndex + 1);
-      });
 
       deck.addEventListener("touchstart", (event) => {
         touchStartX = event.touches[0].clientX;
@@ -2081,6 +2360,238 @@
         quizIndex = (quizIndex + 1) % quizQuestions.length;
         renderQuiz();
       });
+
+      /* ── Share Module Logic ── */
+      const shareOverlay = document.querySelector("#shareOverlay");
+      const shareLinkInput = document.querySelector("#shareLinkInput");
+      const copyLinkBtn = document.querySelector("#copyLinkBtn");
+      const nativeShareBtn = document.querySelector("#nativeShare");
+
+      function getShareUrl() {
+        return window.location.href;
+      }
+
+      function openShareModal() {
+        shareLinkInput.value = getShareUrl();
+        shareOverlay.classList.remove("hidden");
+        if (navigator.share) {
+          nativeShareBtn.classList.remove("hidden");
+        }
+      }
+
+      function closeShareModal() {
+        shareOverlay.classList.add("hidden");
+      }
+
+      function copyShareLink(inputEl) {
+        const url = (inputEl || shareLinkInput).value;
+        navigator.clipboard?.writeText(url).then(() => {
+          showToast("链接已复制，去粘贴给朋友吧！");
+        }).catch(() => {
+          showToast("复制失败，请手动选择链接");
+        });
+      }
+
+      function shareTo(platform) {
+        const url = getShareUrl();
+        const title = "币圈新手入门完全指南 — 先学安全，再学注册";
+        const desc = "一个给新手的安全第一课：安全、基础概念、交易所、钱包、U 卡、美股，10 步入门不踩坑。";
+        let shareUrl = "";
+
+        switch (platform) {
+          case "telegram":
+            shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+            break;
+          case "twitter":
+            shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            break;
+          case "whatsapp":
+            shareUrl = `https://wa.me/?text=${encodeURIComponent(title + " " + url)}`;
+            break;
+          case "email":
+            shareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(desc + "\\n\\n" + url)}`;
+            break;
+          case "wechat":
+            navigator.clipboard?.writeText(url).then(() => {
+              showToast("链接已复制，打开微信粘贴发送给朋友！");
+            }).catch(() => {
+              showToast("链接：" + url);
+            });
+            closeShareModal();
+            return;
+          case "copy":
+            copyShareLink();
+            closeShareModal();
+            return;
+        }
+
+        if (shareUrl) {
+          window.open(shareUrl, "_blank", "noreferrer");
+        }
+      }
+
+      document.querySelector("#openShare").addEventListener("click", openShareModal);
+      document.querySelector("#closeShare").addEventListener("click", closeShareModal);
+
+      shareOverlay.addEventListener("click", (event) => {
+        if (event.target === shareOverlay) closeShareModal();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !shareOverlay.classList.contains("hidden")) {
+          closeShareModal();
+          return;
+        }
+        if (event.key === "ArrowLeft") goTo(currentIndex - 1);
+        if (event.key === "ArrowRight") goTo(currentIndex + 1);
+      });
+
+      copyLinkBtn.addEventListener("click", () => copyShareLink());
+
+      nativeShareBtn.addEventListener("click", () => {
+        navigator.share?.({
+          title: "币圈新手入门完全指南",
+          text: "先学安全，再学注册——一个给新手的币圈入门教程。",
+          url: getShareUrl()
+        }).catch(() => {});
+      });
+
+      shareOverlay.querySelectorAll("[data-share]").forEach((btn) => {
+        btn.addEventListener("click", () => shareTo(btn.dataset.share));
+      });
+
+      /* ── Slide Share Handlers (delegated) ── */
+      document.addEventListener("click", (event) => {
+        const slideCopyBtn = event.target.closest("#slideCopyLink");
+        if (slideCopyBtn) {
+          const input = document.querySelector("#slideShareLink");
+          if (input) copyShareLink(input);
+          return;
+        }
+
+        const slideNativeBtn = event.target.closest("#slideNativeShare");
+        if (slideNativeBtn) {
+          navigator.share?.({
+            title: "币圈新手入门完全指南",
+            text: "先学安全，再学注册——一个给新手的币圈入门教程。",
+            url: getShareUrl()
+          }).catch(() => {});
+          return;
+        }
+
+        const copyButton = event.target.closest("[data-copy]");
+        if (copyButton) {
+          navigator.clipboard?.writeText(copyButton.dataset.copy).then(() => {
+            showToast(`已复制：${copyButton.dataset.copy}`);
+          }).catch(() => {
+            showToast(`邀请码：${copyButton.dataset.copy}`);
+          });
+          return;
+        }
+
+        const goButton = event.target.closest("[data-go]");
+        if (goButton) {
+          goTo(Number(goButton.dataset.go));
+          return;
+        }
+
+        const localButton = event.target.closest("[data-local-target]");
+        if (localButton) {
+          const target = document.querySelector(localButton.dataset.localTarget);
+          target?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      /* ── QR Code Generator ── */
+      function generateQR(text, canvas) {
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const size = canvas.width;
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, size, size);
+
+        function qrMatrix(data, modules) {
+          const matrix = Array.from({ length: modules }, () => Array(modules).fill(0));
+
+          function placeFinder(row, col) {
+            for (let r = -1; r <= 7; r++) {
+              for (let c = -1; c <= 7; c++) {
+                const rr = row + r, cc = col + c;
+                if (rr < 0 || rr >= modules || cc < 0 || cc >= modules) continue;
+                const inOuter = r >= 0 && r <= 6 && c >= 0 && c <= 6;
+                const inInner = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+                matrix[rr][cc] = inOuter && !inInner ? 1 : 0;
+              }
+            }
+          }
+          placeFinder(0, 0);
+          placeFinder(0, modules - 7);
+          placeFinder(modules - 7, 0);
+
+          for (let i = 8; i < modules - 8; i++) {
+            matrix[6][i] = i % 2 === 0 ? 1 : 0;
+            matrix[i][6] = i % 2 === 0 ? 1 : 0;
+          }
+
+          const bytes = new TextEncoder().encode(data);
+          let bitIdx = 0;
+          for (let col = modules - 1; col >= 0; col -= 2) {
+            if (col === 6) col = 5;
+            for (let row = 0; row < modules; row++) {
+              for (let c = 0; c < 2; c++) {
+                const cc = col - c;
+                if (cc < 0) continue;
+                if (matrix[row][cc] !== 0) continue;
+                if (bitIdx / 8 < bytes.length) {
+                  const byteIdx = Math.floor(bitIdx / 8);
+                  const bitPos = 7 - (bitIdx % 8);
+                  matrix[row][cc] = (bytes[byteIdx] >> bitPos) & 1;
+                  bitIdx++;
+                }
+              }
+            }
+          }
+          return matrix;
+        }
+
+        const matrix = qrMatrix(text, 25);
+        const moduleSize = size / 25;
+
+        ctx.fillStyle = "#17172a";
+        for (let r = 0; r < 25; r++) {
+          for (let c = 0; c < 25; c++) {
+            if (matrix[r][c]) {
+              ctx.fillRect(c * moduleSize, r * moduleSize, moduleSize, moduleSize);
+            }
+          }
+        }
+      }
+
+      function initSlideQR() {
+        const canvas = document.querySelector("#qrCanvas");
+        if (canvas) {
+          generateQR(getShareUrl(), canvas);
+        }
+      }
+
+      function initSlideNativeShare() {
+        const btn = document.querySelector("#slideNativeShare");
+        if (btn && navigator.share) {
+          btn.classList.remove("hidden");
+        }
+      }
+
+      /* Init QR after slide rendered */
+      const origGoTo = goTo;
+      goTo = function(index) {
+        origGoTo(index);
+        setTimeout(() => {
+          if (index === 10) {
+            initSlideQR();
+            initSlideNativeShare();
+          }
+        }, 100);
+      };
 
       renderQuiz();
       goTo(0);
