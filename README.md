@@ -1,6 +1,8 @@
-# Crypto Tutorial Site
+# 加密入门教程 / Crypto Tutorial Site
 
 币圈新手入门教程站，单页静态 HTML，打开即用。
+
+**English:** A single-page beginner guide to crypto basics, account safety, exchanges, wallets, and common questions.
 
 ## 内容
 
@@ -18,4 +20,3 @@
 ## 说明
 
 本站仅用于新手教程和操作路径整理，不构成投资建议。平台活动规则、地区限制、返现比例和产品说明以官方页面为准。
-
