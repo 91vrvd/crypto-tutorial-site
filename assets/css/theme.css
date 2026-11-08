@@ -1,0 +1,62 @@
+/* 站点配色：恢复改版前（commit 9db02bd）的原有配色——米白纸张底、墨色文字、亮黄点缀、深蓝主按钮。
+ * site.css 只引用下面这些变量名；改色只改这里。仅浅色，无暗色模式。
+ */
+:root {
+  color-scheme: light;
+
+  /* 原调色板 */
+  --ink: #17172a;
+  --paper: #fefcf6;
+  --paper-2: #f7f3e8;
+  --card: #ffffff;
+  --line: rgba(23, 23, 42, 0.1);
+  --line-strong: rgba(23, 23, 42, 0.18);
+  --blue: #2b7fd8;
+  --blue-deep: #002fa7;
+  --blue-soft: #eef4ff;
+  --yellow: #ffd84d;
+  --yellow-soft: #fff7cf;
+
+  /* site.css 使用的语义变量，映射到原调色板 */
+  --bg: var(--paper);
+  --surface-subtle: var(--paper-2);
+  --surface-raised: var(--card);
+  --brand: var(--ink);
+  --on-brand: #ffffff;
+  --primary: var(--blue-deep);
+  --primary-hover: #00268a;
+  --primary-active: #001f73;
+  --on-primary: #ffffff;
+  --mint: var(--blue-soft);
+  --on-mint: var(--blue-deep);
+  --mint-subtle: var(--yellow-soft);
+  --accent: var(--yellow);
+  --accent-hover: #f5cc33;
+  --on-accent: var(--ink);
+  --text: #33354a;
+  --text-muted: #6b6e82;
+  --link: var(--blue-deep);
+  --border-control: var(--line-strong);
+  --divider: var(--line);
+  --focus-ring: var(--blue);
+  --disabled-bg: var(--paper-2);
+  --disabled-text: #8a8c99;
+  --success: #1f9d5a;
+  --success-bg: #ecfbf2;
+  --warning: #e86a1c;
+  --warning-bg: #fff3e8;
+  --error: #d93a4e;
+  --error-bg: #fff1f3;
+  --info: var(--blue-deep);
+  --info-bg: var(--blue-soft);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+  --shadow-sm: 0 10px 30px rgba(23, 23, 42, 0.06);
+  --shadow-md: 0 16px 40px rgba(23, 23, 42, 0.08);
+  --shadow-hard: 4px 4px 0 rgba(23, 23, 42, 0.12);
+}

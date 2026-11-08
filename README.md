@@ -21,10 +21,10 @@
 
 ```
 index.html              页面、SEO / 分享卡片、全部课程正文
-assets/css/tokens.css   品牌色变量（复制自「个人品牌设计系统 · 深青绿」，不要在这里改色）
-assets/css/site.css     样式，只引用 tokens.css 的语义变量；含亮色 / 暗色
+assets/css/theme.css    配色变量（改版前的原有配色：米白底、墨色字、亮黄点缀、深蓝按钮；改色只改这里）
+assets/css/site.css     样式（引用 theme.css 的变量；仅浅色）
 assets/js/data.js       邀请码、官方主站入口、域名核对标注、术语表、测验题（改邀请码只改这里）
-assets/js/app.js        路由、目录、进度、复制、清单、术语搜索、测验、分享、外观切换
+assets/js/app.js        路由、目录、进度、复制、清单、术语搜索、测验、分享
 assets/js/qr.js         本地二维码生成器（无外部依赖）
 assets/og-cover.png     分享封面 1200×630
 assets/guizang-illustrations/  插图
@@ -37,7 +37,7 @@ scripts/check.mjs       自检脚本
 python3 -m http.server 8766 --bind 127.0.0.1
 ```
 
-然后打开 http://127.0.0.1:8766/ 。手机效果可以在浏览器开发者工具里切换手机视口；左侧目录底部可切换浅色 / 深色。
+然后打开 http://127.0.0.1:8766/ 。手机效果可以在浏览器开发者工具里切换手机视口；页面只有浅色。
 
 ## 检查
 

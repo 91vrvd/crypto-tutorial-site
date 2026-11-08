@@ -555,20 +555,6 @@
     rT = setTimeout(markScrollableTables, 150);
   });
 
-  /* ── 外观：跟随系统 / 浅色 / 深色 ── */
-  function applyTheme(mode) {
-    if (mode === "light" || mode === "dark") document.documentElement.setAttribute("data-theme", mode);
-    else document.documentElement.removeAttribute("data-theme");
-    $$("[data-theme-set]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.themeSet === mode)));
-  }
-  applyTheme(store.get("theme", "auto"));
-  document.addEventListener("click", (e) => {
-    const b = e.target.closest("[data-theme-set]");
-    if (!b) return;
-    store.set("theme", b.dataset.themeSet);
-    applyTheme(b.dataset.themeSet);
-  });
-
   /* ── 启动 ── */
   renderToc();
   renderRoadmap();
