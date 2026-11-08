@@ -18,7 +18,7 @@ window.SITE_DATA = {
       risk: "注册前确认所在地区是否可用、KYC 要求和活动说明。",
       officialLink: "https://accounts.binance.com/register?ref=BTC10888",
       domainStatus: "unverified",
-      domainNote: "站长链接域名 bsmkweb.cc 会先跳转到其他域名；我们没能通过公开资料确认它是币安官方域名。"
+      domainNote: "站长推广链接（bsmkweb.cc，会自动跳转）；也可用 binance.com 官方主站注册，邀请码相同。"
     },
     {
       id: "okx-exchange",
@@ -32,7 +32,7 @@ window.SITE_DATA = {
       risk: "活动规则和可用地区以平台页面为准。",
       officialLink: "https://www.okx.com/join/3604739",
       domainStatus: "unverified",
-      domainNote: "站长链接域名 tzbflgjyscw.org 会经过多次跳转；OKX 帮助中心写明官方域名是 www.okx.com，我们无法确认这个域名属于 OKX。"
+      domainNote: "站长推广链接（tzbflgjyscw.org，会自动跳转）；也可用 www.okx.com 官方主站注册，邀请码相同。"
     },
     {
       id: "bitget-exchange",
@@ -46,7 +46,7 @@ window.SITE_DATA = {
       risk: "注意活动入口、地区限制和 KYC 要求。",
       officialLink: "https://www.bitget.com/zh-CN/referral/register?clacCode=0LJJYSJ8",
       domainStatus: "unverified",
-      domainNote: "站长链接域名 bitget.org 注册于 2018 年，但 Bitget 官方资料里只列了 bitget.com，我们没找到它属于 Bitget 的官方说明。"
+      domainNote: "站长推广链接（bitget.org）；也可用 bitget.com 官方主站注册，邀请码相同。"
     },
     {
       id: "bybit-exchange",
@@ -60,7 +60,7 @@ window.SITE_DATA = {
       risk: "产品和活动可用性会随地区变化。",
       officialLink: "https://www.bybit.com/invite?ref=M881VM",
       domainStatus: "related",
-      domainNote: "站长链接域名 bybitglobal.com 与 bybit.com 使用同一家企业级域名注册商，有关联迹象，但我们没找到 Bybit 官方的明文说明。"
+      domainNote: "站长推广链接（bybitglobal.com）；也可用 bybit.com 官方主站注册，邀请码相同。"
     },
     {
       id: "binance-wallet",

@@ -248,8 +248,8 @@
   const refs = DATA.referrals;
   const DOMAIN_BADGE = {
     official: '<span class="badge ok">✅ 官方主域名</span>',
-    related: '<span class="badge warn">⚠️ 未能确认官方</span>',
-    unverified: '<span class="badge warn">⚠️ 未能确认官方</span>',
+    related: '<span class="badge info">ℹ️ 站长推广链接</span>',
+    unverified: '<span class="badge info">ℹ️ 站长推广链接</span>',
     none: '<span class="badge info">ℹ️ 无链接</span>'
   };
   function refCard(r) {
