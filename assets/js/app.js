@@ -270,7 +270,7 @@
       </div>
       <div class="ref-code"><span class="label">邀请码</span><span class="value">${esc(r.code)}</span><button class="btn primary" type="button" data-copy="${esc(r.code)}">复制</button></div>
       <div class="ref-actions">${actions}</div>
-      <p class="ref-domain">${DOMAIN_BADGE[r.domainStatus] || ""}${esc(r.domainNote || "")} <a href="#links">核对说明</a></p>
+      ${r.domainStatus === "official" ? `<p class="ref-domain">${DOMAIN_BADGE.official}${esc(r.domainNote)}</p>` : ""}
       <p class="ref-risk">⚠️ ${esc(r.risk)}</p>
     </article>`;
   }
