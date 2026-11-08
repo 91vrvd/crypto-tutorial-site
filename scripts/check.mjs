@@ -54,6 +54,30 @@ for (const [id, name, code, link, reward] of EXPECTED) {
   else ok(`${name.padEnd(10, "　")} ${code.padEnd(10)} ${link ? "链接一致" : "（原本无链接）"}`);
 }
 
+// 1b. 官方主站入口与域名标注
+console.log("\n[1b] 官方入口与域名标注");
+const OFFICIAL_HOSTS = ["binance.com", "okx.com", "bitget.com", "bybit.com"];
+const isOfficialHost = (u) => {
+  try {
+    const h = new URL(u).hostname;
+    return OFFICIAL_HOSTS.some((d) => h === d || h.endsWith("." + d));
+  } catch (e) {
+    return false;
+  }
+};
+for (const r of refs) {
+  if (!["official", "related", "unverified", "none"].includes(r.domainStatus)) bad(`${r.name} 缺少 domainStatus`);
+  if (!r.domainNote) bad(`${r.name} 缺少 domainNote`);
+  if (r.domainStatus === "official" && !isOfficialHost(r.link)) bad(`${r.name} 标为官方，但链接不在官方主域名下`);
+  if (r.domainStatus !== "official" && r.link && isOfficialHost(r.link)) bad(`${r.name} 链接在官方主域名下却没标官方`);
+  if (r.officialLink) {
+    if (!isOfficialHost(r.officialLink)) bad(`${r.name} 官方入口不在官方主域名下：${r.officialLink}`);
+    if (!r.officialLink.toLowerCase().includes(r.code.toLowerCase())) bad(`${r.name} 官方入口没带邀请码 ${r.code}`);
+  }
+  if (r.link && r.domainStatus !== "official" && !r.officialLink) bad(`${r.name} 未确认域名但没有官方入口`);
+}
+ok("每个邀请码都有域名标注；未确认的都配了带同一邀请码的官方主站入口");
+
 // 2. 页面结构
 console.log("\n[2] 页面结构");
 const html = read("index.html");
@@ -95,6 +119,8 @@ ok(`章节 ${chapterCount} 个`);
 // 3. 本地资源
 console.log("\n[3] 本地资源");
 const localRefs = [...html.matchAll(/(?:src|href)="\.\/([^"]+)"/g)].map((m) => m[1]);
+if (!existsSync(join(root, "assets/og-cover.png"))) bad("缺少分享封面 assets/og-cover.png");
+if (!/property="og:image"/.test(html) || !/name="twitter:card"/.test(html)) bad("缺少 OG / Twitter 卡片标签");
 const missing = localRefs.filter((p) => !existsSync(join(root, p)));
 if (missing.length) bad(`缺少文件：${missing.join(", ")}`);
 else ok(`本地资源 ${localRefs.length} 个全部存在`);

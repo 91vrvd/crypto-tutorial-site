@@ -81,8 +81,15 @@
     minutes: el.dataset.minutes,
     no: i === 0 ? "0" : el.id === "codes" ? "🎁" : String(i)
   }));
+  // 课号与时长由脚本统一生成，正文里不写死“第 N 课”
+  chapters.forEach((c) => {
+    const k = c.el.querySelector(".ch-head .kicker");
+    if (k && !k.textContent.trim()) k.textContent = `第 ${c.no} 课 · 约 ${c.minutes} 分钟`;
+  });
+  const ALIASES = { stocks: "us" };
   const byId = Object.fromEntries(chapters.map((c) => [c.id, c]));
   let current = null;
+  const HOME_TITLE = document.title;
   let readSet = new Set(store.get("read", []));
 
   $("#totalCount").textContent = chapters.length;
@@ -92,7 +99,7 @@
     let lastStage = "";
     chapters.forEach((c) => {
       if (c.stage !== lastStage) {
-        html += `<p class="toc-stage">${esc(c.stage)}</p>`;
+        html += `<p class="toc-stage${c.stage.startsWith("★") ? " star" : ""}">${esc(c.stage)}</p>`;
         lastStage = c.stage;
       }
       html += `<a class="toc-link" href="#${c.id}" data-toc="${c.id}"><span class="no">${c.no}</span><span>${esc(c.short)}</span><span class="done" aria-label="已读">✓</span></a>`;
@@ -109,7 +116,7 @@
     });
     $("#roadmap").innerHTML = stages
       .map(
-        (s) => `<div class="stage"><p class="stage-title">${esc(s.name)}</p><div class="stage-items">${s.items
+        (s) => `<div class="stage${s.name.startsWith("★") ? " star" : ""}"><p class="stage-title">${esc(s.name)}</p><div class="stage-items">${s.items
           .map((c) => `<a href="#${c.id}" data-road="${c.id}"><span>${c.id === "codes" ? "" : `第 ${c.no} 课 · `}${esc(c.short)}</span><small>${c.minutes} 分钟</small></a>`)
           .join("")}</div></div>`
       )
@@ -156,7 +163,7 @@
         else a.removeAttribute("aria-current");
       });
       renderPager(c);
-      document.title = c.index === 0 ? "币圈新手入门完全指南" : `${c.short} · 币圈新手入门完全指南`;
+      document.title = c.index === 0 ? HOME_TITLE : `${c.short} · 币圈新手入门完全指南`;
       if (c.id === "quiz") quiz.init();
       if (c.id === "codes" || c.id === "start") markRead(c.id);
     }
@@ -176,6 +183,7 @@
     const hash = decodeURIComponent(location.hash.slice(1));
     if (!hash) return show("start");
     if (byId[hash]) return show(hash);
+    if (ALIASES[hash]) return show(ALIASES[hash]);
     const el = document.getElementById(hash);
     const owner = el && el.closest(".chapter");
     if (owner) return show(owner.id, el);
@@ -238,17 +246,31 @@
 
   /* ── 邀请码 ── */
   const refs = DATA.referrals;
+  const DOMAIN_BADGE = {
+    official: '<span class="badge ok">✅ 官方主域名</span>',
+    related: '<span class="badge warn">⚠️ 未能确认官方</span>',
+    unverified: '<span class="badge warn">⚠️ 未能确认官方</span>',
+    none: '<span class="badge info">ℹ️ 无链接</span>'
+  };
   function refCard(r) {
-    const open = r.link
-      ? `<a class="btn primary" href="${esc(r.link)}" target="_blank" rel="noopener" data-ref-open="${r.id}">打开${r.type === "U 卡" ? "申请页" : "注册页"} ↗</a>`
-      : `<button class="btn" type="button" data-copy="${esc(r.code)}">无直达链接 · 复制后到 App 填写</button>`;
+    const verb = r.type === "U 卡" ? "申请" : "注册";
+    let actions = "";
+    if (r.officialLink) {
+      actions += `<a class="btn primary" href="${esc(r.officialLink)}" target="_blank" rel="noopener">官方主站${verb} ↗</a>`;
+      actions += `<a class="btn" href="${esc(r.link)}" target="_blank" rel="noopener">站长链接 ↗</a>`;
+    } else if (r.link) {
+      actions += `<a class="btn primary" href="${esc(r.link)}" target="_blank" rel="noopener">打开${verb}页 ↗</a>`;
+    } else {
+      actions += `<button class="btn" type="button" data-copy="${esc(r.code)}">无直达链接 · 复制后到 App 填写</button>`;
+    }
     return `<article class="ref-card" data-ref-id="${r.id}">
       <div class="ref-top">
         <div><span class="tag">${esc(r.type)}</span><h3>${esc(r.name)}</h3><p>${esc(r.scene)}</p></div>
         <span class="ref-reward">${esc(r.reward)}</span>
       </div>
-      <div class="ref-code"><span class="label">邀请码</span><span class="value">${esc(r.code)}</span><button class="btn yellow" type="button" data-copy="${esc(r.code)}">复制</button></div>
-      <div class="ref-actions">${open}</div>
+      <div class="ref-code"><span class="label">邀请码</span><span class="value">${esc(r.code)}</span><button class="btn primary" type="button" data-copy="${esc(r.code)}">复制</button></div>
+      <div class="ref-actions">${actions}</div>
+      <p class="ref-domain">${DOMAIN_BADGE[r.domainStatus] || ""}${esc(r.domainNote || "")} <a href="#links">核对说明</a></p>
       <p class="ref-risk">⚠️ ${esc(r.risk)}</p>
     </article>`;
   }
@@ -265,11 +287,11 @@
     slot.innerHTML = refs
       .map(
         (r) => `<div class="quick-row" data-ref-id="${r.id}">
-          <div class="name">${esc(r.name)}<small>${esc(r.reward)}</small></div>
+          <div class="name">${esc(r.name)}<small>${esc(r.reward)} · ${r.domainStatus === "official" ? "官方主域名链接" : r.officialLink ? "打开的是官方主站，邀请码相同" : "无链接，到 App 填写"}</small></div>
           <div class="value">${esc(r.code)}</div>
           <div class="actions">
-            <button class="btn yellow" type="button" data-copy="${esc(r.code)}">复制</button>
-            ${r.link ? `<a class="btn primary" href="${esc(r.link)}" target="_blank" rel="noopener">打开 ↗</a>` : `<a class="btn" href="#codes" title="Bitget Card 暂无直达链接">说明</a>`}
+            <button class="btn primary" type="button" data-copy="${esc(r.code)}">复制</button>
+            ${r.officialLink || r.link ? `<a class="btn" href="${esc(r.officialLink || r.link)}" target="_blank" rel="noopener">打开 ↗</a>` : `<a class="btn" href="#codes" title="Bitget Card 暂无直达链接">说明</a>`}
           </div>
         </div>`
       )
@@ -395,11 +417,11 @@
         return;
       }
       els.bar.style.width = "100%";
-      const pass = score >= 8;
+      const pass = score >= Math.ceil(Q.length * 0.8);
       els.result.hidden = false;
       els.result.innerHTML = `<h2>你的成绩：${score} / ${Q.length}</h2>
         <p>${pass ? "很棒！你已经掌握了新手最关键的安全知识。动手时依然记住：小额、慢慢来、不懂不碰。" : "建议把答错的题对应的课程再看一遍，尤其是防骗和转账两课，再来挑战。"}</p>
-        <div class="hero-actions"><button class="btn" type="button" data-quiz-restart>重新测验</button><a class="btn yellow" href="#codes">🎁 查看邀请码</a></div>`;
+        <div class="hero-actions"><button class="btn" type="button" data-quiz-restart>重新测验</button><a class="btn primary" href="#codes">🎁 查看邀请码</a></div>`;
       store.set("quizBest", Math.max(score, store.get("quizBest", 0)));
       els.result.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -430,7 +452,7 @@
     const local = /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname) || location.protocol === "file:" || /^(10|192\.168|172\.(1[6-9]|2\d|3[01]))\./.test(location.hostname);
     return local ? DATA.canonicalUrl : location.origin + location.pathname;
   })();
-  const shareTitle = "币圈新手入门完全指南：先学安全，再动手";
+  const shareTitle = "加密货币也能交易美股？了解相关平台与操作方式";
   const targets = [
     { label: "💬 微信", action: "wechat" },
     { label: "✈️ Telegram", href: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}` },
@@ -531,6 +553,20 @@
   window.addEventListener("resize", () => {
     clearTimeout(rT);
     rT = setTimeout(markScrollableTables, 150);
+  });
+
+  /* ── 外观：跟随系统 / 浅色 / 深色 ── */
+  function applyTheme(mode) {
+    if (mode === "light" || mode === "dark") document.documentElement.setAttribute("data-theme", mode);
+    else document.documentElement.removeAttribute("data-theme");
+    $$("[data-theme-set]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.themeSet === mode)));
+  }
+  applyTheme(store.get("theme", "auto"));
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-theme-set]");
+    if (!b) return;
+    store.set("theme", b.dataset.themeSet);
+    applyTheme(b.dataset.themeSet);
   });
 
   /* ── 启动 ── */

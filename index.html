@@ -3,15 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="写给完全零基础的币圈入门教程：先学风险和防骗，再学基础概念、交易所注册、买 U、转账、Web3 钱包、U 卡和代币化美股。含各平台邀请码，不构成投资建议。" />
-    <meta name="theme-color" content="#fefcf6" />
-    <meta property="og:title" content="币圈新手入门完全指南" />
-    <meta property="og:description" content="从零开始，用大白话讲清楚：币是什么、怎么安全注册、买 U、转账、用钱包，以及哪些坑一定别踩。" />
+    <title>加密货币也能交易美股？平台对比与新手操作指南 · 币圈新手入门</title>
+    <meta name="description" content="用 USDT、USDC 接触美股有哪几种方式？真股票账户、代币化股票（bStocks、xStocks）、股票合约的区别，币安、OKX、Bitget、Bybit 各支持什么，怎么一步步操作、有哪些风险。附注册、买 U、转账、钱包等新手基础教程。不构成投资建议。" />
+    <link rel="canonical" href="https://91vrvd.github.io/crypto-tutorial-site/" />
+    <meta name="theme-color" content="#004643" />
+    <meta name="color-scheme" content="light dark" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="币圈新手入门完全指南" />
+    <meta property="og:title" content="加密货币也能交易美股？了解相关平台与操作方式" />
+    <meta property="og:description" content="真股票账户、代币化股票、股票合约有什么不同？各平台支持什么、怎么操作、风险在哪，用大白话讲清楚。不构成投资建议。" />
     <meta property="og:url" content="https://91vrvd.github.io/crypto-tutorial-site/" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23ffd84d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='36' font-weight='900' fill='%2317172a'%3EU%3C/text%3E%3C/svg%3E" />
-    <title>币圈新手入门完全指南</title>
-    <script>document.documentElement.classList.add("js");</script>
+    <meta property="og:image" content="https://91vrvd.github.io/crypto-tutorial-site/assets/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="加密货币也能交易美股？平台对比与新手操作指南" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="加密货币也能交易美股？了解相关平台与操作方式" />
+    <meta name="twitter:description" content="真股票账户、代币化股票、股票合约的区别，各平台支持什么、怎么操作、风险在哪。不构成投资建议。" />
+    <meta name="twitter:image" content="https://91vrvd.github.io/crypto-tutorial-site/assets/og-cover.png" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23004643'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='36' font-weight='900' fill='%23F9BC60'%3EU%3C/text%3E%3C/svg%3E" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "币圈新手入门完全指南",
+        "url": "https://91vrvd.github.io/crypto-tutorial-site/",
+        "inLanguage": "zh-CN",
+        "description": "用加密货币接触美股的方式、平台对比与新手操作教程，含风险提示。"
+      }
+    </script>
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        var t = localStorage.getItem("cg:theme");
+        if (t === "\"light\"" || t === "\"dark\"") document.documentElement.setAttribute("data-theme", JSON.parse(t));
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="./assets/css/tokens.css" />
     <link rel="stylesheet" href="./assets/css/site.css" />
   </head>
   <body>
@@ -25,7 +54,7 @@
         <span class="brand-mark" aria-hidden="true">U</span>
         <span class="brand-text">
           <strong>币圈新手入门完全指南</strong>
-          <small>先学安全，再动手；只讲操作，不荐币</small>
+          <small>加密货币 × 美股 · 只讲操作，不荐股不荐币</small>
         </span>
       </a>
       <div class="top-actions">
@@ -39,21 +68,27 @@
       <aside class="sidebar" id="sidebar" aria-label="课程目录">
         <div class="sidebar-head">
           <p class="sidebar-title">课程目录</p>
-          <p class="sidebar-meta"><span id="doneCount">0</span> / <span id="totalCount">14</span> 课已读</p>
+          <p class="sidebar-meta"><span id="doneCount">0</span> / <span id="totalCount">18</span> 课已读</p>
           <div class="meter" aria-hidden="true"><span id="doneBar"></span></div>
         </div>
         <nav id="toc"></nav>
         <a class="sidebar-codes" href="#codes">
           <span>🎁 全部邀请码</span>
-          <small>8 个平台 · 一键复制</small>
+          <small>8 个平台 · 一键复制 · 链接核对说明</small>
         </a>
+        <div class="theme-switch" role="group" aria-label="外观">
+          <span>外观</span>
+          <button type="button" data-theme-set="auto">跟随系统</button>
+          <button type="button" data-theme-set="light">浅色</button>
+          <button type="button" data-theme-set="dark">深色</button>
+        </div>
       </aside>
       <div class="scrim" id="scrim" hidden></div>
 
       <main id="main" tabindex="-1">
         <noscript>
           <div class="callout warn">
-            <strong>当前浏览器关闭了 JavaScript</strong>
+            <strong>⚠️ 当前浏览器关闭了 JavaScript</strong>
             <p>页面会把所有章节依次显示。邀请码汇总：币安交易所 BTC10888 · OKX 交易所 3604739 · Bitget 交易所 0LJJYSJ8 · Bybit 交易所 M881VM · 币安钱包 BTC10888 · OKX 钱包 YAYA12345 · Bybit Card M881VM · Bitget Card btcbtc18。</p>
           </div>
         </noscript>
@@ -61,50 +96,343 @@
         <!-- ============ 首页 ============ -->
         <section class="chapter" id="start" data-short="开始这里" data-stage="开始" data-minutes="3">
           <div class="hero">
-            <p class="kicker">写给完全零基础的你</p>
-            <h1>币圈新手入门完全指南</h1>
-            <p class="hero-lead">从零开始，用大白话讲清楚：<b>币是什么、怎么安全地注册、买 U、转账、用钱包</b>，以及<b>哪些坑一定别踩</b>。每一课 3–8 分钟，按顺序看完，你就能自己完成第一次小额操作。</p>
+            <p class="hero-kicker">写给完全零基础的你 · 2026 年 11 月更新</p>
+            <h1>加密货币也能交易美股？</h1>
+            <p class="hero-lead">现在用 USDT、USDC 就能在一些加密平台买到<b>跟美股挂钩的产品</b>：有的是真股票账户，有的是代币化股票，有的只是合约。它们差别很大。这里用大白话讲清楚<b>有哪几种、哪些平台有、怎么一步步操作、风险在哪</b>，顺便把注册、买 U、转账、钱包这些基础一次学会。</p>
             <div class="hero-actions">
-              <a class="btn primary big" href="#risk">从第 1 课开始 →</a>
-              <a class="btn yellow big" href="#codes">🎁 直接看邀请码</a>
+              <a class="btn accent big" href="#us">先看：4 种方式一张表 →</a>
+              <a class="btn on-brand big" href="#platforms">平台对比</a>
             </div>
+            <p class="hero-note">只讲产品和操作，不推荐任何股票或币，不承诺收益。</p>
+          </div>
+
+          <div class="ways">
+            <a class="way" href="#us"><span class="way-tag">最接近真股票</span><strong>交易所里的美股账户</strong><span>用 USDC 买真实股票，由合作券商托管</span></a>
+            <a class="way" href="#us"><span class="way-tag">链上代币</span><strong>代币化股票</strong><span>bStocks、xStocks，1:1 跟踪股价，可 24 小时交易</span></a>
+            <a class="way warn" href="#perps"><span class="way-tag">高风险</span><strong>股票永续合约</strong><span>不买股票，只赌涨跌，可加杠杆，会爆仓</span></a>
+            <a class="way warn" href="#us"><span class="way-tag">高风险</span><strong>差价合约 CFD</strong><span>在 MT5 里交易的高杠杆合约</span></a>
           </div>
 
           <div class="rules">
-            <p class="rules-title">先记住 3 条铁律，能避开 90% 的坑</p>
+            <p class="rules-title">先记住 3 条铁律</p>
             <ol>
               <li><strong>助记词、私钥、验证码，谁要都不给。</strong>包括自称客服、警察、老师、对象的人。</li>
-              <li><strong>第一次做任何操作，先用小额试一笔。</strong>注册、转账、提币、用钱包、开卡都一样。</li>
-              <li><strong>只用亏光也不影响生活的闲钱。</strong>不借钱、不碰合约杠杆、不信“稳赚”“保本”。</li>
+              <li><strong>第一次做任何操作，先用小额试一笔。</strong>注册、转账、买股票、用钱包都一样。</li>
+              <li><strong>只用亏光也不影响生活的闲钱，不碰杠杆合约。</strong>不信“稳赚”“保本”“带单”。</li>
             </ol>
           </div>
 
           <h2>邀请码速查</h2>
-          <p>注册时填写邀请码，多数平台只能在<b>注册那一步</b>填，注册完通常不能补。点“复制”后粘贴到注册页的邀请码栏即可；点“打开”会带上邀请码直接进入注册页。</p>
+          <p>多数平台的邀请码只能在<b>注册那一步</b>填。点“复制”后粘贴到注册页的邀请码栏；点“打开”进入站长提供的注册链接。每个链接的域名我们都核对过，结果写在<a href="#links">链接安全说明</a>里，交易所另外提供了官方主站入口。</p>
           <div class="quick-codes" data-ref-quick></div>
-          <p class="fineprint">返现比例、活动内容和可用地区以各平台官方页面为准。本站含邀请链接，通过链接注册，站长可能获得平台返佣，不影响你的使用价格。</p>
+          <p class="fineprint">这些都是站长的邀请码，通过它们注册，站长可能获得平台返佣，你不会因此多付费用。返现比例和可用地区以平台官方页面为准。</p>
 
-          <h2>学习路线：4 个阶段</h2>
-          <p>不要跳着学。前两个阶段是“保命”，比后面的操作更重要。</p>
+          <h2>学习路线</h2>
+          <p>想直接了解美股的，从“美股专区”开始；完全没接触过加密货币的，建议先补“入门基础”里的风险、防骗和转账。</p>
           <div class="roadmap" id="roadmap"></div>
 
           <h2>这个网站怎么用</h2>
           <div class="grid-3">
-            <div class="tile"><h3>📚 按顺序看</h3><p>电脑在左侧目录，手机点左上角 ☰ 打开目录。每课底部都有“下一课”。</p></div>
+            <div class="tile"><h3>📚 按顺序看</h3><p>电脑在左侧目录，手机点左上角 ☰ 打开目录，每课底部都有“下一课”。</p></div>
             <div class="tile"><h3>✅ 进度自动记住</h3><p>看过的课会打勾，记录只保存在你自己的浏览器里，不上传。</p></div>
-            <div class="tile"><h3>🔎 遇到生词查术语表</h3><p>“基础概念”一课里有 50+ 个术语，支持搜索，黑话也能查。</p></div>
+            <div class="tile"><h3>🔎 查生词</h3><p>“基础概念”里有 60+ 个可搜索术语，包括美股和合约相关的词。</p></div>
           </div>
 
           <div class="callout">
-            <strong>免责声明</strong>
-            <p>本站只做操作教程和风险科普，<b>不构成任何投资建议</b>，不推荐任何币种或股票，不承诺任何收益。加密资产价格波动极大，可能归零。请先了解并遵守你所在地区的法律法规（中国大陆的规定见第 1 课）。</p>
+            <strong>ℹ️ 免责声明</strong>
+            <p>本站只做操作教程和风险科普，<b>不构成任何投资建议</b>，不推荐任何币种或股票，不承诺任何收益。加密资产和股票价格都会大幅波动，杠杆产品可能让你亏光本金。请先了解并遵守你所在地区的法律法规，中国大陆的规定见<a href="#risk">风险与法规</a>。</p>
           </div>
         </section>
-
-        <!-- ============ 第 1 课 风险 ============ -->
-        <section class="chapter" id="risk" data-short="风险与法规" data-stage="第一阶段 · 认清风险" data-minutes="7">
+        <!-- ============ 美股 1 四种方式 ============ -->
+        <section class="chapter" id="us" data-short="4 种方式一张表" data-stage="★ 美股专区" data-minutes="9">
           <header class="ch-head">
-            <p class="kicker">第 1 课 · 约 7 分钟</p>
+            <p class="kicker"></p>
+            <h1>用加密货币接触美股：4 种方式，权利完全不同</h1>
+            <p class="lead">同样叫“买美股”，在加密平台上可能是买了真股票，也可能只是买了一个跟着股价走的代币，甚至只是一份对赌涨跌的合约。先分清楚这 4 种，再谈平台和操作。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li><b>真股票账户</b>最接近传统券商：股票由合作券商托管，有分红，部分平台说明有或计划提供投票权。</li>
+              <li><b>代币化股票</b>由发行方持有真股票、再发 1:1 的代币。你拿的是代币，通常<b>没有投票权</b>。</li>
+              <li><b>股票永续合约、CFD</b>都不持有股票，只跟踪价格、可加杠杆，<b>会爆仓</b>，新手不建议碰。</li>
+            </ul>
+          </div>
+
+          <figure class="art wide"><img src="./assets/guizang-illustrations/stock-purchase-principle.svg" alt="加密货币接触美股的示意：钱包、稳定币、美股产品、股息" loading="lazy" decoding="async" width="936" height="500" /><figcaption>大致流程：稳定币 → 平台里的美股产品 → 持有、分红或卖出</figcaption></figure>
+
+          <h2>先用一句话分清</h2>
+          <div class="grid-2">
+            <div class="tile"><span class="tag">① 真股票账户</span><h3>“交易所里开了个美股户”</h3><p>你用 USDC 入金，平台换成美元，通过合作券商帮你买真实股票。比如 Bybit 说明其美股由美国券商 Alpaca 执行和托管。</p></div>
+            <div class="tile"><span class="tag">② 代币化股票</span><h3>“股票的链上凭证”</h3><p>发行方买入真股票放在托管机构，再在区块链上发等量代币。比如币安的 bStocks（BNB Chain）、Backed 的 xStocks。</p></div>
+            <div class="tile"><span class="tag warning">③ 股票永续合约</span><h3>“只赌涨跌的合约”</h3><p>用 USDT 做保证金，跟着股价算盈亏，可以做多做空、加杠杆、24 小时交易。没有股票、没有股东权利。</p></div>
+            <div class="tile"><span class="tag warning">④ 差价合约 CFD</span><h3>“和平台对赌的差价”</h3><p>多在 MT5 软件里交易，通常杠杆很高。比如 Bybit TradFi 的股票 CFD 由其毛里求斯持牌实体提供。</p></div>
+          </div>
+
+          <h2>权利对比：这张表最重要</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>① 真股票账户</th><th>② 代币化股票</th><th>③ 股票永续合约</th><th>④ CFD</th></tr></thead>
+              <tbody>
+                <tr><td>你持有什么</td><td>真实股票（由券商托管，记在平台的账户结构下）</td><td>发行方发的代币，代表对底层股票的经济权益</td><td>一份合约，没有股票</td><td>一份合约，没有股票</td></tr>
+                <tr><td>投票权</td><td>看平台：Bitget 写“按实际持股和产品规则”；Bybit 写“计划推出”</td><td>通常没有</td><td>没有</td><td>没有</td></tr>
+                <tr><td>分红</td><td>有。Bybit 把现金分红换成 USDC 发到账户</td><td>看产品规则。bStocks 有按快照发放或再投资的记录</td><td>不发分红</td><td>按平台规则做价格调整</td></tr>
+                <tr><td>交易时间</td><td>跟美股时段，部分含盘前盘后（如 Bitget 写 24/5）</td><td>多数 7×24；美股休市时价格可能偏离正股</td><td>7×24</td><td>看品种</td></tr>
+                <tr><td>杠杆 / 爆仓</td><td>无杠杆，不会爆仓</td><td>现货无杠杆，不会爆仓</td><td><b>有杠杆，会爆仓</b></td><td><b>高杠杆，会爆仓</b></td></tr>
+                <tr><td>能否提到钱包</td><td>不能</td><td>可以（bStocks、xStocks 都支持提到自托管钱包）</td><td>不能</td><td>不能</td></tr>
+                <tr><td>托管与保护</td><td>合作券商托管。Alpaca 是 FINRA/SIPC 会员，但你通过交易所间接持有，保护能否覆盖到你个人要看条款</td><td>依赖发行方和托管机构足额持股</td><td>依赖平台本身</td><td>依赖平台本身</td></tr>
+                <tr><td>新手适合度</td><td>相对适合，小额了解</td><td>可以小额了解，先读规则</td><td>不建议</td><td>不建议</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fineprint">表格基于各平台 2026 年公开说明整理，规则可能调整，以 App 内产品说明为准。</p>
+
+          <h2>和在正规券商开户比，差在哪？</h2>
+          <ul>
+            <li><b>所有权：</b>在美国券商开户，股票登记在你的账户下；在交易所买，大多是平台的账户结构替你持有，或者你只持有代币或合约。</li>
+            <li><b>投资者保护：</b>传统券商受当地证券法规约束。加密平台的美股产品多由离岸实体提供（比如 Bybit 写明受毛里求斯金融服务委员会监管），出问题时维权更难。</li>
+            <li><b>出入金：</b>交易所用 USDT/USDC 出入金，方便，但也意味着要承受稳定币和平台风险。</li>
+            <li><b>交易时间：</b>代币和合约 7×24 交易，周末和节假日美股不开盘，这时的价格来自平台自己的报价或指数，周一开盘可能跳空。</li>
+            <li><b>税务：</b>多数地区买卖股票和加密资产的收益都需要申报，用加密平台交易不代表不用报税。</li>
+          </ul>
+
+          <h2>适合我吗？三个问题自测</h2>
+          <div class="checklist" data-checklist="us-ready">
+            <label><input type="checkbox" /> 我知道自己买的是“真股票”“代币”还是“合约”</label>
+            <label><input type="checkbox" /> 我确认过所在地区能用这个产品（App 里能看到入口、条款允许）</label>
+            <label><input type="checkbox" /> 我只用小额、不加杠杆，能接受亏损</label>
+          </div>
+
+          <div class="callout danger">
+            <strong>⚠️ 中国大陆用户请注意</strong>
+            <p>银发〔2026〕42 号通知写明：任何单位和个人投资虚拟货币、<b>现实世界资产代币（RWA）</b>及相关金融产品，违背公序良俗的，相关民事法律行为无效，损失自担；境外机构不得向境内主体提供虚拟货币相关服务。代币化股票就属于 RWA 范畴。另外，多家平台的美股相关产品明确不对中国大陆用户开放，比如 Datawallet 整理的 Bybit TradFi 受限地区就包括中国大陆和香港。详见<a href="#risk">风险与法规</a>。</p>
+          </div>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://www.manilatimes.net/2026/10/12/tmt-newswire/pr-newswire/bybit-supports-stocks-trading-giving-eligible-global-users-access-to-1000-us-stocks-and-etfs/2443582" target="_blank" rel="noopener">Bybit 美股交易上线新闻稿（2026-10-12）</a>
+            <a href="https://www.bitget.com/academy/does-bitget-support-us-stock-trading-2026-guide" target="_blank" rel="noopener">Bitget Academy：真股票、代币化股票与合约（2026-05）</a>
+            <a href="https://thedefiant.io/news/tradfi-and-fintech/binance-launches-bstocks-tokenized-us-equities-24-7-onchain-trading" target="_blank" rel="noopener">The Defiant：币安推出 bStocks</a>
+            <a href="https://backed.fi/news-updates/xstocks-are-going-live-tokenized-stocks-for-the-defi-era" target="_blank" rel="noopener">Backed：xStocks 上线</a>
+            <a href="https://www.datawallet.com/crypto/bybit-tradfi-explained" target="_blank" rel="noopener">Datawallet：Bybit TradFi 说明与受限地区</a>
+            <a href="https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml" target="_blank" rel="noopener">银发〔2026〕42 号通知</a>
+          </div>
+        </section>
+        <!-- ============ 美股 2 平台对比 ============ -->
+        <section class="chapter" id="platforms" data-short="平台对比（含港股韩股）" data-stage="★ 美股专区" data-minutes="8">
+          <header class="ch-head">
+            <p class="kicker"></p>
+            <h1>平台对比：币安、OKX、Bitget、Bybit 各有什么</h1>
+            <p class="lead">下表只写我们查到公开来源的内容（截至 2026 年 11 月）。“未查到”不代表没有，只代表我们没找到可靠出处。可交易品种和地区随时会变，以 App 为准。</p>
+          </header>
+
+          <div class="table-wrap">
+            <table class="compare">
+              <thead><tr><th>平台</th><th>① 真股票账户</th><th>② 代币化股票</th><th>③ 股票永续合约</th><th>其他</th><th>邀请码</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><b>币安</b></td>
+                  <td>Binance Stocks：媒体报道面向合格的非美国用户，7,000+ 只美股和 ETF，零佣金。合作券商和托管细节我们未查到</td>
+                  <td>bStocks（2026-06 推出，BNB Chain，受监管托管机构 1:1 持股，可提到币安钱包；2026-10 起扩展到阿联酋、巴林）</td>
+                  <td>TradFi 永续：2026-01 起陆续上线特斯拉、英伟达、Meta、谷歌等；另有港股、韩股合约（见下文）</td>
+                  <td>—</td>
+                  <td><code>BTC10888</code></td>
+                </tr>
+                <tr>
+                  <td><b>OKX</b></td>
+                  <td>未查到</td>
+                  <td>xStocks（2026-07 上线 40+ 只美股和 ETF，1:1 由真股票支持，对 USDT 7×24 交易）</td>
+                  <td>2026-02 起上线 17 只美股和 ETF 永续，之后扩展到指数（US500、US100）等</td>
+                  <td>OKX 钱包也能接触链上代币化股票</td>
+                  <td><code>3604739</code></td>
+                </tr>
+                <tr>
+                  <td><b>Bitget</b></td>
+                  <td>Stock+：官方文章写 10,000+ 只美股和 ETF，USDC 入金换美元，可买零碎股，24/5 含盘前盘后；合作券商未在文中说明</td>
+                  <td>rToken（Stocks 2.0），官方说明“经济敞口，不是直接登记持股，通常无投票权”</td>
+                  <td>AAPL、TSLA、NVDA 等 USDT 本位股票合约</td>
+                  <td>—</td>
+                  <td><code>0LJJYSJ8</code></td>
+                </tr>
+                <tr>
+                  <td><b>Bybit</b></td>
+                  <td>Bybit Stocks（2026-10-12）：1,000+ 只美股和 ETF，由 Alpaca（FINRA/SIPC 会员）执行、清算和托管，USDC 入金，现金分红以 USDC 发放，投票权计划推出</td>
+                  <td>xStocks（2025 年起在现货上线）</td>
+                  <td>TradFi 永续：200+ 股票、ETF、商品；含韩股合约</td>
+                  <td>MT5 股票 CFD（毛里求斯持牌实体）</td>
+                  <td><code>M881VM</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fineprint">其他平台：Kraken 有 xStocks 和代币化股票永续；Gate、MEXC 等也上线了代币化股票；Hyperliquid、Lighter、Aster 等链上交易所有股票永续合约。我们没有逐一核对，仅作提示。</p>
+
+          <h2>怎么选？按你的目的</h2>
+          <div class="grid-2">
+            <div class="tile"><h3>想长期持有、要分红</h3><p>优先了解<b>真股票账户</b>（Bybit Stocks、Bitget Stock+ 等），看清托管券商、费用和地区。</p></div>
+            <div class="tile"><h3>想用 USDT 小额体验、周末也能交易</h3><p>可以了解<b>代币化股票</b>（bStocks、xStocks），注意休市时价格可能偏离正股。</p></div>
+            <div class="tile"><h3>想把股票提到自己钱包</h3><p>只有<b>代币化股票</b>能做到。先学会<a href="#wallet">钱包</a>和<a href="#transfer">转账选链</a>。</p></div>
+            <div class="tile bad"><h3>想加杠杆赚快钱</h3><p>这正是新手亏得最快的方式。请先读完<a href="#perps">股票合约与爆仓</a>，我们不建议新手做。</p></div>
+          </div>
+
+          <h2 id="asia">能买港股、韩股、日股吗？</h2>
+          <p>我们查到的情况（截至 2026 年 11 月），只写有出处的：</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>市场</th><th>查到了什么</th><th>是什么形式</th></tr></thead>
+              <tbody>
+                <tr><td>港股</td><td>币安 2026-07-17 上线腾讯、小米（Quanto 合约，港币股价直接按 USDT 计）、MiniMax、智谱等永续合约；链上交易所 Aster 也上线了腾讯、小米等合约</td><td><b>永续合约</b></td></tr>
+                <tr><td>韩股</td><td>币安 2026-06-02 起上线三星电子、SK 海力士、现代汽车永续合约，6 月底杠杆上调到最高 50 倍；Bybit 2026-06-04 跟进；链上交易所 Lighter 也有</td><td><b>永续合约</b></td></tr>
+                <tr><td>日股</td><td>OKX 2026-11-04 公告上线名为 MURATA 的 TradFi 永续，公告没写明标的细节</td><td><b>永续合约</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>⚠️ 结论</strong>
+            <p>我们<b>没有查到</b>四大交易所提供港股、韩股的真股票账户或代币化现货。目前能查到的都是<b>合约</b>：不持有股票、可加高杠杆、会爆仓。韩国媒体报道，2026 年 2–8 月离岸交易所韩股合约累计成交高达 307 万亿韩元，当地也在讨论这类产品难以监管、投资者保护不足。</p>
+          </div>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://en.cryptonomist.ch/2026/01/26/tsla-perpetual-futures-binance/" target="_blank" rel="noopener">币安上线 TSLA 永续（2026-01）</a>
+            <a href="https://www.panewslab.com/en/articles/019d224a-ca18-771f-a28d-1bd867b14cce" target="_blank" rel="noopener">币安上线 META、NVDA、GOOGL 永续（2026-03）</a>
+            <a href="https://www.livebitcoinnews.com/binance-opens-access-to-7000-u-s-stocks-and-etfs-for-crypto-users/" target="_blank" rel="noopener">币安开放 7,000+ 美股和 ETF</a>
+            <a href="https://coinalertnews.com/news/2026/10/07/binance-bstocks-dividend-reinvestment-listings" target="_blank" rel="noopener">bStocks 分红再投资（2026-10）</a>
+            <a href="https://www.khaleejtimes.com/business/finance/binance-expands-its-financial-super-app-offering-with-the-launch-of-bstocks-in-the-uae" target="_blank" rel="noopener">bStocks 在阿联酋上线</a>
+            <a href="https://www.okx.com/en-us/learn/releases-in-july-2026" target="_blank" rel="noopener">OKX：2026 年 7 月 xStocks 上线</a>
+            <a href="https://www.blockhead.co/2026/03/25/okx-adds-24-7-equity-perpetuals-in-crowded-push-to-trade-stocks-on-crypto-rails/" target="_blank" rel="noopener">OKX 股票永续（2026-03）</a>
+            <a href="https://www.okx.com/en-us/help/okx-to-list-tradfi-perpetual-futures-for-murata-oxy-and-smr" target="_blank" rel="noopener">OKX：MURATA 等永续公告（2026-11）</a>
+            <a href="https://www.bitget.com/academy/does-bitget-support-us-stock-trading-2026-guide" target="_blank" rel="noopener">Bitget Academy：美股交易说明</a>
+            <a href="https://www.manilatimes.net/2026/10/12/tmt-newswire/pr-newswire/bybit-supports-stocks-trading-giving-eligible-global-users-access-to-1000-us-stocks-and-etfs/2443582" target="_blank" rel="noopener">Bybit Stocks 新闻稿</a>
+            <a href="https://www.datawallet.com/crypto/bybit-tradfi-explained" target="_blank" rel="noopener">Datawallet：Bybit TradFi</a>
+            <a href="https://blog.1token.tech/binance-expands-stock-perpetuals-with-hong-kong-equities/" target="_blank" rel="noopener">币安港股永续（2026-07）</a>
+            <a href="https://cryptorank.io/news/feed/9bd1a-binance-perpetual-futures-samsung-sk-hynix-hyundai-motor-south-korea-speculation" target="_blank" rel="noopener">币安韩股永续（2026-06）</a>
+            <a href="https://en.bloomingbit.io/feed/news/113530" target="_blank" rel="noopener">Bybit 韩股永续（2026-06）</a>
+            <a href="https://en.sedaily.com/finance/2026/06/29/samsung-hynix-50x-kospi-150x-crypto-exchanges-become-korea" target="_blank" rel="noopener">首尔经济：韩股合约与风险（2026-06）</a>
+            <a href="https://dev.to/bestberlin/which-exchanges-offer-tokenized-us-stocks-a-source-dated-tracker-of-stock-tokens-stock-perps-and-2m1g" target="_blank" rel="noopener">各交易所代币化股票追踪表（2026-10）</a>
+          </div>
+        </section>
+        <!-- ============ 美股 3 实操 ============ -->
+        <section class="chapter" id="us-howto" data-short="实操：买第一笔" data-stage="★ 美股专区" data-minutes="9">
+          <header class="ch-head">
+            <p class="kicker"></p>
+            <h1>实操：从注册到买入第一笔美股相关产品</h1>
+            <p class="lead">下面分两条路：A 是交易所里的真股票账户，B 是代币化股票。各家 App 的按钮名字会不同、经常改版，这里写的是通用流程，以你 App 里看到的为准。</p>
+          </header>
+
+          <h2>开始前：三样准备</h2>
+          <ol class="steps">
+            <li><b>一个完成 KYC 的交易所账户。</b>还没有的看<a href="#exchange">选交易所与注册</a>，邀请码在下面。</li>
+            <li><b>确认地区可用。</b>在 App 里搜索“股票 / Stocks / TradFi”，能看到入口、条款也没写你所在地区受限，才继续。</li>
+            <li><b>准备少量稳定币。</b>真股票账户多用 <b>USDC</b>（Bybit、Bitget 都写的是 USDC），代币化股票多用 <b>USDT</b> 交易。不会买 U 的看<a href="#buy">第一次买 U</a>。</li>
+          </ol>
+          <div data-ref="binance-exchange,okx-exchange,bitget-exchange,bybit-exchange"></div>
+
+          <h2>路线 A：交易所里的真股票账户</h2>
+          <p>以 Bybit Stocks、Bitget Stock+ 这类产品为例：</p>
+          <ol class="steps">
+            <li><b>找到入口：</b>App 首页或“交易”菜单里的“股票 / Stocks / Stock+”。</li>
+            <li><b>开通：</b>阅读并同意券商服务协议和风险披露，这一步会说明谁托管你的股票，务必看。</li>
+            <li><b>入金：</b>把 USDC 划转到股票账户，平台会换成美元，留意兑换费。</li>
+            <li><b>找股票：</b>按代码搜索，比如苹果是 AAPL、英伟达是 NVDA。确认交易所名称和公司名一致。</li>
+            <li><b>下单：</b>新手用“限价单”更可控。可以买零碎股，比如 0.01 股，先小额体验。</li>
+            <li><b>看持仓和分红：</b>持仓页能看到成本和盈亏；分红一般按平台规则发到账户（Bybit 说明以 USDC 发放）。</li>
+            <li><b>卖出和出金：</b>卖出后美元换回 USDC，再划回交易账户。美股有交收时间，资金不一定马上可提。</li>
+          </ol>
+
+          <h2>路线 B：代币化股票（bStocks、xStocks）</h2>
+          <ol class="steps">
+            <li><b>读产品说明：</b>对应哪只股票、谁发行、谁托管、有没有储备证明、分红怎么发、休市时怎么定价。</li>
+            <li><b>找交易对：</b>在现货市场搜索股票名。bStocks 名字一般以 B 结尾（比如 NVDAB），xStocks 一般带 x；不同平台显示略有不同。</li>
+            <li><b>小额买入：</b>和买币一样，用市价单或限价单。休市时段价差可能变大，尽量在美股开盘时间交易。</li>
+            <li><b>可选：提到自己的钱包。</b>bStocks 在 BNB Chain 上，提币要选对网络、钱包里要有少量 BNB 付手续费；先读<a href="#wallet">Web3 钱包</a>，并<b>先小额测试</b>。</li>
+            <li><b>卖出：</b>在平台卖成 USDT。提到钱包的代币要先转回平台，或在链上兑换。</li>
+          </ol>
+          <div data-ref="binance-wallet,okx-wallet"></div>
+
+          <div class="callout warn">
+            <strong>⚠️ 看到这些就停下</strong>
+            <ul>
+              <li>默认打开的是“合约”或“杠杆”页面，或者让你选 5x、10x 倍数，那不是买股票。</li>
+              <li>有人私下推荐“稳赚的美股代币”“内部渠道的港股、韩股”，或者让你去一个陌生网址买。</li>
+              <li>链上出现一个和 bStocks、xStocks 同名、但合约地址对不上官方的代币。</li>
+            </ul>
+          </div>
+        </section>
+        <!-- ============ 美股 4 合约与爆仓 ============ -->
+        <section class="chapter" id="perps" data-short="股票合约与爆仓" data-stage="★ 美股专区" data-minutes="6">
+          <header class="ch-head">
+            <p class="kicker"></p>
+            <h1>股票合约：为什么新手最容易在这里亏光</h1>
+            <p class="lead">交易所里最显眼、宣传最多的往往是股票永续合约。它看起来像“24 小时交易美股”，其实是带杠杆的价格合约，规则和股票完全不同。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>合约没有股票、没有分红、没有投票权，只是跟着价格算盈亏。</li>
+              <li>10 倍杠杆，股价反向走 10% 左右就可能爆仓；个股财报日单天涨跌 10% 并不少见。</li>
+              <li>周末和节假日美股休市，合约照样交易，价格靠平台的指数或报价，开盘可能跳空。</li>
+            </ul>
+          </div>
+
+          <h2>一个例子算清楚</h2>
+          <div class="tile">
+            <p>你有 100 USDT，开 <b>10 倍杠杆</b>做多某只股票的合约，相当于持有 1,000 USDT 的仓位。</p>
+            <ul>
+              <li>股价涨 5% → 你赚约 50 USDT（本金的 50%）。</li>
+              <li>股价跌 5% → 你亏约 50 USDT（本金的一半）。</li>
+              <li>股价跌约 10% → 保证金基本亏光，仓位被<b>强制平仓（爆仓）</b>。实际爆仓线通常比 10% 更近，因为要扣维持保证金和手续费。</li>
+            </ul>
+            <p>如果你开的是“股票杠杆 ETF”的合约（比如 2 倍、3 倍杠杆 ETF），再叠加合约杠杆，波动会进一步放大。</p>
+          </div>
+
+          <h2>合约的 5 个隐藏成本和风险</h2>
+          <div class="grid-2">
+            <div class="tile"><h3>资金费率</h3><p>多空双方每隔几个小时互相付钱，用来让合约价格贴近标的价格。比如 OKX 公告的股票合约每 8 小时结算一次。持仓越久，可能付得越多。</p></div>
+            <div class="tile"><h3>休市定价</h3><p>美股、港股、韩股都有休市时间，合约却 7×24 交易。休市时价格由平台的指数或报价决定，和真实开盘价可能差很多。</p></div>
+            <div class="tile"><h3>跳空爆仓</h3><p>财报、新闻在休市时发布，开盘直接跳过你的止损价，可能来不及止损就被强平。</p></div>
+            <div class="tile"><h3>杠杆诱惑</h3><p>平台常提供 20 倍、50 倍甚至更高的杠杆。韩国媒体报道过“韩股合约 + 3 倍 ETF”叠加后相当于 150 倍的情况。</p></div>
+            <div class="tile"><h3>监管空白</h3><p>这些合约多由离岸平台提供，当地监管机构很难直接监管，出现纠纷时投资者保护有限。</p></div>
+            <div class="tile"><h3>不是股票</h3><p>合约到底只是合约：没有分红、没有股东身份，平台下架时你只能平仓结算。</p></div>
+          </div>
+
+          <div class="callout danger">
+            <strong>⚠️ 本站的建议</strong>
+            <p>新手<b>不要</b>做股票合约、CFD，也不要用杠杆。真要了解，最多先用平台的模拟盘看看规则。想持有股票，选真股票账户或不加杠杆的代币化股票。</p>
+          </div>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://www.okx.com/en-us/help/okx-to-list-tradfi-perpetual-futures-for-murata-oxy-and-smr" target="_blank" rel="noopener">OKX：TradFi 永续资金费结算说明</a>
+            <a href="https://en.sedaily.com/finance/2026/06/29/samsung-hynix-50x-kospi-150x-crypto-exchanges-become-korea" target="_blank" rel="noopener">首尔经济：韩股合约杠杆与风险</a>
+            <a href="https://blog.kraken.com/product/xstocks/tokenized-equity-perpetual-futures" target="_blank" rel="noopener">Kraken：代币化股票永续合约</a>
+          </div>
+        </section>
+        <!-- ============ 美股 5 FAQ ============ -->
+        <section class="chapter" id="us-faq" data-short="美股常见问题" data-stage="★ 美股专区" data-minutes="5">
+          <header class="ch-head">
+            <p class="kicker"></p>
+            <h1>美股常见问题</h1>
+            <p class="lead">用加密平台接触美股时，大家问得最多的问题。</p>
+          </header>
+          <div class="faq-list">
+            <details open><summary>用 USDT 买的“美股”，是不是就等于我持有了股票？</summary><p>不一定。只有交易所里的<b>真股票账户</b>才是买真实股票（由券商托管）。代币化股票是发行方持股、你持有代币，通常没有投票权；股票合约和 CFD 完全不持有股票。下单前看清产品名称和说明。</p></details>
+            <details><summary>代币化股票有分红吗？</summary><p>看产品规则。比如币安 bStocks 有按快照日发放分红或把分红再投资成更多代币的记录。合约不发分红。</p></details>
+            <details><summary>为什么周末还能交易？价格准吗？</summary><p>代币和合约在链上或平台内 7×24 交易，但美股周末不开盘，这时的价格是平台根据指数或做市报价给出的，可能和周一开盘价差很多。</p></details>
+            <details><summary>能买港股、韩股吗？</summary><p>截至 2026 年 11 月，我们查到的都是港股、韩股的<b>永续合约</b>（币安、Bybit 等），没有查到四大交易所提供港股、韩股的真股票或代币化现货。详见<a href="#asia">平台对比 · 港股韩股</a>。</p></details>
+            <details><summary>平台倒闭了，我的股票还在吗？</summary><p>真股票账户的股票由合作券商托管，理论上和平台资产隔离，但你是通过平台的账户结构间接持有，能否顺利取回要看具体条款和法律管辖。代币化股票依赖发行方和托管机构足额持股。合约则完全依赖平台。</p></details>
+            <details><summary>需要多少钱才能开始？</summary><p>很多产品支持零碎股或小额代币，几美元就能买。本站建议第一次只用很小的金额体验完整流程。</p></details>
+            <details><summary>美国人能用吗？中国大陆呢？</summary><p>代币化股票普遍不对美国人开放。多家平台的相关产品也不对中国大陆、香港等地区开放；中国大陆的监管规定见<a href="#risk">风险与法规</a>。以 App 内显示和条款为准。</p></details>
+            <details><summary>赚了钱要交税吗？</summary><p>多数地区股票和加密资产的收益都需要申报纳税，规则因地而异，请咨询当地税务专业人士。</p></details>
+            <details><summary>这是投资建议吗？</summary><p>不是。本站不推荐任何股票、币种或平台，只解释产品形态、操作步骤和风险。</p></details>
+          </div>
+        </section>
+        <!-- ============ 风险 ============ -->
+        <section class="chapter" id="risk" data-short="风险与法规" data-stage="入门基础" data-minutes="7">
+          <header class="ch-head">
+            <p class="kicker"></p>
             <h1>先认清风险：这些不懂，别急着入场</h1>
             <p class="lead">很多人进币圈亏钱，不是因为不会买，而是没想清楚自己会面对什么。这一课把常见风险一次讲透。</p>
           </header>
@@ -144,14 +472,14 @@
           <p>所以稳定币<b>不是银行存款</b>，没有存款保险。</p>
 
           <h2>4. 操作风险：转错了，没有“撤回”</h2>
-          <p>银行转错账还能找银行；链上转账一旦发出，<b>没人能撤回</b>。选错链、填错地址、漏填 Memo，都可能永久丢失。第 6 课会教你怎么避免。</p>
+          <p>银行转错账还能找银行；链上转账一旦发出，<b>没人能撤回</b>。选错链、填错地址、漏填 Memo，都可能永久丢失。<a href="#transfer">充值、提币与转账</a>一课会教你怎么避免。</p>
 
           <h2>5. 杠杆合约：新手亏光最快的路</h2>
           <p>合约可以开 10 倍、50 倍甚至 100 倍杠杆。10 倍杠杆下，价格反向走 10% 左右你的保证金就可能全没（爆仓）。很多“老师带单”“回本神器”最后都指向合约。<b>本站建议新手只接触现货，不碰合约。</b></p>
 
           <h2>6. 法律风险：先看你所在地的规定</h2>
           <div class="callout danger">
-            <strong>如果你身在中国大陆，请务必先读这一段</strong>
+            <strong>⚠️ 如果你身在中国大陆，请务必先读这一段</strong>
             <p>2021 年 9 月，中国人民银行等十部门发布《关于进一步防范和处置虚拟货币交易炒作风险的通知》。2026 年 2 月 6 日，中国人民银行等八部门又发布《关于进一步防范和处置虚拟货币等相关风险的通知》（银发〔2026〕42 号）。新通知的要点：</p>
             <ul>
               <li>比特币、以太币、泰达币（USDT）等虚拟货币<b>不具有与法定货币等同的法律地位</b>。</li>
@@ -181,11 +509,10 @@
             <a href="https://www.claimsjournal.com/news/national/2025/02/25/329137.htm" target="_blank" rel="noopener">Bloomberg/Claims Journal：OKX 认罪（2025-02）</a>
           </div>
         </section>
-
-        <!-- ============ 第 2 课 防骗 ============ -->
-        <section class="chapter" id="scam" data-short="防骗与账户安全" data-stage="第一阶段 · 认清风险" data-minutes="8">
+        <!-- ============ 防骗 ============ -->
+        <section class="chapter" id="scam" data-short="防骗与账户安全" data-stage="入门基础" data-minutes="8">
           <header class="ch-head">
-            <p class="kicker">第 2 课 · 约 8 分钟</p>
+            <p class="kicker"></p>
             <h1>防骗与账户安全：先把门锁好</h1>
             <p class="lead">币圈骗局的套路其实就那么几种。认识它们、把账户安全设置做完，你就已经超过大多数新手。</p>
           </header>
@@ -248,11 +575,10 @@
             <a href="https://www.elliptic.co/blockchain-basics/what-is-address-poisoning/" target="_blank" rel="noopener">Elliptic：Address Poisoning</a>
           </div>
         </section>
-
-        <!-- ============ 第 3 课 基础概念 ============ -->
-        <section class="chapter" id="basics" data-short="基础概念" data-stage="第二阶段 · 搞懂概念" data-minutes="10">
+        <!-- ============ 基础概念 ============ -->
+        <section class="chapter" id="basics" data-short="基础概念" data-stage="入门基础" data-minutes="10">
           <header class="ch-head">
-            <p class="kicker">第 3 课 · 约 10 分钟</p>
+            <p class="kicker"></p>
             <h1>基础概念：把这些词看懂，再去操作</h1>
             <p class="lead">不用懂技术，只要能分清“币、稳定币、交易所、钱包、链、地址”这几样东西，后面的操作就都看得懂了。</p>
           </header>
@@ -317,7 +643,7 @@
             <li><b>链（网络）：</b>不同的区块链，比如 Ethereum（以太坊）、TRON（波场）、BNB Chain、Solana。<b>同一个 USDT 可以在好几条链上存在</b>，就像同一种快递可以走顺丰也可以走邮政，但收件方必须在对应的网点取件。</li>
             <li><b>地址：</b>链上的收款账号，一长串字母和数字，比如以太坊地址以 <code>0x</code> 开头，TRON 地址以 <code>T</code> 开头。</li>
             <li><b>Gas（手续费）：</b>在链上做任何操作，都要用这条链的“原生币”付手续费：以太坊用 ETH，BNB Chain 用 BNB，TRON 用 TRX，Solana 用 SOL。</li>
-            <li><b>Memo / Tag：</b>部分币充值到交易所时要额外填的“备注号”，第 6 课详细讲。</li>
+            <li><b>Memo / Tag：</b>部分币充值到交易所时要额外填的“备注号”，<a href="#transfer">转账</a>一课详细讲。</li>
           </ul>
 
           <h2>现货、合约、理财，有什么不同？</h2>
@@ -345,16 +671,15 @@
             <a href="https://www.binance.com/en/academy/articles/why-do-stablecoins-depeg" target="_blank" rel="noopener">Binance Academy：稳定币为什么会脱锚</a>
           </div>
         </section>
-
-        <!-- ============ 第 4 课 交易所 ============ -->
-        <section class="chapter" id="exchange" data-short="选交易所与注册" data-stage="第三阶段 · 动手操作" data-minutes="8">
+        <!-- ============ 交易所 ============ -->
+        <section class="chapter" id="exchange" data-short="选交易所与注册" data-stage="入门基础" data-minutes="8">
           <header class="ch-head">
-            <p class="kicker">第 4 课 · 约 8 分钟</p>
+            <p class="kicker"></p>
             <h1>选交易所与注册：一步步开好账户</h1>
             <p class="lead">交易所是大多数人进入币圈的第一站。这一课教你怎么选、怎么注册、怎么做实名认证，以及注册后马上要做的安全设置。</p>
           </header>
 
-          <div class="callout yellow">
+          <div class="callout promo">
             <strong>🎁 注册前先复制邀请码</strong>
             <p>多数交易所的邀请码<b>只能在注册时填写</b>，注册后通常不能补填。点下面卡片的“打开注册页”会自动带上邀请码；如果注册页的邀请码栏是空的，就点“复制”再粘贴进去。</p>
           </div>
@@ -392,7 +717,7 @@
             <li><b>确认邀请码：</b>注册页一般有“邀请码（选填）”一栏，检查是否已自动填好；空的就粘贴进去。</li>
             <li><b>输入验证码完成注册。</b>收不到验证码：查垃圾邮件、等 1 分钟再重发、确认手机号区号正确。</li>
             <li><b>下载官方 App：</b>注册页通常会提示下载。只从官网或官方应用商店下载，安装前核对开发者名称。</li>
-            <li><b>登录 App，先做安全设置</b>（2FA、反钓鱼码、提现白名单，见第 2 课清单），再做实名认证。</li>
+            <li><b>登录 App，先做安全设置</b>（2FA、反钓鱼码、提现白名单，见<a href="#scam">防骗与账户安全</a>里的清单），再做实名认证。</li>
           </ol>
 
           <h2>实名认证（KYC）怎么一次通过</h2>
@@ -405,7 +730,7 @@
             <li>审核一般几分钟到几天不等。被拒会提示原因，按提示重新提交即可。</li>
           </ul>
           <div class="callout warn">
-            <strong>千万别做</strong>
+            <strong>⚠️ 千万别做</strong>
             <p>不要用别人的身份认证，不要买卖实名账户，也不要帮别人认证。账户里的资金和行为都会算在证件主人头上。</p>
           </div>
 
@@ -424,11 +749,10 @@
             </table>
           </div>
         </section>
-
-        <!-- ============ 第 5 课 买 U ============ -->
-        <section class="chapter" id="buy" data-short="第一次买 U" data-stage="第三阶段 · 动手操作" data-minutes="9">
+        <!-- ============ 买 U ============ -->
+        <section class="chapter" id="buy" data-short="第一次买 U" data-stage="入门基础" data-minutes="9">
           <header class="ch-head">
-            <p class="kicker">第 5 课 · 约 9 分钟</p>
+            <p class="kicker"></p>
             <h1>第一次买 U：入金、P2P 和防冻卡</h1>
             <p class="lead">“买 U”就是用钱换成 USDT。这一步是新手最容易出问题的地方，尤其是银行卡被冻结。请完整看完再操作。</p>
           </header>
@@ -463,7 +787,7 @@
           </ol>
 
           <div class="callout danger">
-            <strong>P2P 七个“千万不要”</strong>
+            <strong>⚠️ P2P 七个“千万不要”</strong>
             <ul>
               <li>不要加商家的微信、QQ、Telegram 私下交易，脱离平台就没有托管保护。</li>
               <li>不要用别人的卡、也不要让别人用他的卡帮你付款（第三方付款）。</li>
@@ -484,7 +808,7 @@
             <li>保留好订单记录、聊天记录、付款凭证，被冻结时用来证明你是正常交易。</li>
             <li>收款尽量只用一张专门的卡，不要用工资卡、房贷卡。</li>
           </ul>
-          <p class="fineprint">再提醒一次：在中国大陆，法币与虚拟货币兑换属于被禁止的业务活动，相关交易不受法律保护（见第 1 课）。</p>
+          <p class="fineprint">再提醒一次：在中国大陆，法币与虚拟货币兑换属于被禁止的业务活动，相关交易不受法律保护（见<a href="#risk">风险与法规</a>）。</p>
 
           <h2>买到 U 之后：怎么买 BTC 等其他币</h2>
           <p>在“交易 → 现货”里选择交易对，比如 <code>BTC/USDT</code>，意思是“用 USDT 买卖 BTC”。</p>
@@ -508,11 +832,10 @@
             <label><input type="checkbox" /> 到账后截图保存订单记录</label>
           </div>
         </section>
-
-        <!-- ============ 第 6 课 转账 ============ -->
-        <section class="chapter" id="transfer" data-short="充值、提币与转账" data-stage="第三阶段 · 动手操作" data-minutes="9">
+        <!-- ============ 转账 ============ -->
+        <section class="chapter" id="transfer" data-short="充值、提币与转账" data-stage="入门基础" data-minutes="9">
           <header class="ch-head">
-            <p class="kicker">第 6 课 · 约 9 分钟</p>
+            <p class="kicker"></p>
             <h1>充值、提币与转账：选对链，别转丢</h1>
             <p class="lead">链上转账发出去就撤不回来。只要记住“同币、同链、地址核对、小额测试”四件事，就能避开绝大多数事故。</p>
           </header>
@@ -548,7 +871,7 @@
           </div>
           <p class="fineprint">手续费会随网络拥堵和币价变化，以平台提币页面显示为准。</p>
           <div class="callout warn">
-            <strong>最容易踩的坑：0x 地址“通用”的错觉</strong>
+            <strong>⚠️ 最容易踩的坑：0x 地址“通用”的错觉</strong>
             <p>以太坊、BNB Chain、Arbitrum、Base 的地址格式一模一样，同一个钱包地址在这些链上都能用。所以你填对了地址、却选错了链，币可能到了<b>对方不支持的网络</b>上。交易所遇到这种情况可能需要人工找回、收手续费，也可能不支持找回。</p>
           </div>
 
@@ -588,11 +911,10 @@
             <a href="https://mempool.space/" target="_blank" rel="noopener"><b>mempool.space</b><span>Bitcoin</span></a>
           </div>
         </section>
-
-        <!-- ============ 第 7 课 钱包 ============ -->
-        <section class="chapter" id="wallet" data-short="Web3 钱包" data-stage="第三阶段 · 动手操作" data-minutes="9">
+        <!-- ============ 钱包 ============ -->
+        <section class="chapter" id="wallet" data-short="Web3 钱包" data-stage="入门基础" data-minutes="9">
           <header class="ch-head">
-            <p class="kicker">第 7 课 · 约 9 分钟</p>
+            <p class="kicker"></p>
             <h1>Web3 钱包：自己保管，自己负责</h1>
             <p class="lead">钱包让你真正掌控自己的币，也能使用各种链上应用。代价是：没有客服、没有找回密码，出错全靠自己。</p>
           </header>
@@ -606,7 +928,7 @@
             </ul>
           </div>
 
-          <div class="callout yellow">
+          <div class="callout promo">
             <strong>🎁 钱包邀请码</strong>
             <p>币安钱包和 OKX 钱包都内置在各自交易所 App 中，也可以通过下面的链接进入。</p>
           </div>
@@ -643,7 +965,7 @@
             <li><b>试着把一部分转回交易所</b>，完整走一遍“出去—回来”。</li>
           </ol>
           <div class="callout warn">
-            <strong>为什么我的 USDT 转不出去？</strong>
+            <strong>⚠️ 为什么我的 USDT 转不出去？</strong>
             <p>新手最常见的问题：钱包里只有 USDT，没有付手续费用的原生币。在以太坊上转 USDT 要有 ETH，在 BNB Chain 上要有 BNB，在 TRON 上要有 TRX（或能量），在 Solana 上要有 SOL。</p>
           </div>
 
@@ -665,16 +987,15 @@
             <li><b>分开放：</b>长期存放的钱包和日常“玩”的钱包分开，玩的钱包只放小额。</li>
           </ul>
         </section>
-
-        <!-- ============ 第 8 课 U 卡 ============ -->
-        <section class="chapter" id="card" data-short="U 卡" data-stage="第四阶段 · 进阶" data-minutes="6">
+        <!-- ============ U 卡 ============ -->
+        <section class="chapter" id="card" data-short="U 卡" data-stage="进阶与工具" data-minutes="6">
           <header class="ch-head">
-            <p class="kicker">第 8 课 · 约 6 分钟</p>
+            <p class="kicker"></p>
             <h1>U 卡：用 USDT 刷卡消费</h1>
             <p class="lead">U 卡是把加密资产和日常消费连接起来的银行卡类产品。它能不能用、划不划算，很大程度取决于你在哪、怎么用。</p>
           </header>
 
-          <div class="callout yellow">
+          <div class="callout promo">
             <strong>🎁 U 卡邀请码</strong>
             <p>Bybit Card 可以直接点链接申请；Bitget Card 暂无直达链接，请在 Bitget App 的卡片页面申请时填写邀请码。</p>
           </div>
@@ -719,94 +1040,19 @@
             <li><b>不是银行存款：</b>卡账户里的资产通常不受存款保险保护。</li>
             <li><b>风控冻结：</b>异常交易可能被拒付或冻结卡片。</li>
             <li><b>税务与合规：</b>部分地区用加密资产消费可能被视为“卖出”，涉及申报。</li>
-            <li><b>中国大陆用户：</b>请先看第 1 课的法规说明；能否申请以官方页面为准。</li>
+            <li><b>中国大陆用户：</b>请先看<a href="#risk">风险与法规</a>；能否申请以官方页面为准。</li>
           </ul>
           <p>原则：<b>卡里只放近期要花的钱</b>，不要当储蓄账户用。</p>
 
           <div class="callout">
-            <strong>想对比更多 U 卡？</strong>
+            <strong>ℹ️ 想对比更多 U 卡？</strong>
             <p>返现、手续费、地区支持等更细的对比可以看 <a href="https://91vrvd.github.io/ucards-compare/" target="_blank" rel="noopener">U 卡对比百科</a>（同一站长维护，数据以各卡官方页面为准）。</p>
           </div>
         </section>
-
-        <!-- ============ 第 9 课 美股 ============ -->
-        <section class="chapter" id="stocks" data-short="用 U 买美股" data-stage="第四阶段 · 进阶" data-minutes="8">
+        <!-- ============ 工具 ============ -->
+        <section class="chapter" id="tools" data-short="工具箱" data-stage="进阶与工具" data-minutes="4">
           <header class="ch-head">
-            <p class="kicker">第 9 课 · 约 8 分钟</p>
-            <h1>用 U 买美股：代币化股票是什么</h1>
-            <p class="lead">现在一些平台可以用 USDT 买“跟踪美股价格的代币”。它方便，但和你在券商买股票不是一回事。这一课只讲清楚产品和风险，不推荐任何股票。</p>
-          </header>
-
-          <div class="tldr">
-            <strong>本课要点</strong>
-            <ul>
-              <li>代币化股票由发行方买入真实股票托管，再在链上发行 1:1 的代币。</li>
-              <li>它<b>通常不等于你直接持有股票</b>，没有股东投票权，也不对美国用户开放。</li>
-              <li>中国大陆的新规明确把“现实世界资产代币”纳入风险提示范围。</li>
-            </ul>
-          </div>
-
-          <figure class="art wide"><img src="./assets/guizang-illustrations/stock-purchase-principle.svg" alt="加密货币购买美股示意：钱包、稳定币、美股产品、股息" loading="lazy" decoding="async" width="936" height="500" /><figcaption>代币化股票：稳定币 → 平台 / 钱包 → 跟踪股价的代币</figcaption></figure>
-
-          <h2>两种主流产品</h2>
-          <div class="grid-2">
-            <div class="tile"><span class="tag">币安</span><h3>bStocks</h3><p>币安 2026 年 6 月推出，发行在 BNB Chain 上。官方说法是由受监管的托管机构持有对应股票，每个代币 1:1 对应一股，可 7×24 小时交易，符合条件的用户可获得股息，代币可提到币安钱包等自托管钱包。上线初期有英伟达、特斯拉等少数几只，仅对可用地区的合格用户开放。</p></div>
-            <div class="tile"><span class="tag">Backed</span><h3>xStocks</h3><p>由 Backed Finance 发行，2025 年 6 月 30 日上线 Bybit、Kraken 和 Solana 上的 DeFi 应用，首批 60 多只美股和 ETF。面向非美国用户。</p></div>
-          </div>
-
-          <h2>和传统券商买股票有什么不同？</h2>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th></th><th>传统券商</th><th>代币化股票</th></tr></thead>
-              <tbody>
-                <tr><td>你持有的是</td><td>股票本身（登记在你或券商名下）</td><td>发行方发的代币，代表对底层股票的经济权益</td></tr>
-                <tr><td>股东投票权</td><td>有</td><td>通常没有</td></tr>
-                <tr><td>股息</td><td>按规则发放</td><td>看产品规则，可能以代币或 USDT 形式发放</td></tr>
-                <tr><td>交易时间</td><td>交易所开盘时间</td><td>可能 7×24 小时，但休市时价格可能偏离正股</td></tr>
-                <tr><td>投资者保护</td><td>受当地证券法规和投资者保护机制约束</td><td>取决于发行方和托管安排，保护通常更弱</td></tr>
-                <tr><td>门槛</td><td>开户审核、资金出入境限制</td><td>有 USDT 即可，起投金额低</td></tr>
-                <tr><td>地区</td><td>看券商</td><td>不对美国用户开放，其他地区以平台为准</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2>如果你想了解 bStocks（一般步骤）</h2>
-          <ol class="steps">
-            <li><b>先确认你所在地区是否可用</b>，阅读币安官方的产品说明和风险披露。</li>
-            <li><b>准备好已完成 KYC 的币安账户和 USDT</b>；如果要提到自托管钱包，还要准备少量 BNB 作手续费。</li>
-            <li><b>搞清楚规则：</b>代币对应哪只股票、股息怎么发、怎么卖出、休市时价格如何确定、费用多少。</li>
-            <li><b>只用小额体验</b>，确认买入、持有、卖出整个流程。</li>
-          </ol>
-          <div data-ref="binance-exchange,binance-wallet"></div>
-          <p class="fineprint">bStocks 的入口、可交易标的和可用地区会变化，以币安官方公告为准。</p>
-
-          <div class="callout danger">
-            <strong>风险提示</strong>
-            <ul>
-              <li><b>价格风险：</b>代币跟踪的是股价，股票本身会涨也会跌。</li>
-              <li><b>发行方与托管风险：</b>你依赖发行方和托管机构真实、足额地持有股票。</li>
-              <li><b>流动性与价差：</b>交易量小的时候，买卖价可能明显偏离正股。</li>
-              <li><b>智能合约风险：</b>放进 DeFi 使用时，还有合约漏洞、清算等风险。</li>
-              <li><b>法律与税务：</b>银发〔2026〕42 号通知写明，投资“现实世界资产代币及相关金融产品”违背公序良俗的，相关民事法律行为无效、损失自担。其他地区也可能有申报义务。</li>
-            </ul>
-          </div>
-
-          <h2>另一条路：传统券商</h2>
-          <p>如果你所在地区允许，通过持牌券商开户买美股，持有的是真正的股票，有更完整的投资者保护。缺点是开户审核更严、资金进出要符合当地外汇规定。中国大陆居民的个人购汇额度有用途限制，不能用于境外证券投资等未开放项目。</p>
-
-          <div class="sources">
-            <strong>参考来源</strong>
-            <a href="https://thedefiant.io/news/tradfi-and-fintech/binance-launches-bstocks-tokenized-us-equities-24-7-onchain-trading" target="_blank" rel="noopener">The Defiant：Binance 推出 bStocks</a>
-            <a href="https://www.livebitcoinnews.com/binance-launches-bstocks-on-bnb-chain-with-self-custody-and-dividends/" target="_blank" rel="noopener">bStocks 上线细节（2026-06）</a>
-            <a href="https://backed.fi/news-updates/xstocks-are-going-live-tokenized-stocks-for-the-defi-era" target="_blank" rel="noopener">Backed：xStocks 上线公告</a>
-            <a href="https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml" target="_blank" rel="noopener">银发〔2026〕42 号通知</a>
-          </div>
-        </section>
-
-        <!-- ============ 第 10 课 工具 ============ -->
-        <section class="chapter" id="tools" data-short="工具箱" data-stage="第四阶段 · 进阶" data-minutes="4">
-          <header class="ch-head">
-            <p class="kicker">第 10 课 · 约 4 分钟</p>
+            <p class="kicker"></p>
             <h1>工具箱：查行情、查链上、做研究</h1>
             <p class="lead">工具帮你查资料、核对信息，不能替你做决定。任何工具上的观点、评分都要交叉验证，不能当买卖建议。</p>
           </header>
@@ -842,7 +1088,7 @@
           </div>
 
           <div class="callout">
-            <strong>怎么用工具核对一个币是不是“真的”</strong>
+            <strong>ℹ️ 怎么用工具核对一个币是不是“真的”</strong>
             <ol>
               <li>在 CoinGecko / CoinMarketCap 搜索币名，进入详情页。</li>
               <li>看“官网”“合约地址”，用这里的链接进入官网，不用搜索广告。</li>
@@ -850,16 +1096,15 @@
             </ol>
           </div>
         </section>
-
-        <!-- ============ 第 11 课 FAQ ============ -->
+        <!-- ============ FAQ ============ -->
         <section class="chapter" id="faq" data-short="常见问题" data-stage="复习" data-minutes="5">
           <header class="ch-head">
-            <p class="kicker">第 11 课 · 约 5 分钟</p>
+            <p class="kicker"></p>
             <h1>常见问题</h1>
             <p class="lead">新手问得最多的问题，都在这里。</p>
           </header>
           <div class="faq-list">
-            <details open><summary>完全小白应该先看哪一课？</summary><p>按顺序：第 1 课风险 → 第 2 课防骗 → 第 3 课基础概念，然后再注册和操作。不要一上来就转账或申请卡。</p></details>
+            <details open><summary>完全小白应该先看哪一课？</summary><p>想了解美股，先看“美股专区”的 4 种方式和平台对比；完全没接触过加密货币的，先看风险与法规、防骗、基础概念，再注册和操作。不要一上来就转账、开合约或申请卡。</p></details>
             <details><summary>入门需要多少钱？</summary><p>学习阶段不需要钱。第一次实操建议用很小的金额（比如几十到几百元）走通注册、买 U、提币、转回的全流程，熟悉后再决定是否继续。只用闲钱。</p></details>
             <details><summary>买 U 和买 BTC 是一回事吗？</summary><p>不是。买 U 是买 USDT 这种目标锚定美元的稳定币；BTC 是价格大幅波动的资产。一般先买 U，再用 U 去买其他币。</p></details>
             <details><summary>交易所账户是不是 Web3 钱包？</summary><p>不是。交易所账户是平台替你保管；Web3 钱包是你自己用助记词 / 私钥保管。交易所 App 里内置的“Web3 钱包”属于后者，和交易所账户余额是分开的。</p></details>
@@ -867,7 +1112,7 @@
             <details><summary>邀请码在哪里？</summary><p>点页面顶部的“🎁 邀请码”，或看最后一课“邀请码汇总”。相关课程里也有对应平台的卡片，点“复制”即可。</p></details>
             <details><summary>可以只注册一家交易所吗？</summary><p>可以。但很多人会注册两家互为备用，避免某一家临时维护、限制地区时没法操作。</p></details>
             <details><summary>KYC 一直不通过怎么办？</summary><p>检查证件是否在有效期、照片是否清晰无反光、填写信息是否与证件一致。仍不通过就联系 App 内在线客服。不要找人“代认证”。</p></details>
-            <details><summary>P2P 买 U 会不会冻卡？</summary><p>有可能，这是 P2P 最大的风险。选信誉高的商家、小额、同名账户、全程平台内沟通、保留记录可以降低风险，但无法完全避免。详见第 5 课。</p></details>
+            <details><summary>P2P 买 U 会不会冻卡？</summary><p>有可能，这是 P2P 最大的风险。选信誉高的商家、小额、同名账户、全程平台内沟通、保留记录可以降低风险，但无法完全避免。详见<a href="#buy">第一次买 U</a>。</p></details>
             <details><summary>转账选哪条链最好？</summary><p>没有“最好”，只有“收发两边都支持”。先看接收方支持哪些网络，再在其中选手续费合适的。不确定就先小额测试。</p></details>
             <details><summary>币转错了能找回吗？</summary><p>转错链、漏填 Memo 时，可以带 TxID 找接收方平台客服，有可能人工找回。转到错误的个人地址基本无法找回。网上声称能帮你追回的，基本是骗子。</p></details>
             <details><summary>助记词丢了怎么办？</summary><p>如果钱包还在手机上能打开，立刻新建一个钱包并好好备份助记词，把资产转过去。如果钱包也打不开了，没有任何人能帮你恢复。</p></details>
@@ -878,11 +1123,10 @@
             <details><summary>赚了钱要交税吗？</summary><p>多数国家和地区对加密资产买卖收益有纳税或申报要求，规则各不相同。请咨询当地税务专业人士。</p></details>
           </div>
         </section>
-
-        <!-- ============ 第 12 课 测验 ============ -->
+        <!-- ============ 测验 ============ -->
         <section class="chapter" id="quiz" data-short="闯关测验" data-stage="复习" data-minutes="5">
           <header class="ch-head">
-            <p class="kicker">第 12 课 · 约 5 分钟</p>
+            <p class="kicker"></p>
             <h1>闯关测验：10 道题检查你学会没</h1>
             <p class="lead">测验不是考试，是为了防止你真操作时出错。答错的题会告诉你回看哪一课。</p>
           </header>
@@ -902,35 +1146,62 @@
           </div>
           <div class="quiz-result" id="quizResult" hidden></div>
         </section>
-
-        <!-- ============ 第 13 课 邀请码 & 分享 ============ -->
-        <section class="chapter" id="codes" data-short="邀请码汇总与分享" data-stage="复习" data-minutes="2">
+        <!-- ============ 邀请码 & 链接说明 & 分享 ============ -->
+        <section class="chapter" id="codes" data-short="邀请码与链接说明" data-stage="邀请码" data-minutes="4">
           <header class="ch-head">
             <p class="kicker">🎁 邀请码汇总</p>
             <h1>全部平台邀请码</h1>
-            <p class="lead">8 个平台入口都在这里。点“复制”复制邀请码，点“打开”进入注册 / 申请页（会自动带上邀请码）。</p>
+            <p class="lead">8 个平台入口都在这里。点“复制”复制邀请码。每张卡片都标了链接域名的核对结果；交易所另外提供了<b>官方主站入口</b>，邀请码相同。</p>
           </header>
 
           <div class="howto">
-            <div><span>1</span><p>点卡片上的<b>“打开注册页”</b></p></div>
-            <div><span>2</span><p>注册页检查<b>邀请码栏</b>是否已填好</p></div>
+            <div><span>1</span><p>点“打开注册页”或“官方主站注册”</p></div>
+            <div><span>2</span><p>在注册页检查<b>邀请码栏</b>是否已填好</p></div>
             <div><span>3</span><p>没填就点<b>“复制”</b>再粘贴进去</p></div>
           </div>
 
           <div data-ref="all"></div>
 
+          <h2 id="links">链接安全说明：这些链接是官方的吗？</h2>
+          <p>很多交易所的推广链接不用主域名，而是用别的域名跳转，原因可能是部分地区打不开主站，也可能是第三方的跳转。<b>我们只把能核实的写成“官方”</b>，核实不了的就直说。2026 年 11 月 8 日的核对结果：</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>平台</th><th>站长链接的域名</th><th>我们查到了什么</th><th>结论</th></tr></thead>
+              <tbody>
+                <tr><td>币安钱包</td><td><code>web3.binance.com</code></td><td>币安主域名 binance.com 下的子域名</td><td><span class="badge ok">✅ 官方主域名</span></td></tr>
+                <tr><td>OKX 钱包</td><td><code>web3.okx.com</code></td><td>OKX 主域名 okx.com 下的子域名，页面显示该邀请码</td><td><span class="badge ok">✅ 官方主域名</span></td></tr>
+                <tr><td>Bybit Card</td><td><code>www.bybit.com</code></td><td>Bybit 主域名</td><td><span class="badge ok">✅ 官方主域名</span></td></tr>
+                <tr><td>Bybit 交易所</td><td><code>www.bybitglobal.com</code></td><td>2020 年注册，和 bybit.com 用的是同一家企业级域名注册商（CSC），有关联迹象，但没找到 Bybit 官方的明文说明</td><td><span class="badge warn">⚠️ 未能确认</span></td></tr>
+                <tr><td>Bitget 交易所</td><td><code>www.bitget.org</code></td><td>2018 年注册，有正规证书；Bitget 官方安全文章里只写了 bitget.com</td><td><span class="badge warn">⚠️ 未能确认</span></td></tr>
+                <tr><td>币安交易所</td><td><code>www.bsmkweb.cc</code></td><td>2025 年 10 月注册的新域名，打开后会再跳转到其他域名，最终页面的接口格式和币安一致，但这不能证明归属</td><td><span class="badge warn">⚠️ 未能确认</span></td></tr>
+                <tr><td>OKX 交易所</td><td><code>www.tzbflgjyscw.org</code></td><td>2026 年注册，会经过多次跳转，最终页面加载 OKX 的资源；OKX 帮助中心写明官方域名是 www.okx.com</td><td><span class="badge warn">⚠️ 未能确认</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>邀请码本身我们也核对了：在 OKX 官方主站打开 <code>okx.com/join/3604739</code>，页面显示“个人邀请”和邀请人信息；Bybit 主站同码页面显示“您的好友邀请您加入 Bybit”；Bitget 主站同码链接会自动填入邀请码；币安主站页面没有显示邀请人，我们无法独立确认，但邀请码与站长原来提供的一致。</p>
           <div class="callout">
-            <strong>使用前请注意</strong>
-            <p>返现比例、活动内容和地区支持随时可能调整，以平台官方页面为准。邀请码不会让你多付任何费用。注册前请确认所在地区的法律和平台规则（见第 1 课），注册后请完成第 2 课的安全设置。本站含邀请链接，站长可能因此获得平台返佣。</p>
+            <strong>ℹ️ 建议这样用</strong>
+            <p>能打开官方主站的，优先点卡片上的<b>“官方主站注册”</b>，邀请码一样；打不开主站时再用站长链接，打开后先用下面的方法核对域名，再输入任何账号信息。</p>
+          </div>
+
+          <h2>关于链接和邀请关系的常见问题</h2>
+          <div class="faq-list">
+            <details open><summary>这些链接安全吗？</summary><p>标“官方主域名”的在交易所自己的域名下。标“未能确认”的，我们没有发现它们有问题，但也没法用公开资料证明它们属于交易所，所以不替它们打包票。最稳妥的是走官方主站入口，或用下面的方法自己核对。</p></details>
+            <details><summary>怎么自己核对一个域名是不是官方的？</summary><p>① 用交易所的官方验证工具：币安有 <a href="https://www.binance.com/en/official-verification" target="_blank" rel="noopener">Binance Verify</a>，可以查网址、邮箱、电话、社交账号；OKX 在 App 里“个人中心 → 帮助 → 官方渠道验证”（<a href="https://www.okx.com/help/how-to-query-unique-accounts" target="_blank" rel="noopener">说明</a>）；Bitget 有<a href="https://www.bitget.com/support/articles/12560603826152" target="_blank" rel="noopener">官方验证工具</a>；Bybit 有 Authenticity Check。② 看浏览器地址栏的完整域名，不看页面长相。③ 注册后只用官方 App 登录，不再从任何链接登录。</p></details>
+            <details><summary>“邀请关系”是什么意思？</summary><p>你用某人的邀请码注册，就成为他在这个平台上的被邀请人。平台按自己的规则，把你产生的一部分手续费作为返佣给邀请人，有时也会给你新人奖励或手续费折扣。<b>本站所有邀请码都是站长自己的</b>，你通过它们注册，站长可能获得返佣。</p></details>
+            <details><summary>邀请人能看到我的什么信息？</summary><p>一般只能看到平台提供的有限统计，比如是否完成注册、返佣金额，通常是打码的账号。看不到你的密码、私钥或完整资产明细。具体以各平台规则为准。</p></details>
+            <details><summary>用邀请码会让我多付钱吗？</summary><p>不会。返佣来自平台给邀请人的分成，不会额外向你收费。部分平台还会给被邀请人手续费折扣或新人奖励，以活动页为准。</p></details>
+            <details><summary>可以不用邀请码吗？</summary><p>可以。直接去官网注册、邀请码栏留空就行，不影响你使用任何功能。用不用完全由你决定。</p></details>
+            <details><summary>用“官方主站注册”会影响返现吗？</summary><p>两个入口用的是同一个邀请码，邀请关系按邀请码计算。返现比例、活动内容以平台页面为准。</p></details>
           </div>
 
           <h2 id="share">分享给朋友</h2>
-          <p>帮刚入门的朋友少走弯路：先让他们看完第 1、2 课再操作。</p>
+          <p>帮刚入门的朋友少走弯路：先让他们看完风险和防骗两课再操作。</p>
           <div class="share-box">
             <div class="share-main">
               <div class="share-link">
                 <input type="text" readonly data-share-url aria-label="本站链接" />
-                <button class="btn yellow" type="button" data-copy-share>复制链接</button>
+                <button class="btn primary" type="button" data-copy-share>复制链接</button>
               </div>
               <div class="share-targets" data-share-targets></div>
             </div>
@@ -958,7 +1229,7 @@
         <p class="fineprint">把教程发给刚入门的朋友，帮他们先学安全再操作。</p>
         <div class="share-link">
           <input type="text" readonly data-share-url aria-label="本站链接" />
-          <button class="btn yellow" type="button" data-copy-share>复制</button>
+          <button class="btn primary" type="button" data-copy-share>复制</button>
         </div>
         <div class="share-targets" data-share-targets></div>
         <figure class="share-qr small">

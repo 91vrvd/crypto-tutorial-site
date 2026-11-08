@@ -11,55 +11,70 @@ window.SITE_DATA = {
       name: "币安交易所",
       brand: "Binance",
       type: "交易所",
-      scene: "注册账户、买 U、现货入门",
+      scene: "注册账户、买 U；有美股账户、bStocks 和股票合约",
       code: "BTC10888",
       reward: "返现 20%",
       link: "https://www.bsmkweb.cc/register?ref=BTC10888",
-      risk: "注册前确认所在地区是否可用、KYC 要求和活动说明。"
+      risk: "注册前确认所在地区是否可用、KYC 要求和活动说明。",
+      officialLink: "https://accounts.binance.com/register?ref=BTC10888",
+      domainStatus: "unverified",
+      domainNote: "站长链接域名 bsmkweb.cc 会先跳转到其他域名；我们没能通过公开资料确认它是币安官方域名。"
     },
     {
       id: "okx-exchange",
       name: "OKX 交易所",
       brand: "OKX",
       type: "交易所",
-      scene: "交易所注册、买 U、基础交易",
+      scene: "交易所注册、买 U；有 xStocks 和股票合约",
       code: "3604739",
       reward: "返现 20%",
       link: "https://www.tzbflgjyscw.org/join/3604739",
-      risk: "活动规则和可用地区以平台页面为准。"
+      risk: "活动规则和可用地区以平台页面为准。",
+      officialLink: "https://www.okx.com/join/3604739",
+      domainStatus: "unverified",
+      domainNote: "站长链接域名 tzbflgjyscw.org 会经过多次跳转；OKX 帮助中心写明官方域名是 www.okx.com，我们无法确认这个域名属于 OKX。"
     },
     {
       id: "bitget-exchange",
       name: "Bitget 交易所",
       brand: "Bitget",
       type: "交易所",
-      scene: "交易所注册、基础买卖",
+      scene: "交易所注册；有 Stock+ 美股账户、代币化股票和股票合约",
       code: "0LJJYSJ8",
       reward: "返现 25%",
       link: "https://www.bitget.org/zh-CN/referral/register?clacCode=0LJJYSJ8&from=%2Fzh-CN%2Fevents%2Freferral-all-program&source=events&utmSource=PremierInviter",
-      risk: "注意活动入口、地区限制和 KYC 要求。"
+      risk: "注意活动入口、地区限制和 KYC 要求。",
+      officialLink: "https://www.bitget.com/zh-CN/referral/register?clacCode=0LJJYSJ8",
+      domainStatus: "unverified",
+      domainNote: "站长链接域名 bitget.org 注册于 2018 年，但 Bitget 官方资料里只列了 bitget.com，我们没找到它属于 Bitget 的官方说明。"
     },
     {
       id: "bybit-exchange",
       name: "Bybit 交易所",
       brand: "Bybit",
       type: "交易所",
-      scene: "交易所注册、进阶产品前置",
+      scene: "交易所注册；有美股账户、xStocks 和股票合约",
       code: "M881VM",
       reward: "返现 30%",
       link: "https://www.bybitglobal.com/invite?ref=M881VM&medium=referral&utm_campaign=evergreen",
-      risk: "产品和活动可用性会随地区变化。"
+      risk: "产品和活动可用性会随地区变化。",
+      officialLink: "https://www.bybit.com/invite?ref=M881VM",
+      domainStatus: "related",
+      domainNote: "站长链接域名 bybitglobal.com 与 bybit.com 使用同一家企业级域名注册商，有关联迹象，但我们没找到 Bybit 官方的明文说明。"
     },
     {
       id: "binance-wallet",
       name: "币安钱包",
       brand: "Binance Wallet",
       type: "Web3 钱包",
-      scene: "链上钱包、美股代币化产品的前置入口",
+      scene: "链上钱包；bStocks 代币化美股可提到这里自己保管",
       code: "BTC10888",
       reward: "返现 30%",
       link: "https://web3.binance.com/referral?ref=BTC10888",
-      risk: "钱包恢复凭证和授权要自己负责，先用小额练习。"
+      risk: "钱包恢复凭证和授权要自己负责，先用小额练习。",
+      officialLink: "",
+      domainStatus: "official",
+      domainNote: "链接在 binance.com 的子域名 web3.binance.com 上，属于币安官方主域名。"
     },
     {
       id: "okx-wallet",
@@ -70,7 +85,10 @@ window.SITE_DATA = {
       code: "YAYA12345",
       reward: "返现 20%",
       link: "https://web3.okx.com/join/YAYA12345",
-      risk: "转账前核对链、地址和授权对象。"
+      risk: "转账前核对链、地址和授权对象。",
+      officialLink: "",
+      domainStatus: "official",
+      domainNote: "链接在 okx.com 的子域名 web3.okx.com 上，属于 OKX 官方主域名。"
     },
     {
       id: "bybit-card",
@@ -81,7 +99,10 @@ window.SITE_DATA = {
       code: "M881VM",
       reward: "10% 返现和 10 USDT 活动说明",
       link: "https://www.bybit.com/cards/?ref=M881VM&source=applet_invite",
-      risk: "申请前确认所在地区、材料要求和卡片费用。"
+      risk: "申请前确认所在地区、材料要求和卡片费用。",
+      officialLink: "",
+      domainStatus: "official",
+      domainNote: "链接在 Bybit 官方主域名 bybit.com 上。"
     },
     {
       id: "bitget-card",
@@ -92,7 +113,10 @@ window.SITE_DATA = {
       code: "btcbtc18",
       reward: "活动以官方页面为准",
       link: "",
-      risk: "暂无直达链接：请在 Bitget App 的卡片申请页填写此邀请码，地区规则以平台页面为准。"
+      risk: "暂无直达链接：请在 Bitget App 的卡片申请页填写此邀请码，地区规则以平台页面为准。",
+      officialLink: "",
+      domainStatus: "none",
+      domainNote: "没有链接，只有邀请码，请在 Bitget 官方 App 的卡片页面填写。"
     }
   ],
 
@@ -147,9 +171,18 @@ window.SITE_DATA = {
     ["地址投毒", "安全", "骗子用和你常用地址首尾相同的假地址给你转 0 元，等你从记录里复制错地址。"],
     ["杀猪盘", "安全", "先网恋或交朋友建立信任，再诱导你去假平台“投资”，最后卷款消失。"],
     ["资金盘 / 庞氏", "安全", "用后进来人的钱给前面的人发“收益”，靠拉人头维持，迟早崩盘。"],
+    ["代币化股票", "美股", "跟踪某只股票价格的链上代币，比如 bStocks、xStocks。发行方持有真股票，你持有的是代币，通常没有投票权。"],
+    ["bStocks", "美股", "币安 2026 年 6 月推出的代币化美股，发行在 BNB Chain，名字一般以 B 结尾，比如 NVDAB、TSLAB。"],
+    ["xStocks", "美股", "Backed 发行的代币化美股，2025 年 6 月起在 Bybit、Kraken 上线，OKX 2026 年 7 月上线，名字通常带 x。"],
+    ["股票永续合约", "美股", "跟踪股价的合约，不买股票、可加杠杆、可做空、24 小时交易，会爆仓，没有股东权利。"],
+    ["资金费率", "美股", "永续合约多空双方定期互相支付的费用，用来让合约价格贴近标的价格。持仓越久，付出的费用可能越多。"],
+    ["CFD / 差价合约", "美股", "和平台约定按价格差结算的合约，常在 MT5 软件里交易，通常高杠杆，不持有股票。"],
+    ["零碎股", "美股", "可以买不足 1 股的股票，比如 0.01 股，适合小额体验。"],
+    ["盘前盘后", "美股", "美股正式开盘前和收盘后的延长交易时段，成交量少，价格波动可能更大。"],
+    ["Quanto 合约", "美股", "用一种货币计价、用另一种货币结算的合约。比如币安的腾讯 Quanto 合约，把港币股价直接当 USDT 算。"],
+    ["SIPC", "美股", "美国证券投资者保护公司，券商倒闭时在一定额度内保护客户证券，不保护投资亏损；通过交易所间接持股时能否覆盖要看条款。"],
     ["RWA", "进阶", "现实世界资产代币化，比如把股票、国债做成链上代币。"],
-    ["代币化股票", "进阶", "跟踪某只股票价格的链上代币，比如 bStocks、xStocks。通常不等于你直接持有股票。"],
-    ["牛市 / 熊市", "黑话", "整体大涨的阶段叫牛市，整体下跌、低迷的阶段叫熊市。"],
+        ["牛市 / 熊市", "黑话", "整体大涨的阶段叫牛市，整体下跌、低迷的阶段叫熊市。"],
     ["韭菜 / 割韭菜", "黑话", "不懂行情、追涨杀跌的散户；被庄家或骗局收割就叫被割韭菜。"],
     ["梭哈 / All in", "黑话", "把全部钱一次性押上。这是新手亏光最快的方式之一。"],
     ["拉盘 / 砸盘", "黑话", "大资金故意推高价格吸引散户接盘，再集中卖出让价格暴跌。"],
@@ -225,10 +258,34 @@ window.SITE_DATA = {
     {
       q: "关于代币化股票（如 bStocks、xStocks），下面哪句是对的？",
       type: "single",
-      options: ["通常不等于你直接持有公司股票，也没有股东投票权", "就是股票，和券商里买的一模一样", "保证分红", "所有国家都能买"],
+      options: ["通常不等于你在券商名下直接持有股票，一般没有股东投票权", "就是股票，和券商里买的一模一样", "保证分红，稳赚不赔", "所有国家和地区都能买"],
       answer: [0],
       explain: "代币化股票跟踪股价，但权利、托管、地区限制都和传统股票不同，先读产品说明。",
-      chapter: "stocks"
+      chapter: "us"
+    },
+    {
+      q: "用 USDT 开 10 倍杠杆做多一只股票的永续合约，股价下跌约 10%，最可能发生什么？",
+      type: "single",
+      options: ["仓位被强制平仓，投入的保证金基本亏光", "什么都不会发生，等涨回来就行", "平台会自动帮你补仓", "收到股票分红抵消亏损"],
+      answer: [0],
+      explain: "杠杆把涨跌放大 10 倍，跌 10% 左右就可能爆仓。合约没有股票、没有分红，新手不建议碰。",
+      chapter: "perps"
+    },
+    {
+      q: "截至 2026 年 11 月，交易所里能查到的港股、韩股相关产品主要是什么？",
+      type: "single",
+      options: ["永续合约（不持有股票，可加杠杆）", "可以直接过户到你名下的港股、韩股", "港股、韩股的代币化现货已在四大交易所全面上线", "有政府担保的理财产品"],
+      answer: [0],
+      explain: "我们核实到的是币安、Bybit 等上线的港股、韩股永续合约，不是股票本身，风险等同杠杆合约。",
+      chapter: "platforms"
+    },
+    {
+      q: "看到一个注册链接的域名不是 binance.com、okx.com 这种官方主域名，最稳妥的做法是？",
+      type: "single",
+      options: ["用交易所的官方验证工具核对，或改走官方主站入口并手动填同一个邀请码", "直接输入账号密码试试", "看页面长得像就放心用", "把链接发到群里问陌生人"],
+      answer: [0],
+      explain: "域名真假要用官方渠道核对。本站每个交易所都另外提供了官方主站入口，邀请码相同。",
+      chapter: "codes"
     },
     {
       q: "新手最稳妥的资金原则是？",
