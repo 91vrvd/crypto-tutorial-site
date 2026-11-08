@@ -2,2599 +2,976 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="币圈新手入门完全指南：先学安全，再学基础概念，再学交易所、钱包、U 卡和美股购买。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="写给完全零基础的币圈入门教程：先学风险和防骗，再学基础概念、交易所注册、买 U、转账、Web3 钱包、U 卡和代币化美股。含各平台邀请码，不构成投资建议。" />
+    <meta name="theme-color" content="#fefcf6" />
+    <meta property="og:title" content="币圈新手入门完全指南" />
+    <meta property="og:description" content="从零开始，用大白话讲清楚：币是什么、怎么安全注册、买 U、转账、用钱包，以及哪些坑一定别踩。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://91vrvd.github.io/crypto-tutorial-site/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23ffd84d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='36' font-weight='900' fill='%2317172a'%3EU%3C/text%3E%3C/svg%3E" />
     <title>币圈新手入门完全指南</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --ink: #17172a;
-        --muted: #6f7284;
-        --soft: #f7f3e8;
-        --paper: #fefcf6;
-        --panel: rgba(255, 255, 255, 0.9);
-        --line: rgba(43, 127, 216, 0.22);
-        --line-strong: rgba(23, 23, 42, 0.16);
-        --blue: #2b7fd8;
-        --blue-deep: #002fa7;
-        --yellow: #ffd84d;
-        --red: #ef4b5f;
-        --orange: #ff8a3d;
-        --green: #38b870;
-        --shadow: 0 24px 80px rgba(23, 23, 42, 0.08);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-      }
-
-      body {
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 14% 12%, rgba(255, 216, 77, 0.25), transparent 26%),
-          radial-gradient(circle at 86% 18%, rgba(43, 127, 216, 0.16), transparent 28%),
-          linear-gradient(135deg, #fffdf7 0%, #f7f3e8 100%);
-        color: var(--ink);
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
-        letter-spacing: 0;
-      }
-
-      button,
-      input {
-        font: inherit;
-      }
-
-      button {
-        cursor: pointer;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .deck-topbar {
-        position: fixed;
-        z-index: 30;
-        top: 18px;
-        left: 154px;
-        right: 24px;
-        min-height: 58px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 12px 16px 12px 18px;
-        border: 2px dashed rgba(23, 23, 42, 0.12);
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.76);
-        box-shadow: 0 16px 46px rgba(23, 23, 42, 0.07);
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        min-width: 0;
-      }
-
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        display: grid;
-        place-items: center;
-        border: 2px solid var(--ink);
-        border-radius: 12px;
-        background: var(--yellow);
-        box-shadow: 4px 4px 0 rgba(23, 23, 42, 0.12);
-        font-weight: 950;
-      }
-
-      .brand-title {
-        margin: 0;
-        font-size: 17px;
-        font-weight: 950;
-        white-space: nowrap;
-      }
-
-      .brand-subtitle {
-        margin: 2px 0 0;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 750;
-      }
-
-      .top-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .progress-pill,
-      .hint-pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 34px;
-        padding: 0 12px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 999px;
-        background: #fff;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .progress-pill {
-        color: var(--blue-deep);
-      }
-
-      .chapter-rail {
-        position: fixed;
-        z-index: 32;
-        top: 18px;
-        left: 18px;
-        bottom: 18px;
-        width: 116px;
-        padding: 12px;
-        border: 2px dashed rgba(43, 127, 216, 0.24);
-        border-radius: 28px;
-        background: rgba(255, 255, 255, 0.82);
-        box-shadow: var(--shadow);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .chapter-tab {
-        width: 100%;
-        min-height: 46px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 18px;
-        background: #fff;
-        color: var(--muted);
-        display: grid;
-        grid-template-columns: 28px 1fr;
-        align-items: center;
-        gap: 7px;
-        padding: 8px;
-        text-align: left;
-        font-size: 12px;
-        font-weight: 900;
-        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      }
-
-      .chapter-tab:hover {
-        transform: translateY(-1px);
-        border-color: rgba(43, 127, 216, 0.34);
-      }
-
-      .chapter-tab.is-active {
-        background: var(--yellow);
-        color: var(--ink);
-        border-color: rgba(23, 23, 42, 0.28);
-        box-shadow: 3px 3px 0 rgba(43, 127, 216, 0.16);
-      }
-
-      .chapter-tab .no {
-        display: grid;
-        place-items: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 10px;
-        background: rgba(43, 127, 216, 0.12);
-        color: var(--blue-deep);
-      }
-
-      .chapter-tab.is-active .no {
-        background: #fff;
-      }
-
-      .mobile-tabs {
-        display: none;
-      }
-
-      .deck {
-        position: relative;
-        z-index: 1;
-        width: 100vw;
-        height: 100dvh;
-        display: flex;
-        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        will-change: transform;
-      }
-
-      .slide {
-        flex: 0 0 100vw;
-        width: 100vw;
-        height: 100dvh;
-        padding: 92px 42px 42px 154px;
-        display: flex;
-        align-items: stretch;
-      }
-
-      .slide-frame {
-        width: min(1180px, 100%);
-        height: calc(100dvh - 134px);
-        margin: 0 auto;
-        overflow: auto;
-        border-radius: 28px;
-        background: var(--panel);
-        border: 2px dashed var(--line);
-        padding: 48px;
-        box-shadow: var(--shadow);
-        scrollbar-width: thin;
-        scrollbar-color: rgba(43, 127, 216, 0.34) transparent;
-      }
-
-      .slide-frame::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      .slide-frame::-webkit-scrollbar-thumb {
-        background: rgba(43, 127, 216, 0.26);
-        border-radius: 999px;
-      }
-
-      .slide-head {
-        display: grid;
-        grid-template-columns: 112px minmax(0, 1fr);
-        gap: 24px;
-        align-items: center;
-        margin-bottom: 28px;
-      }
-
-      .slide-no {
-        width: 112px;
-        height: 112px;
-        display: grid;
-        place-items: center;
-        border-radius: 28px;
-        border: 2px solid var(--ink);
-        background: var(--yellow);
-        box-shadow: 8px 8px 0 rgba(23, 23, 42, 0.12);
-        font-size: 44px;
-        line-height: 1;
-        font-weight: 950;
-      }
-
-      .script {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 12px;
-        border-radius: 999px;
-        background: rgba(43, 127, 216, 0.1);
-        color: var(--blue-deep);
-        font-size: 12px;
-        font-weight: 950;
-      }
-
-      .script::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--red);
-        box-shadow: 16px 0 0 var(--yellow), 32px 0 0 var(--blue);
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      .slide-title {
-        margin: 12px 0 8px;
-        font-size: 42px;
-        line-height: 1.08;
-        font-weight: 950;
-      }
-
-      .slide-en {
-        margin: 0 0 12px;
-        color: var(--blue-deep);
-        font-size: 15px;
-        font-weight: 950;
-      }
-
-      .lead {
-        max-width: 850px;
-        margin: 0;
-        color: #4d5064;
-        font-size: 16px;
-        line-height: 1.75;
-        font-weight: 650;
-      }
-
-      .section-label {
-        margin: 0 0 14px;
-        color: var(--blue-deep);
-        font-size: 13px;
-        font-weight: 950;
-      }
-
-      .content-stack {
-        display: grid;
-        gap: 22px;
-      }
-
-      .split {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-        gap: 22px;
-        align-items: start;
-      }
-
-      .grid-2,
-      .grid-3,
-      .grid-4 {
-        display: grid;
-        gap: 16px;
-      }
-
-      .grid-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .grid-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .tile,
-      .art-tile,
-      .ref-tile,
-      .faq-item,
-      .quiz-panel,
-      .table-wrap {
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 24px;
-        background: #fff;
-        box-shadow: 0 16px 40px rgba(23, 23, 42, 0.06);
-      }
-
-      .tile,
-      .ref-tile,
-      .quiz-panel {
-        padding: 20px;
-      }
-
-      .tile h3,
-      .ref-tile h3,
-      .quiz-panel h3 {
-        margin: 0 0 10px;
-        font-size: 19px;
-        line-height: 1.28;
-        font-weight: 950;
-      }
-
-      .tile p,
-      .ref-tile p,
-      .quiz-panel p,
-      .faq-item p {
-        color: #4d5064;
-        line-height: 1.72;
-        font-weight: 620;
-      }
-
-      .tile p:last-child,
-      .ref-tile p:last-child,
-      .quiz-panel p:last-child,
-      .faq-item p:last-child {
-        margin-bottom: 0;
-      }
-
-      .kicker-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-
-      .chip,
-      .local-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        min-height: 30px;
-        padding: 6px 10px;
-        border: 1px dashed rgba(43, 127, 216, 0.28);
-        border-radius: 999px;
-        background: rgba(43, 127, 216, 0.08);
-        color: var(--blue-deep);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .local-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .local-link {
-        border-style: solid;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        width: fit-content;
-        margin-bottom: 10px;
-        padding: 5px 9px;
-        border-radius: 999px;
-        background: rgba(255, 216, 77, 0.46);
-        color: #4b4213;
-        font-size: 11px;
-        font-weight: 950;
-      }
-
-      .warning,
-      .risk-box,
-      .next-box {
-        border-radius: 24px;
-        padding: 20px;
-        border: 2px dashed rgba(23, 23, 42, 0.14);
-      }
-
-      .warning {
-        background: #fff6bf;
-      }
-
-      .risk-box {
-        background: #fff0e8;
-        border-color: rgba(255, 138, 61, 0.35);
-      }
-
-      .risk-box strong,
-      .warning strong {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 16px;
-      }
-
-      .red-tile {
-        border-color: rgba(239, 75, 95, 0.22);
-        background: #fff7f8;
-      }
-
-      .blue-tile {
-        border-color: rgba(43, 127, 216, 0.22);
-        background: #f7fbff;
-      }
-
-      .yellow-tile {
-        border-color: rgba(255, 216, 77, 0.34);
-        background: #fffdf0;
-      }
-
-      .art-tile {
-        overflow: hidden;
-      }
-
-      .art-tile img {
-        display: block;
-        width: 100%;
-        aspect-ratio: 936 / 500;
-        object-fit: contain;
-        background: #fefcf6;
-      }
-
-      .art-caption {
-        padding: 12px 16px 16px;
-        margin: 0;
-        color: #4d5064;
-        font-size: 13px;
-        font-weight: 750;
-        line-height: 1.6;
-      }
-
-      .steps {
-        display: grid;
-        gap: 12px;
-      }
-
-      .step {
-        display: grid;
-        grid-template-columns: 44px 1fr;
-        gap: 14px;
-        align-items: start;
-        padding: 16px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 20px;
-        background: #fff;
-      }
-
-      .step-no {
-        display: grid;
-        place-items: center;
-        width: 44px;
-        height: 44px;
-        border: 2px solid var(--ink);
-        border-radius: 15px;
-        background: var(--yellow);
-        font-weight: 950;
-      }
-
-      .step h3 {
-        margin: 0 0 6px;
-        font-size: 17px;
-      }
-
-      .step p {
-        margin: 0;
-        color: #4d5064;
-        line-height: 1.68;
-        font-weight: 620;
-      }
-
-      .table-wrap {
-        overflow: auto;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 720px;
-      }
-
-      th,
-      td {
-        padding: 15px 16px;
-        border-bottom: 1px solid rgba(23, 23, 42, 0.08);
-        text-align: left;
-        vertical-align: top;
-        line-height: 1.62;
-      }
-
-      th {
-        background: #fff9d7;
-        color: var(--ink);
-        font-size: 13px;
-        font-weight: 950;
-      }
-
-      td {
-        color: #4d5064;
-        font-weight: 620;
-      }
-
-      .timeline {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .timeline-item {
-        position: relative;
-        padding: 16px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 20px;
-        background: #fff;
-      }
-
-      .timeline-item::after {
-        content: "→";
-        position: absolute;
-        right: -13px;
-        top: 50%;
-        color: var(--red);
-        font-size: 22px;
-        font-weight: 950;
-      }
-
-      .timeline-item:last-child::after {
-        display: none;
-      }
-
-      .timeline-item strong {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--blue-deep);
-        font-size: 16px;
-      }
-
-      .timeline-item span {
-        color: #4d5064;
-        font-size: 13px;
-        line-height: 1.58;
-        font-weight: 650;
-      }
-
-      .ref-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .ref-tile {
-        display: grid;
-        gap: 12px;
-      }
-
-      .ref-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .ref-meta span {
-        display: inline-flex;
-        min-height: 28px;
-        align-items: center;
-        padding: 5px 9px;
-        border-radius: 999px;
-        background: rgba(43, 127, 216, 0.08);
-        color: var(--blue-deep);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .ref-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .btn {
-        min-height: 40px;
-        border: 1px solid rgba(23, 23, 42, 0.14);
-        border-radius: 999px;
-        background: #fff;
-        color: var(--ink);
-        padding: 0 14px;
-        font-size: 13px;
-        font-weight: 950;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 10px 24px rgba(23, 23, 42, 0.08);
-      }
-
-      .btn.primary {
-        background: var(--blue-deep);
-        color: #fff;
-        border-color: var(--blue-deep);
-      }
-
-      .btn.yellow {
-        background: var(--yellow);
-      }
-
-      .faq-list {
-        display: grid;
-        gap: 12px;
-      }
-
-      .faq-item {
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .faq-item summary {
-        cursor: pointer;
-        padding: 18px 20px;
-        font-weight: 950;
-      }
-
-      .faq-item p {
-        padding: 0 20px 18px;
-      }
-
-      .quiz-options {
-        display: grid;
-        gap: 10px;
-        margin: 18px 0;
-      }
-
-      .quiz-option {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-height: 48px;
-        padding: 12px 14px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 16px;
-        background: #fff;
-        font-weight: 820;
-      }
-
-      .quiz-option input {
-        width: 18px;
-        height: 18px;
-        accent-color: var(--blue-deep);
-      }
-
-      .quiz-result {
-        min-height: 44px;
-        padding: 12px 14px;
-        border-radius: 18px;
-        background: #f7fbff;
-        color: #4d5064;
-        font-weight: 750;
-        line-height: 1.62;
-      }
-
-      .slide-footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: stretch;
-        margin-top: 26px;
-      }
-
-      .next-box {
-        width: 50%;
-        min-height: 86px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.76);
-      }
-
-      .next-box span {
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .next-box strong {
-        margin-top: 6px;
-        font-size: 17px;
-        font-weight: 950;
-      }
-
-      .next-box button {
-        border: 0;
-        background: transparent;
-        padding: 0;
-        text-align: left;
-        color: inherit;
-      }
-
-      .next-box.align-right {
-        text-align: right;
-      }
-
-      .next-box.align-right button {
-        text-align: right;
-      }
-
-      .deck-arrow {
-        position: fixed;
-        z-index: 31;
-        top: 50%;
-        width: 46px;
-        height: 46px;
-        display: grid;
-        place-items: center;
-        border-radius: 18px;
-        border: 2px solid rgba(23, 23, 42, 0.12);
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--blue-deep);
-        box-shadow: 0 14px 36px rgba(23, 23, 42, 0.1);
-        font-size: 28px;
-        font-weight: 950;
-      }
-
-      .deck-arrow:disabled {
-        opacity: 0.35;
-        cursor: default;
-      }
-
-      .deck-prev {
-        left: 136px;
-      }
-
-      .deck-next {
-        right: 20px;
-      }
-
-      .toast {
-        position: fixed;
-        z-index: 40;
-        left: 50%;
-        bottom: 28px;
-        transform: translateX(-50%);
-        padding: 12px 16px;
-        border-radius: 999px;
-        background: var(--ink);
-        color: #fff;
-        font-weight: 850;
-        box-shadow: 0 18px 44px rgba(23, 23, 42, 0.18);
-      }
-
-      /* ── Share Module ── */
-      .share-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        min-height: 34px;
-        padding: 0 14px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 999px;
-        background: var(--yellow);
-        color: var(--ink);
-        font-size: 12px;
-        font-weight: 900;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .share-btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(23, 23, 42, 0.1);
-      }
-
-      .share-overlay {
-        position: fixed;
-        z-index: 50;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(23, 23, 42, 0.38);
-      }
-
-      .share-overlay.hidden {
-        display: none;
-      }
-
-      .share-panel {
-        width: min(440px, calc(100vw - 32px));
-        max-height: calc(100dvh - 80px);
-        overflow: auto;
-        padding: 28px;
-        border: 2px dashed var(--line);
-        border-radius: 28px;
-        background: var(--panel);
-        box-shadow: 0 24px 80px rgba(23, 23, 42, 0.16);
-      }
-
-      .share-panel h2 {
-        margin: 0 0 6px;
-        font-size: 22px;
-        font-weight: 950;
-      }
-
-      .share-panel .sub {
-        margin: 0 0 20px;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 650;
-      }
-
-      .share-link-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 22px;
-      }
-
-      .share-link-row input {
-        flex: 1;
-        min-width: 0;
-        height: 44px;
-        padding: 0 14px;
-        border: 1px solid rgba(23, 23, 42, 0.14);
-        border-radius: 999px;
-        background: #fff;
-        color: var(--ink);
-        font-size: 13px;
-        font-weight: 650;
-      }
-
-      .share-platforms {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-bottom: 18px;
-      }
-
-      .share-platform {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        min-height: 78px;
-        padding: 14px 8px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 20px;
-        background: #fff;
-        color: var(--ink);
-        font-size: 12px;
-        font-weight: 850;
-        transition: transform 0.2s ease, border-color 0.2s ease;
-      }
-
-      .share-platform:hover {
-        transform: translateY(-2px);
-        border-color: rgba(43, 127, 216, 0.34);
-      }
-
-      .share-platform .icon {
-        width: 38px;
-        height: 38px;
-        display: grid;
-        place-items: center;
-        border-radius: 14px;
-        font-size: 20px;
-      }
-
-      .share-platform .icon.wechat  { background: #e8faea; }
-      .share-platform .icon.telegram{ background: #e4effa; }
-      .share-platform .icon.twitter { background: #f0f0f0; }
-      .share-platform .icon.whatsapp{ background: #e8faea; }
-      .share-platform .icon.email   { background: #fdf0d5; }
-      .share-platform .icon.copy    { background: rgba(43,127,216,0.1); }
-
-      .share-divider {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 18px;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .share-divider::before,
-      .share-divider::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: rgba(23, 23, 42, 0.1);
-      }
-
-      .share-native {
-        width: 100%;
-        min-height: 44px;
-        border: 1px solid rgba(23, 23, 42, 0.14);
-        border-radius: 999px;
-        background: var(--yellow);
-        color: var(--ink);
-        font-size: 14px;
-        font-weight: 950;
-      }
-
-      .share-close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        width: 34px;
-        height: 34px;
-        display: grid;
-        place-items: center;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 50%;
-        background: #fff;
-        color: var(--muted);
-        font-size: 18px;
-      }
-
-      .share-qr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 24px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 24px;
-        background: #fff;
-      }
-
-      .share-qr canvas {
-        border: 1px solid rgba(23, 23, 42, 0.08);
-        border-radius: 16px;
-      }
-
-      .share-qr span {
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 750;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .source-list {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .source-list a {
-        min-height: 56px;
-        padding: 12px;
-        border: 1px solid rgba(23, 23, 42, 0.1);
-        border-radius: 18px;
-        background: #fff;
-        color: var(--blue-deep);
-        font-size: 13px;
-        font-weight: 900;
-        line-height: 1.42;
-        text-decoration: none;
-      }
-
-      @media (max-width: 1080px) {
-        .deck-topbar {
-          left: 132px;
-        }
-
-        .chapter-rail {
-          width: 100px;
-        }
-
-        .slide {
-          padding-left: 132px;
-        }
-
-        .deck-prev {
-          left: 114px;
-        }
-
-        .split,
-        .grid-3,
-        .grid-4,
-        .timeline,
-        .source-list {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 760px) {
-        html,
-        body {
-          height: auto;
-          min-height: 100%;
-          overflow-x: hidden;
-          overflow-y: auto;
-        }
-
-        body {
-          background: linear-gradient(135deg, #fffdf7 0%, #f7f3e8 100%);
-        }
-
-        .chapter-rail {
-          display: none;
-        }
-
-        .deck-topbar {
-          top: 10px;
-          left: 10px;
-          right: 10px;
-          min-height: 54px;
-          padding: 10px 12px;
-          gap: 10px;
-          border-radius: 20px;
-        }
-
-        .brand {
-          gap: 8px;
-        }
-
-        .brand-mark {
-          width: 30px;
-          height: 30px;
-          border-radius: 10px;
-          flex: 0 0 auto;
-        }
-
-        .brand-subtitle,
-        .hint-pill {
-          display: none;
-        }
-
-        .brand-title {
-          font-size: 14px;
-          line-height: 1.25;
-          white-space: normal;
-        }
-
-        .top-actions {
-          flex: 0 0 auto;
-        }
-
-        .progress-pill {
-          min-height: 30px;
-          padding: 0 10px;
-        }
-
-        .mobile-tabs {
-          position: fixed;
-          z-index: 120;
-          left: 10px;
-          right: 10px;
-          bottom: 10px;
-          display: flex;
-          gap: 8px;
-          overflow-x: auto;
-          padding: 8px;
-          border: 2px dashed rgba(43, 127, 216, 0.24);
-          border-radius: 22px;
-          background: rgba(255, 255, 255, 0.9);
-          box-shadow: 0 12px 34px rgba(23, 23, 42, 0.1);
-          scrollbar-width: none;
-          pointer-events: auto;
-        }
-
-        .mobile-tabs::-webkit-scrollbar {
-          display: none;
-        }
-
-        .mobile-tab {
-          flex: 0 0 auto;
-          min-width: 74px;
-          min-height: 42px;
-          border: 1px solid rgba(23, 23, 42, 0.1);
-          border-radius: 16px;
-          background: #fff;
-          color: var(--muted);
-          font-size: 12px;
-          font-weight: 950;
-        }
-
-        .mobile-tab.is-active {
-          background: var(--yellow);
-          color: var(--ink);
-        }
-
-        .deck {
-          display: block;
-          width: 100%;
-          height: auto;
-          min-height: 100dvh;
-          transform: none !important;
-          transition: none;
-        }
-
-        .slide {
-          display: none;
-          width: 100%;
-          height: auto;
-          min-height: 100dvh;
-          padding: 78px 12px 96px;
-        }
-
-        .slide.is-active {
-          display: block;
-        }
-
-        .slide-frame {
-          width: 100%;
-          height: auto;
-          min-height: calc(100dvh - 184px);
-          overflow: visible;
-          padding: 20px;
-          border-radius: 24px;
-        }
-
-        .slide-head {
-          grid-template-columns: 72px minmax(0, 1fr);
-          gap: 14px;
-        }
-
-        .slide-no {
-          width: 72px;
-          height: 72px;
-          border-radius: 22px;
-          font-size: 30px;
-        }
-
-        .slide-title {
-          font-size: 27px;
-          overflow-wrap: anywhere;
-        }
-
-        .lead {
-          font-size: 15px;
-        }
-
-        .grid-2,
-        .grid-3,
-        .grid-4,
-        .split,
-        .timeline,
-        .ref-grid,
-        .source-list {
-          grid-template-columns: 1fr;
-        }
-
-        .timeline-item::after {
-          right: auto;
-          left: 20px;
-          top: auto;
-          bottom: -18px;
-          transform: rotate(90deg);
-        }
-
-        .slide-footer {
-          flex-direction: column;
-        }
-
-        .next-box {
-          width: 100%;
-        }
-
-        .deck-arrow {
-          display: none;
-        }
-
-        .ref-actions .btn {
-          flex: 1 1 120px;
-        }
-      }
-
-      @media (max-width: 420px) {
-        .deck-topbar {
-          left: 8px;
-          right: 8px;
-          padding: 9px 10px;
-        }
-
-        .brand-title {
-          font-size: 13px;
-        }
-
-        .progress-pill {
-          font-size: 11px;
-          padding: 0 8px;
-        }
-
-        .slide {
-          padding: 76px 8px 94px;
-        }
-
-        .slide-frame {
-          padding: 16px;
-          border-radius: 22px;
-        }
-
-        .slide-head {
-          grid-template-columns: 58px minmax(0, 1fr);
-          gap: 12px;
-        }
-
-        .slide-no {
-          width: 58px;
-          height: 58px;
-          border-radius: 18px;
-          font-size: 24px;
-          box-shadow: 5px 5px 0 rgba(23, 23, 42, 0.1);
-        }
-
-        .script {
-          max-width: 100%;
-          font-size: 11px;
-          white-space: normal;
-        }
-
-        .slide-title {
-          font-size: 24px;
-        }
-
-        .tile,
-        .ref-tile,
-        .quiz-panel,
-        .warning,
-        .risk-box,
-        .next-box {
-          padding: 16px;
-          border-radius: 20px;
-        }
-
-        .step {
-          grid-template-columns: 36px 1fr;
-          gap: 12px;
-          padding: 14px;
-        }
-
-        .step-no {
-          width: 36px;
-          height: 36px;
-          border-radius: 12px;
-        }
-
-      }
-    </style>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="./assets/css/site.css" />
   </head>
   <body>
-    <header class="deck-topbar" aria-label="站点顶部栏">
-      <div class="brand">
-        <div class="brand-mark">U</div>
-        <div>
-          <p class="brand-title">币圈新手入门完全指南</p>
-          <p class="brand-subtitle">先学安全，再学注册，最后再看 U 卡和美股购买</p>
-        </div>
-      </div>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="topbar">
+      <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="打开目录" aria-controls="sidebar" aria-expanded="false">
+        <span aria-hidden="true">☰</span>
+      </button>
+      <a class="brand" href="#start" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span class="brand-text">
+          <strong>币圈新手入门完全指南</strong>
+          <small>先学安全，再动手；只讲操作，不荐币</small>
+        </span>
+      </a>
       <div class="top-actions">
-        <button class="share-btn" type="button" id="openShare" aria-label="分享给朋友">📤 分享</button>
-        <span class="progress-pill" id="deckProgress">01 / 11</span>
-        <span class="hint-pill">方向键 / 左右按钮 / 滑动切换章节</span>
+        <a class="code-btn" href="#codes"><span aria-hidden="true">🎁</span> 邀请码</a>
+        <button class="icon-btn share-open" type="button" data-share-open aria-label="分享本站"><span aria-hidden="true">📤</span><span class="label">分享</span></button>
       </div>
+      <div class="read-progress" aria-hidden="true"><span id="readBar"></span></div>
     </header>
 
-    <aside class="chapter-rail" id="chapterRail" aria-label="章节导航"></aside>
-    <nav class="mobile-tabs" id="mobileTabs" aria-label="移动端章节导航"></nav>
-
-    <button class="deck-arrow deck-prev" type="button" id="prevSlide" aria-label="上一章">‹</button>
-    <button class="deck-arrow deck-next" type="button" id="nextSlide" aria-label="下一章">›</button>
-
-    <main class="deck" id="deck"></main>
-    <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
-
-    <!-- Share Modal -->
-    <div class="share-overlay hidden" id="shareOverlay" role="dialog" aria-label="分享弹窗">
-      <div class="share-panel" style="position: relative;">
-        <button class="share-close" type="button" id="closeShare" aria-label="关闭">✕</button>
-        <h2>📤 分享给朋友</h2>
-        <p class="sub">把这个教程分享给刚入门的朋友，帮他们少走弯路</p>
-
-        <div class="share-link-row">
-          <input type="text" id="shareLinkInput" readonly aria-label="页面链接" />
-          <button class="btn yellow" type="button" id="copyLinkBtn">复制</button>
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="课程目录">
+        <div class="sidebar-head">
+          <p class="sidebar-title">课程目录</p>
+          <p class="sidebar-meta"><span id="doneCount">0</span> / <span id="totalCount">14</span> 课已读</p>
+          <div class="meter" aria-hidden="true"><span id="doneBar"></span></div>
         </div>
+        <nav id="toc"></nav>
+        <a class="sidebar-codes" href="#codes">
+          <span>🎁 全部邀请码</span>
+          <small>8 个平台 · 一键复制</small>
+        </a>
+      </aside>
+      <div class="scrim" id="scrim" hidden></div>
 
-        <p class="share-divider">分享到</p>
+      <main id="main" tabindex="-1">
+        <noscript>
+          <div class="callout warn">
+            <strong>当前浏览器关闭了 JavaScript</strong>
+            <p>页面会把所有章节依次显示。邀请码汇总：币安交易所 BTC10888 · OKX 交易所 3604739 · Bitget 交易所 0LJJYSJ8 · Bybit 交易所 M881VM · 币安钱包 BTC10888 · OKX 钱包 YAYA12345 · Bybit Card M881VM · Bitget Card btcbtc18。</p>
+          </div>
+        </noscript>
 
-        <div class="share-platforms">
-          <button class="share-platform" type="button" data-share="wechat">
-            <span class="icon wechat">💬</span>
-            <span>微信</span>
-          </button>
-          <button class="share-platform" type="button" data-share="telegram">
-            <span class="icon telegram">✈️</span>
-            <span>Telegram</span>
-          </button>
-          <button class="share-platform" type="button" data-share="twitter">
-            <span class="icon twitter">𝕏</span>
-            <span>Twitter</span>
-          </button>
-          <button class="share-platform" type="button" data-share="whatsapp">
-            <span class="icon whatsapp">📱</span>
-            <span>WhatsApp</span>
-          </button>
-          <button class="share-platform" type="button" data-share="email">
-            <span class="icon email">📧</span>
-            <span>邮件</span>
-          </button>
-          <button class="share-platform" type="button" data-share="copy">
-            <span class="icon copy">📋</span>
-            <span>复制链接</span>
-          </button>
+        <!-- ============ 首页 ============ -->
+        <section class="chapter" id="start" data-short="开始这里" data-stage="开始" data-minutes="3">
+          <div class="hero">
+            <p class="kicker">写给完全零基础的你</p>
+            <h1>币圈新手入门完全指南</h1>
+            <p class="hero-lead">从零开始，用大白话讲清楚：<b>币是什么、怎么安全地注册、买 U、转账、用钱包</b>，以及<b>哪些坑一定别踩</b>。每一课 3–8 分钟，按顺序看完，你就能自己完成第一次小额操作。</p>
+            <div class="hero-actions">
+              <a class="btn primary big" href="#risk">从第 1 课开始 →</a>
+              <a class="btn yellow big" href="#codes">🎁 直接看邀请码</a>
+            </div>
+          </div>
+
+          <div class="rules">
+            <p class="rules-title">先记住 3 条铁律，能避开 90% 的坑</p>
+            <ol>
+              <li><strong>助记词、私钥、验证码，谁要都不给。</strong>包括自称客服、警察、老师、对象的人。</li>
+              <li><strong>第一次做任何操作，先用小额试一笔。</strong>注册、转账、提币、用钱包、开卡都一样。</li>
+              <li><strong>只用亏光也不影响生活的闲钱。</strong>不借钱、不碰合约杠杆、不信“稳赚”“保本”。</li>
+            </ol>
+          </div>
+
+          <h2>邀请码速查</h2>
+          <p>注册时填写邀请码，多数平台只能在<b>注册那一步</b>填，注册完通常不能补。点“复制”后粘贴到注册页的邀请码栏即可；点“打开”会带上邀请码直接进入注册页。</p>
+          <div class="quick-codes" data-ref-quick></div>
+          <p class="fineprint">返现比例、活动内容和可用地区以各平台官方页面为准。本站含邀请链接，通过链接注册，站长可能获得平台返佣，不影响你的使用价格。</p>
+
+          <h2>学习路线：4 个阶段</h2>
+          <p>不要跳着学。前两个阶段是“保命”，比后面的操作更重要。</p>
+          <div class="roadmap" id="roadmap"></div>
+
+          <h2>这个网站怎么用</h2>
+          <div class="grid-3">
+            <div class="tile"><h3>📚 按顺序看</h3><p>电脑在左侧目录，手机点左上角 ☰ 打开目录。每课底部都有“下一课”。</p></div>
+            <div class="tile"><h3>✅ 进度自动记住</h3><p>看过的课会打勾，记录只保存在你自己的浏览器里，不上传。</p></div>
+            <div class="tile"><h3>🔎 遇到生词查术语表</h3><p>“基础概念”一课里有 50+ 个术语，支持搜索，黑话也能查。</p></div>
+          </div>
+
+          <div class="callout">
+            <strong>免责声明</strong>
+            <p>本站只做操作教程和风险科普，<b>不构成任何投资建议</b>，不推荐任何币种或股票，不承诺任何收益。加密资产价格波动极大，可能归零。请先了解并遵守你所在地区的法律法规（中国大陆的规定见第 1 课）。</p>
+          </div>
+        </section>
+
+        <!-- ============ 第 1 课 风险 ============ -->
+        <section class="chapter" id="risk" data-short="风险与法规" data-stage="第一阶段 · 认清风险" data-minutes="7">
+          <header class="ch-head">
+            <p class="kicker">第 1 课 · 约 7 分钟</p>
+            <h1>先认清风险：这些不懂，别急着入场</h1>
+            <p class="lead">很多人进币圈亏钱，不是因为不会买，而是没想清楚自己会面对什么。这一课把常见风险一次讲透。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>币价可能一年跌 70% 以上，交易所可能倒闭，稳定币也可能短暂“脱锚”。</li>
+              <li>链上转账<b>不可撤回</b>，转错基本找不回。</li>
+              <li>中国大陆明确禁止虚拟货币相关业务，参与交易<b>不受法律保护、损失自担</b>。</li>
+            </ul>
+          </div>
+
+          <h2>1. 价格风险：涨得快，跌得更狠</h2>
+          <p>加密货币没有公司利润、没有政府信用兜底，价格完全由买卖双方决定。比特币作为“最稳”的币，历史上也多次从高点下跌 70% 以上，比如 2021 年 11 月的高点到 2022 年底。小币种跌 90%、直接归零更是常见。</p>
+          <p><b>大白话：</b>你投进去的每一分钱，都要做好“可能只剩两三成，甚至全没了”的准备。</p>
+
+          <h2>2. 平台风险：交易所也会倒</h2>
+          <p>你放在交易所里的币，其实是平台替你保管的。平台挪用、被黑、被查，你都可能取不出来。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>事件</th><th>发生了什么</th><th>给新手的教训</th></tr></thead>
+              <tbody>
+                <tr><td>FTX 破产（2022 年 11 月）</td><td>当时全球前几大的交易所，挪用客户资产，短短几天停止提币并申请破产，用户资产被冻结多年。</td><td>“大平台”也不等于绝对安全，长期不用的大额资产不要都放在一个平台。</td></tr>
+                <tr><td>Bybit 被盗（2025 年 2 月）</td><td>约 15 亿美元的 ETH 被盗，美国 FBI 公开指认是朝鲜黑客组织所为。Bybit 表示用自有资金补足，用户提币正常。</td><td>安全事件随时可能发生，要关注平台公告，分散存放。</td></tr>
+                <tr><td>OKX 在美国认罪（2025 年 2 月）</td><td>OKX 关联公司承认在美国无牌经营汇款业务，支付约 5.05 亿美元罚没款。</td><td>平台合规状况会影响各地区是否能用，注册前看清地区规则。</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>3. 稳定币风险：“1 块钱”也会变 0.88</h2>
+          <p>USDT、USDC 这类稳定币的目标是 1 个币 ≈ 1 美元，但目标不等于保证：</p>
+          <ul>
+            <li><b>USDC 2023 年 3 月：</b>发行方 Circle 有 33 亿美元储备存在倒闭的硅谷银行，USDC 一度跌到约 0.88 美元，几天后才恢复。</li>
+            <li><b>UST 2022 年 5 月：</b>一种靠算法维持的“稳定币”彻底崩盘，几天内跌到接近 0，几百亿美元市值蒸发。</li>
+          </ul>
+          <p>所以稳定币<b>不是银行存款</b>，没有存款保险。</p>
+
+          <h2>4. 操作风险：转错了，没有“撤回”</h2>
+          <p>银行转错账还能找银行；链上转账一旦发出，<b>没人能撤回</b>。选错链、填错地址、漏填 Memo，都可能永久丢失。第 6 课会教你怎么避免。</p>
+
+          <h2>5. 杠杆合约：新手亏光最快的路</h2>
+          <p>合约可以开 10 倍、50 倍甚至 100 倍杠杆。10 倍杠杆下，价格反向走 10% 左右你的保证金就可能全没（爆仓）。很多“老师带单”“回本神器”最后都指向合约。<b>本站建议新手只接触现货，不碰合约。</b></p>
+
+          <h2>6. 法律风险：先看你所在地的规定</h2>
+          <div class="callout danger">
+            <strong>如果你身在中国大陆，请务必先读这一段</strong>
+            <p>2021 年 9 月，中国人民银行等十部门发布《关于进一步防范和处置虚拟货币交易炒作风险的通知》。2026 年 2 月 6 日，中国人民银行等八部门又发布《关于进一步防范和处置虚拟货币等相关风险的通知》（银发〔2026〕42 号）。新通知的要点：</p>
+            <ul>
+              <li>比特币、以太币、泰达币（USDT）等虚拟货币<b>不具有与法定货币等同的法律地位</b>。</li>
+              <li>在境内开展法币与虚拟货币兑换、虚拟货币之间兑换、为交易提供信息中介和定价服务等业务，属于<b>非法金融活动</b>，一律严格禁止。</li>
+              <li><b>境外单位和个人不得以任何形式非法向境内主体提供虚拟货币相关服务。</b></li>
+              <li>任何单位和个人投资虚拟货币、现实世界资产代币（RWA）及相关金融产品，违背公序良俗的，<b>相关民事法律行为无效，由此引发的损失由其自行承担</b>。</li>
+            </ul>
+            <p>也就是说：在中国大陆参与虚拟货币交易，出了问题<b>基本得不到法律保护</b>；把银行卡借给别人收款、帮人“跑分”还可能触犯刑法。请你自行判断并遵守当地法律。</p>
+          </div>
+          <p>其他国家和地区的规则差异很大：有的要求交易所持牌、有的限制特定产品（如代币化股票不对美国用户开放）、多数地方买卖盈利需要报税。注册前看清平台的“受限地区”说明。</p>
+
+          <h2>动手前自测：你适合开始吗？</h2>
+          <div class="checklist" data-checklist="risk-ready">
+            <label><input type="checkbox" /> 我准备投入的是闲钱，亏光也不影响吃饭、还贷和看病</label>
+            <label><input type="checkbox" /> 我没有借钱、刷信用卡、用网贷来买币</label>
+            <label><input type="checkbox" /> 我知道币价可能大跌甚至归零，不会因为短期涨跌失眠</label>
+            <label><input type="checkbox" /> 我不打算碰合约杠杆，也不会跟着“老师”“群主”操作</label>
+            <label><input type="checkbox" /> 我了解自己所在地区关于虚拟货币的法律规定</label>
+          </div>
+          <p class="fineprint">有任何一条做不到，建议先停在“学习”阶段，不急着入金。</p>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml" target="_blank" rel="noopener">银发〔2026〕42 号通知全文（证监会网站）</a>
+            <a href="https://www.coindesk.com/markets/2023/03/11/usdc-stablecoin-depegs-from-1-circle-says-operations-are-normal" target="_blank" rel="noopener">CoinDesk：USDC 脱锚（2023-03）</a>
+            <a href="https://www.ic3.gov/PSA/2025/PSA250226" target="_blank" rel="noopener">FBI IC3：Bybit 被盗事件公告（2025-02）</a>
+            <a href="https://www.claimsjournal.com/news/national/2025/02/25/329137.htm" target="_blank" rel="noopener">Bloomberg/Claims Journal：OKX 认罪（2025-02）</a>
+          </div>
+        </section>
+
+        <!-- ============ 第 2 课 防骗 ============ -->
+        <section class="chapter" id="scam" data-short="防骗与账户安全" data-stage="第一阶段 · 认清风险" data-minutes="8">
+          <header class="ch-head">
+            <p class="kicker">第 2 课 · 约 8 分钟</p>
+            <h1>防骗与账户安全：先把门锁好</h1>
+            <p class="lead">币圈骗局的套路其实就那么几种。认识它们、把账户安全设置做完，你就已经超过大多数新手。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>“主动找你的客服”“带你赚钱的网友”“领空投的链接”，99% 是骗局。</li>
+              <li>开好 2FA（验证器 App）、反钓鱼码、提现白名单这三样。</li>
+              <li>被骗后第一时间止损、报警；“黑客帮你追回”是第二次诈骗。</li>
+            </ul>
+          </div>
+
+          <div class="grid-3">
+            <figure class="art"><img src="./assets/guizang-illustrations/security-account.svg" alt="账户安全示意：登录、验证码、风控" loading="lazy" decoding="async" width="936" height="500" /><figcaption>账户安全：登录、验证码、风控</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/security-wallet.svg" alt="钱包控制权示意：助记词、私钥、地址" loading="lazy" decoding="async" width="936" height="500" /><figcaption>钱包控制权：助记词 → 私钥 → 地址</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/security-phishing.svg" alt="钓鱼风险示意：假链接、远程、授权" loading="lazy" decoding="async" width="936" height="500" /><figcaption>钓鱼三件套：假链接、远程控制、恶意授权</figcaption></figure>
+          </div>
+
+          <h2>10 种最常见的骗局</h2>
+          <div class="scam-list">
+            <details class="scam" open><summary><b>杀猪盘（交友投资）</b><span>最常见、损失最大</span></summary><p><b>套路：</b>在社交软件、婚恋网站认识一个“成功人士”，聊几周建立感情后，说自己有内部渠道，带你在某个 App 或网址“投资”。前几次能小额提现，等你加大投入就再也提不出来，还要你交“税费”“保证金”。</p><p><b>识别：</b>网上认识、没见过面的人谈投资 = 骗局。要你下载陌生 App、打开不是知名交易所的网址 = 骗局。</p></details>
+            <details class="scam"><summary><b>假客服</b><span>冒充平台、银行、警察</span></summary><p><b>套路：</b>“您的账户存在异常 / 涉嫌洗钱 / 资金被冻结”，要你加 Telegram、WhatsApp，然后索要验证码、助记词，或让你把币转到“安全账户”。</p><p><b>识别：</b>官方客服不会主动私信你，更不会要助记词、私钥、验证码，也没有“安全账户”。遇到就自己打开官方 App 找在线客服核实。</p></details>
+            <details class="scam"><summary><b>喊单群 / 带单老师 / 内幕币</b><span>拉盘砸盘，你接最后一棒</span></summary><p><b>套路：</b>免费拉你进群，“老师”天天晒收益，推荐某个“马上要涨 10 倍”的小币或合约点位。群里的“学员”大多是托。</p><p><b>识别：</b>真有稳赚的方法，没人会免费教陌生人。群里推荐的小币往往是庄家要出货的。</p></details>
+            <details class="scam"><summary><b>高收益理财 / 资金盘</b><span>日息 1%、拉人头返利</span></summary><p><b>套路：</b>“存 U 每天 1% 收益”“拉一个人返 10%”。早期确实能拿到钱，因为发的是后来者的本金，直到某天平台关闭。</p><p><b>识别：</b>年化收益远高于常识（比如年化 50%+）、靠拉人头发奖励，基本就是庞氏骗局。</p></details>
+            <details class="scam"><summary><b>假空投 / 钓鱼网站</b><span>点链接 → 连钱包 → 签名 → 币没了</span></summary><p><b>套路：</b>推特、电报、邮件、搜索广告里出现“领取空投”“官方活动”链接，网址和官网只差一两个字母。连接钱包后让你签名或授权，币被一次转空。</p><p><b>识别：</b>只通过自己收藏的官网书签进入；看不懂的签名不签；别点搜索结果里的广告链接。</p></details>
+            <details class="scam"><summary><b>地址投毒</b><span>转账记录里藏着假地址</span></summary><p><b>套路：</b>骗子生成一个和你常用地址“开头几位、结尾几位”都一样的假地址，给你转 0 元或一点点币，让它出现在你的转账记录里。你下次偷懒从记录里复制，就复制到了骗子的地址。</p><p><b>识别：</b>永远从收款方那里重新复制地址，或用钱包“地址簿”里保存过的地址；核对时除了首尾，<b>中间也要看几位</b>；记录里出现莫名其妙的 0 元转账，就是投毒信号。</p></details>
+            <details class="scam"><summary><b>远程控制 / 屏幕共享</b><span>“我一步步教你操作”</span></summary><p><b>套路：</b>让你安装远程协助软件或开会议共享屏幕，“手把手教你提币”，实际上直接看到你的验证码、操作你的账户。</p><p><b>识别：</b>任何人让你装远程软件、共享屏幕处理资金，立刻挂断。</p></details>
+            <details class="scam"><summary><b>假 App</b><span>和官方一模一样的图标</span></summary><p><b>套路：</b>通过陌生链接、搜索广告下载的“交易所 App”，界面和真的一样，你输入的账号密码、充进去的币都给了骗子。</p><p><b>识别：</b>只从官网或官方应用商店下载，安装前核对开发者名称；苹果手机注意不要随便安装“企业证书”“描述文件”。</p></details>
+            <details class="scam"><summary><b>出借银行卡 / “跑分”兼职</b><span>不是骗你钱，是让你背锅</span></summary><p><b>套路：</b>“用你的银行卡帮我收款，收到后买 U 转给我，每笔给你提成”。这些钱大多是诈骗赃款。</p><p><b>后果：</b>银行卡被冻结，在中国大陆还可能涉嫌<b>帮助信息网络犯罪活动罪</b>、掩饰隐瞒犯罪所得罪。不管给多少钱，坚决不做。</p></details>
+            <details class="scam"><summary><b>“黑客追回资金”</b><span>被骗之后的第二刀</span></summary><p><b>套路：</b>被骗后在网上求助，马上有人自称“技术团队”“律师”能帮你追回，先收一笔“服务费”。</p><p><b>识别：</b>链上资产一旦被转走，私人几乎不可能追回。收费追款的基本都是二次诈骗。</p></details>
+          </div>
+
+          <h2>账户安全设置清单（注册后马上做）</h2>
+          <p>下面每项打勾后会记在你的浏览器里，方便下次回来对照。</p>
+          <div class="checklist" data-checklist="account-security">
+            <label><input type="checkbox" /> <span><b>独立邮箱 + 独立密码：</b>交易所密码不和任何网站重复，用密码管理器生成长密码。</span></label>
+            <label><input type="checkbox" /> <span><b>开启 2FA：</b>优先用验证器 App（如 Google Authenticator、Microsoft Authenticator）或通行密钥（Passkey），短信验证码容易被“补卡”劫持。</span></label>
+            <label><input type="checkbox" /> <span><b>离线备份 2FA 恢复密钥：</b>写在纸上收好，换手机时才不会被锁在门外。</span></label>
+            <label><input type="checkbox" /> <span><b>设置反钓鱼码：</b>之后官方邮件都会带上你的暗号，没有暗号的“官方邮件”一律当假的。</span></label>
+            <label><input type="checkbox" /> <span><b>开启提现白名单：</b>只能提币到你登记过的地址，账号被盗也多一道防线。</span></label>
+            <label><input type="checkbox" /> <span><b>收藏官网书签：</b>以后只从书签或官方 App 进入，不点短信、邮件、群里的链接。</span></label>
+            <label><input type="checkbox" /> <span><b>检查登录设备：</b>在安全中心定期看“设备管理”，不认识的设备立即删除并改密码。</span></label>
+            <label><input type="checkbox" /> <span><b>手机和电脑保持系统更新，</b>不装来路不明的软件和插件，不在公共 Wi‑Fi 下操作资金。</span></label>
+          </div>
+
+          <h2>万一被骗或被盗，马上这样做</h2>
+          <ol class="steps">
+            <li><b>停止一切转账。</b>不要再按对方要求“交解冻费”“交税”。</li>
+            <li><b>保住剩下的资产：</b>改交易所密码、重置 2FA；钱包被盗就立刻新建钱包，把剩余资产转过去，并撤销可疑授权。</li>
+            <li><b>保留证据：</b>聊天记录、转账记录、对方地址、TxID、网址，全部截图保存。</li>
+            <li><b>联系官方：</b>通过官方 App 联系交易所客服，说明情况，看能否冻结相关账户。</li>
+            <li><b>报警：</b>在中国大陆可拨打 110，或全国反诈预警劝阻专线 96110 咨询；其他地区联系当地警方。</li>
+            <li><b>警惕二次诈骗：</b>任何声称能“追回资金”并先收费的人，都是骗子。</li>
+          </ol>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://trustwallet.com/glossary/address-poisoning" target="_blank" rel="noopener">Trust Wallet：什么是地址投毒</a>
+            <a href="https://www.elliptic.co/blockchain-basics/what-is-address-poisoning/" target="_blank" rel="noopener">Elliptic：Address Poisoning</a>
+          </div>
+        </section>
+
+        <!-- ============ 第 3 课 基础概念 ============ -->
+        <section class="chapter" id="basics" data-short="基础概念" data-stage="第二阶段 · 搞懂概念" data-minutes="10">
+          <header class="ch-head">
+            <p class="kicker">第 3 课 · 约 10 分钟</p>
+            <h1>基础概念：把这些词看懂，再去操作</h1>
+            <p class="lead">不用懂技术，只要能分清“币、稳定币、交易所、钱包、链、地址”这几样东西，后面的操作就都看得懂了。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>BTC、ETH 价格会大幅波动；USDT、USDC 是目标锚定美元的稳定币。</li>
+              <li>交易所 = 平台替你保管；钱包 = 自己保管。</li>
+              <li>同一个币可以在不同的“链”上，转账时收发两边必须选同一条链。</li>
+            </ul>
+          </div>
+
+          <h2>区块链：一本大家一起记的账本</h2>
+          <p>想象一个村子不用银行，所有人都拿着同一本账本：张三转给李四 10 块，全村人一起核对、一起记上。想偷偷改一笔账，就得同时改掉大多数人手里的账本，几乎不可能。</p>
+          <p>区块链就是这样的“公共账本”，只不过记账的是全世界成千上万台电脑。<b>加密货币</b>就是记在这本账上的数字资产。</p>
+
+          <h2>四个最常见的币</h2>
+          <div class="grid-2">
+            <div class="tile"><span class="tag">波动资产</span><h3>BTC · 比特币</h3><p>2009 年诞生的第一个加密货币，总量上限 2100 万枚。很多人把它当“数字黄金”，但它的价格涨跌幅度远大于黄金。</p></div>
+            <div class="tile"><span class="tag">波动资产</span><h3>ETH · 以太币</h3><p>以太坊网络的“燃料”。以太坊像一台全球共享的电脑，能运行各种应用；在上面转账、使用应用都要用 ETH 付手续费。</p></div>
+            <div class="tile"><span class="tag green">稳定币</span><h3>USDT · 泰达币</h3><p>Tether 公司发行，目标 1 USDT ≈ 1 美元。中文圈说的“U”“买 U”基本就是它，是交易所里最常用的计价币。</p></div>
+            <div class="tile"><span class="tag green">稳定币</span><h3>USDC</h3><p>Circle 公司发行，目标 1 USDC ≈ 1 美元，定期公布由会计师事务所出具的储备鉴证报告。在部分合规平台和支付场景更常见。</p></div>
+          </div>
+
+          <div class="grid-3">
+            <figure class="art"><img src="./assets/guizang-illustrations/basics-assets.svg" alt="BTC、ETH 与 USDT、USDC 的区别示意" loading="lazy" decoding="async" width="936" height="500" /><figcaption>BTC / ETH 会波动；USDT / USDC 目标锚定美元</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/basics-exchange-wallet.svg" alt="交易所账户与 Web3 钱包的关系示意" loading="lazy" decoding="async" width="936" height="500" /><figcaption>交易所账户和 Web3 钱包是两套体系</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/basics-chain-transfer.svg" alt="USDT 在不同链上转账示意" loading="lazy" decoding="async" width="936" height="500" /><figcaption>同样是 USDT，链要前后一致</figcaption></figure>
+          </div>
+
+          <h2>USDT 和 USDC 怎么选？</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>对比</th><th>USDT</th><th>USDC</th><th>新手怎么理解</th></tr></thead>
+              <tbody>
+                <tr><td>发行方</td><td>Tether</td><td>Circle</td><td>发行方不同，储备、披露和合规情况不同。</td></tr>
+                <tr><td>锚定目标</td><td>≈ 1 美元</td><td>≈ 1 美元</td><td>“目标”不等于保证，都发生过短暂偏离。</td></tr>
+                <tr><td>常见场景</td><td>交易所交易、P2P 买卖最常用</td><td>合规平台、支付、部分 DeFi</td><td>先看你用的平台支持哪个、手续费多少。</td></tr>
+                <tr><td>主要风险</td><td colspan="2">发行方风险、储备风险、监管风险、平台和链的风险</td><td>不说哪个一定更好，都不是银行存款。</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>交易所 vs 钱包：谁替你拿着钥匙？</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>交易所账户（托管）</th><th>Web3 钱包（自托管）</th></tr></thead>
+              <tbody>
+                <tr><td>像什么</td><td>银行账户 / 证券账户</td><td>你自己的保险箱</td></tr>
+                <tr><td>谁保管资产</td><td>平台</td><td>你自己（助记词 / 私钥）</td></tr>
+                <tr><td>忘记密码</td><td>可以找客服重置</td><td>丢了助记词，谁也帮不了你</td></tr>
+                <tr><td>主要风险</td><td>平台倒闭、被盗、冻结账户</td><td>助记词泄露、签错授权、转错地址</td></tr>
+                <tr><td>适合</td><td>买卖、出入金、新手起步</td><td>使用链上应用、长期自己保管</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>圈内有句话：“Not your keys, not your coins”——钥匙不在你手上，币就不完全是你的。但自己保管也意味着出错没人兜底。<b>新手建议：先在交易所熟悉流程，再小额练习钱包。</b></p>
+
+          <h2>链、地址、手续费</h2>
+          <ul>
+            <li><b>链（网络）：</b>不同的区块链，比如 Ethereum（以太坊）、TRON（波场）、BNB Chain、Solana。<b>同一个 USDT 可以在好几条链上存在</b>，就像同一种快递可以走顺丰也可以走邮政，但收件方必须在对应的网点取件。</li>
+            <li><b>地址：</b>链上的收款账号，一长串字母和数字，比如以太坊地址以 <code>0x</code> 开头，TRON 地址以 <code>T</code> 开头。</li>
+            <li><b>Gas（手续费）：</b>在链上做任何操作，都要用这条链的“原生币”付手续费：以太坊用 ETH，BNB Chain 用 BNB，TRON 用 TRX，Solana 用 SOL。</li>
+            <li><b>Memo / Tag：</b>部分币充值到交易所时要额外填的“备注号”，第 6 课详细讲。</li>
+          </ul>
+
+          <h2>现货、合约、理财，有什么不同？</h2>
+          <div class="grid-3">
+            <div class="tile"><span class="tag green">新手可以学</span><h3>现货</h3><p>真的买入这个币。涨了你赚，跌了你亏，最多亏光本金。</p></div>
+            <div class="tile"><span class="tag red">新手别碰</span><h3>合约 / 杠杆</h3><p>借钱放大仓位，赚亏都被放大，价格反向波动一点就可能爆仓清零。</p></div>
+            <div class="tile"><span class="tag orange">看清再说</span><h3>理财 / 赚币</h3><p>把币存进平台产品拿利息。要看清是活期还是锁定、收益从哪来、平台出问题时能否取出。收益越高风险越高。</p></div>
+          </div>
+
+          <h2 id="glossary">术语表（可搜索）</h2>
+          <p>看到不懂的词，就在这里搜。包括圈内常见的“黑话”。</p>
+          <div class="glossary">
+            <input type="search" id="glossarySearch" placeholder="搜索术语，例如：Gas、助记词、爆仓、U 商" aria-label="搜索术语" autocomplete="off" />
+            <div class="glossary-filters" id="glossaryFilters" role="group" aria-label="术语分类"></div>
+            <dl class="glossary-list" id="glossaryList"></dl>
+            <p class="glossary-empty" id="glossaryEmpty" hidden>没找到这个词，试试换个说法。</p>
+          </div>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://bitcoin.org/en/faq" target="_blank" rel="noopener">Bitcoin.org FAQ</a>
+            <a href="https://ethereum.org/developers/docs/intro-to-ethereum/" target="_blank" rel="noopener">Ethereum.org：以太坊简介</a>
+            <a href="https://tether.to/en/how-it-works/" target="_blank" rel="noopener">Tether：How it works</a>
+            <a href="https://developers.circle.com/stablecoins/what-is-usdc" target="_blank" rel="noopener">Circle：What is USDC</a>
+            <a href="https://www.binance.com/en/academy/articles/why-do-stablecoins-depeg" target="_blank" rel="noopener">Binance Academy：稳定币为什么会脱锚</a>
+          </div>
+        </section>
+
+        <!-- ============ 第 4 课 交易所 ============ -->
+        <section class="chapter" id="exchange" data-short="选交易所与注册" data-stage="第三阶段 · 动手操作" data-minutes="8">
+          <header class="ch-head">
+            <p class="kicker">第 4 课 · 约 8 分钟</p>
+            <h1>选交易所与注册：一步步开好账户</h1>
+            <p class="lead">交易所是大多数人进入币圈的第一站。这一课教你怎么选、怎么注册、怎么做实名认证，以及注册后马上要做的安全设置。</p>
+          </header>
+
+          <div class="callout yellow">
+            <strong>🎁 注册前先复制邀请码</strong>
+            <p>多数交易所的邀请码<b>只能在注册时填写</b>，注册后通常不能补填。点下面卡片的“打开注册页”会自动带上邀请码；如果注册页的邀请码栏是空的，就点“复制”再粘贴进去。</p>
+          </div>
+          <div data-ref="binance-exchange,okx-exchange,bitget-exchange,bybit-exchange"></div>
+
+          <h2>怎么选交易所？看这 6 点</h2>
+          <div class="grid-2">
+            <div class="tile"><h3>① 你所在地区能不能用</h3><p>每家都有“受限地区”名单。所在地区不支持，注册了也可能被限制或冻结。</p></div>
+            <div class="tile"><h3>② 规模和流动性</h3><p>大平台交易的人多，买卖价差小、成交快。小平台跑路风险更高。</p></div>
+            <div class="tile"><h3>③ 储备证明（PoR）</h3><p>看平台是否定期公布“用户资产 1:1 储备”证明。有总比没有好，但不等于绝对安全。</p></div>
+            <div class="tile"><h3>④ 安全记录与处理方式</h3><p>出过安全事件不可怕，关键看有没有赔付用户、有没有公开说明。</p></div>
+            <div class="tile"><h3>⑤ 入金方式</h3><p>是否支持你能用的方式：P2P、银行卡、第三方支付等。</p></div>
+            <div class="tile"><h3>⑥ 中文支持和客服</h3><p>新手遇到问题时，能找到中文在线客服很重要。</p></div>
+          </div>
+
+          <h2>四家常见交易所速览</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>平台</th><th>成立</th><th>你需要知道的公开信息</th><th>邀请码</th></tr></thead>
+              <tbody>
+                <tr><td><b>币安 Binance</b></td><td>2017 年</td><td>交易量长期位居全球前列。2023 年 11 月与美国司法部等达成和解，支付约 43 亿美元，创始人赵长鹏卸任 CEO。</td><td><code>BTC10888</code></td></tr>
+                <tr><td><b>OKX</b></td><td>2017 年（前身 OKEx）</td><td>全球大型交易所之一，同时有 OKX 钱包。2025 年 2 月其关联公司在美国认罪并支付约 5.05 亿美元。</td><td><code>3604739</code></td></tr>
+                <tr><td><b>Bitget</b></td><td>2018 年</td><td>以跟单交易出名（跟单本质是合约，新手慎用）。公开发布储备证明。</td><td><code>0LJJYSJ8</code></td></tr>
+                <tr><td><b>Bybit</b></td><td>2018 年</td><td>2025 年 2 月被盗约 15 亿美元，平台称已补足用户资产、提币未受影响。有 Bybit Card。</td><td><code>M881VM</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fineprint">以上为公开报道的事实整理，不代表推荐任何一家。可以注册两家，互为备用。</p>
+
+          <h2>注册步骤（以手机 App 为例）</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/exchange-register.svg" alt="交易所注册示意：邮箱、手机、密码" loading="lazy" decoding="async" width="936" height="500" /><figcaption>注册三要素：邮箱 / 手机、密码、邀请码</figcaption></figure>
+          <ol class="steps">
+            <li><b>点击上面的“打开注册页”</b>，或复制邀请码后进入官方注册页。</li>
+            <li><b>用邮箱或手机号注册：</b>建议用一个只给交易所用的邮箱。设置一个独立的强密码。</li>
+            <li><b>确认邀请码：</b>注册页一般有“邀请码（选填）”一栏，检查是否已自动填好；空的就粘贴进去。</li>
+            <li><b>输入验证码完成注册。</b>收不到验证码：查垃圾邮件、等 1 分钟再重发、确认手机号区号正确。</li>
+            <li><b>下载官方 App：</b>注册页通常会提示下载。只从官网或官方应用商店下载，安装前核对开发者名称。</li>
+            <li><b>登录 App，先做安全设置</b>（2FA、反钓鱼码、提现白名单，见第 2 课清单），再做实名认证。</li>
+          </ol>
+
+          <h2>实名认证（KYC）怎么一次通过</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/exchange-kyc.svg" alt="身份认证示意：证件、自拍、审核" loading="lazy" decoding="async" width="936" height="500" /><figcaption>KYC：证件 → 人脸 → 审核</figcaption></figure>
+          <ul>
+            <li>准备好有效证件（身份证或护照，以平台支持的为准），必须是<b>本人</b>的，年满 18 岁。</li>
+            <li>拍证件时光线充足、不反光、四个角完整入镜，别用截图或翻拍。</li>
+            <li>人脸识别时摘掉帽子和眼镜，按提示转头、眨眼。</li>
+            <li>填写的姓名、证件号、国家/地区要和证件一致。</li>
+            <li>审核一般几分钟到几天不等。被拒会提示原因，按提示重新提交即可。</li>
+          </ul>
+          <div class="callout warn">
+            <strong>千万别做</strong>
+            <p>不要用别人的身份认证，不要买卖实名账户，也不要帮别人认证。账户里的资金和行为都会算在证件主人头上。</p>
+          </div>
+
+          <h2>注册完先熟悉这几个页面</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/exchange-security.svg" alt="账户安全设置示意：二次验证、设备、反钓鱼" loading="lazy" decoding="async" width="936" height="500" /><figcaption>安全设置：二次验证、设备管理、反钓鱼码</figcaption></figure>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>页面</th><th>在哪</th><th>用来干嘛</th></tr></thead>
+              <tbody>
+                <tr><td>资产 / 钱包</td><td>底部导航“资产”</td><td>看余额，充值、提币、划转都从这里开始</td></tr>
+                <tr><td>资金账户 vs 现货账户</td><td>资产页内</td><td>P2P 买来的币通常在“资金账户”，要交易前可能需要“划转”到现货账户</td></tr>
+                <tr><td>交易 → 现货</td><td>底部导航“交易”</td><td>买卖币。注意别误入“合约”标签页</td></tr>
+                <tr><td>安全中心</td><td>个人中心 → 安全</td><td>2FA、反钓鱼码、白名单、设备管理</td></tr>
+                <tr><td>在线客服</td><td>个人中心 → 帮助/客服</td><td>遇到问题只在这里找客服，不信私信</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ 第 5 课 买 U ============ -->
+        <section class="chapter" id="buy" data-short="第一次买 U" data-stage="第三阶段 · 动手操作" data-minutes="9">
+          <header class="ch-head">
+            <p class="kicker">第 5 课 · 约 9 分钟</p>
+            <h1>第一次买 U：入金、P2P 和防冻卡</h1>
+            <p class="lead">“买 U”就是用钱换成 USDT。这一步是新手最容易出问题的地方，尤其是银行卡被冻结。请完整看完再操作。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>P2P 交易时，付款必须用<b>与实名同名</b>的账户，沟通和付款确认都在平台内完成。</li>
+              <li>没付款不点“已付款”；没收到钱不点“放币”。</li>
+              <li>冻卡风险无法完全避免，只能降低：选信誉高的商家、小额、保留记录。</li>
+            </ul>
+          </div>
+
+          <h2>买 U 的三种方式</h2>
+          <div class="grid-3">
+            <div class="tile"><h3>P2P / C2C 交易</h3><p>平台撮合你和个人商家：你转法币给商家，平台托管的 USDT 放给你。最常见，但有冻卡风险。</p></div>
+            <div class="tile"><h3>快捷买币 / 银行卡</h3><p>部分地区支持用银行卡、第三方支付直接买，手续费通常更高，是否可用取决于你所在地区。</p></div>
+            <div class="tile"><h3>别人转给你</h3><p>朋友直接转 USDT 到你的交易所地址或用平台内部转账。只接受你信任的人，避免陌生人。</p></div>
+          </div>
+
+          <figure class="art wide"><img src="./assets/guizang-illustrations/funding-buy-u.svg" alt="买 U 下单示意：价格、数量、确认" loading="lazy" decoding="async" width="936" height="500" /><figcaption>买 U 下单：看价格 → 填数量 → 确认</figcaption></figure>
+
+          <h2>P2P 买 U 完整步骤</h2>
+          <ol class="steps">
+            <li><b>完成 KYC，绑定收付款方式</b>（姓名必须和实名一致）。</li>
+            <li><b>进入 P2P / C2C 交易页，选择“购买 USDT”</b>，选择你的法币和付款方式。</li>
+            <li><b>挑选商家：</b>看成交单数、完成率（建议 95% 以上）、平均放币时间、是否有认证标识。价格明显比别人便宜很多的，要警惕。</li>
+            <li><b>下单：</b>输入金额，确认价格。下单后平台会锁定商家的 USDT。</li>
+            <li><b>在限定时间内付款：</b>用<b>你自己的</b>同名账户，按订单里显示的收款信息付款，金额一分不差。</li>
+            <li><b>付款完成后再点“我已付款”。</b>等待商家确认收款并放币。</li>
+            <li><b>到账：</b>USDT 进入“资金账户”。有问题不要私下解决，直接在订单页点“申诉”，由平台客服介入。</li>
+          </ol>
+
+          <div class="callout danger">
+            <strong>P2P 七个“千万不要”</strong>
+            <ul>
+              <li>不要加商家的微信、QQ、Telegram 私下交易，脱离平台就没有托管保护。</li>
+              <li>不要用别人的卡、也不要让别人用他的卡帮你付款（第三方付款）。</li>
+              <li>不要没付款就点“我已付款”，这可能被封号。</li>
+              <li>卖 U 时，不要在没确认收到钱之前放币，不要相信“付款截图”。</li>
+              <li>不要接受“多付一点，让你退差价”这类要求。</li>
+              <li>不要一次买很大金额，第一次建议几十到几百元先熟悉流程。</li>
+              <li>不要把交易所账户、银行卡借给任何人使用。</li>
+            </ul>
+          </div>
+
+          <h2>什么是“冻卡”？为什么会发生？</h2>
+          <p>你在 P2P 付款或收款时，对方的钱可能来自诈骗、赌博等违法资金（俗称“黑钱”）。警方追查这笔赃款时，会把资金流经的银行卡冻结，<b>你即使不知情也可能被冻结</b>。卖 U（收钱）的一方风险更高。</p>
+          <p>降低风险（只能降低，不能消除）的做法：</p>
+          <ul>
+            <li>选择成交量大、完成率高、有平台认证的商家。</li>
+            <li>单笔金额不要太大，不要短时间内频繁收付款。</li>
+            <li>保留好订单记录、聊天记录、付款凭证，被冻结时用来证明你是正常交易。</li>
+            <li>收款尽量只用一张专门的卡，不要用工资卡、房贷卡。</li>
+          </ul>
+          <p class="fineprint">再提醒一次：在中国大陆，法币与虚拟货币兑换属于被禁止的业务活动，相关交易不受法律保护（见第 1 课）。</p>
+
+          <h2>买到 U 之后：怎么买 BTC 等其他币</h2>
+          <p>在“交易 → 现货”里选择交易对，比如 <code>BTC/USDT</code>，意思是“用 USDT 买卖 BTC”。</p>
+          <div class="grid-2">
+            <div class="tile"><h3>市价单</h3><p>按当前市场价立刻成交。简单、快，适合新手小额练习。成交价可能和你看到的略有差别。</p></div>
+            <div class="tile"><h3>限价单</h3><p>你自己定一个价格，市场到了这个价才成交。不着急的时候可以用，可能一直不成交。</p></div>
+          </div>
+          <ul>
+            <li><b>手续费：</b>现货交易一般收 0.1% 左右（各平台、各等级不同，以页面为准）。</li>
+            <li><b>划转：</b>P2P 买来的 USDT 常在“资金账户”，交易前先“划转”到“现货/交易账户”。</li>
+            <li><b>别点错：</b>“合约”“杠杆”标签页和现货长得很像，下单前看清页面标题。</li>
+          </ul>
+
+          <h2>第一次买 U 计划表</h2>
+          <div class="checklist" data-checklist="first-buy">
+            <label><input type="checkbox" /> 已完成 KYC 和安全设置</label>
+            <label><input type="checkbox" /> 准备一张专门用来交易的同名银行卡 / 账户</label>
+            <label><input type="checkbox" /> 第一笔金额控制在小额（亏了也不心疼）</label>
+            <label><input type="checkbox" /> 选好了完成率高、成交量大的商家</label>
+            <label><input type="checkbox" /> 全程在平台内沟通，付款后才点“已付款”</label>
+            <label><input type="checkbox" /> 到账后截图保存订单记录</label>
+          </div>
+        </section>
+
+        <!-- ============ 第 6 课 转账 ============ -->
+        <section class="chapter" id="transfer" data-short="充值、提币与转账" data-stage="第三阶段 · 动手操作" data-minutes="9">
+          <header class="ch-head">
+            <p class="kicker">第 6 课 · 约 9 分钟</p>
+            <h1>充值、提币与转账：选对链，别转丢</h1>
+            <p class="lead">链上转账发出去就撤不回来。只要记住“同币、同链、地址核对、小额测试”四件事，就能避开绝大多数事故。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li><b>充值</b>是把币转进平台；<b>提币</b>是从平台转出去。本质都是链上转账。</li>
+              <li>收发两边：<b>同一个币 + 同一条链</b>。0x 开头的地址可能属于好几条链，更要选对。</li>
+              <li>同一平台用户之间优先用<b>内部转账</b>，通常免手续费、秒到。</li>
+            </ul>
+          </div>
+
+          <div class="grid-3">
+            <figure class="art"><img src="./assets/guizang-illustrations/funding-deposit.svg" alt="入金流程示意：渠道、金额、到账" loading="lazy" decoding="async" width="936" height="500" /><figcaption>充值：渠道 → 金额 → 到账</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/funding-withdraw.svg" alt="提币测试示意：链、地址、小额" loading="lazy" decoding="async" width="936" height="500" /><figcaption>提币：链 → 地址 → 小额测试</figcaption></figure>
+            <figure class="art"><img src="./assets/guizang-illustrations/wallet-address.svg" alt="收款地址核对示意" loading="lazy" decoding="async" width="936" height="500" /><figcaption>收款地址：复制 → 选链 → 核对</figcaption></figure>
+          </div>
+
+          <h2>常见的链，一张表看懂</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>网络</th><th>常见叫法</th><th>手续费用什么付</th><th>地址长什么样</th><th>特点</th></tr></thead>
+              <tbody>
+                <tr><td>Ethereum</td><td>ERC20、以太坊</td><td>ETH</td><td><code>0x</code> 开头，42 位</td><td>最通用，手续费通常较高</td></tr>
+                <tr><td>TRON</td><td>TRC20、波场</td><td>TRX（或能量）</td><td><code>T</code> 开头，34 位</td><td>USDT 转账很常用</td></tr>
+                <tr><td>BNB Smart Chain</td><td>BEP20、BSC</td><td>BNB</td><td><code>0x</code> 开头，42 位</td><td>手续费通常较低</td></tr>
+                <tr><td>Solana</td><td>SOL、SPL</td><td>SOL</td><td>32–44 位字母数字，无 0x</td><td>速度快，手续费低</td></tr>
+                <tr><td>Arbitrum / Base / Optimism</td><td>以太坊二层（L2）</td><td>ETH</td><td><code>0x</code> 开头，42 位</td><td>比以太坊主网便宜</td></tr>
+                <tr><td>Bitcoin</td><td>BTC 主网</td><td>BTC</td><td><code>1</code>、<code>3</code> 或 <code>bc1</code> 开头</td><td>只能转 BTC</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fineprint">手续费会随网络拥堵和币价变化，以平台提币页面显示为准。</p>
+          <div class="callout warn">
+            <strong>最容易踩的坑：0x 地址“通用”的错觉</strong>
+            <p>以太坊、BNB Chain、Arbitrum、Base 的地址格式一模一样，同一个钱包地址在这些链上都能用。所以你填对了地址、却选错了链，币可能到了<b>对方不支持的网络</b>上。交易所遇到这种情况可能需要人工找回、收手续费，也可能不支持找回。</p>
+          </div>
+
+          <h2>提币标准流程（每次都照做）</h2>
+          <ol class="steps">
+            <li><b>在接收方打开“充值/收款”：</b>选好币种和网络，复制地址。记下接收方支持的网络名称。</li>
+            <li><b>在发送方打开“提币”：</b>选择同一个币，<b>选择和接收方完全一致的网络</b>。</li>
+            <li><b>粘贴地址，核对：</b>开头 4–6 位、结尾 4–6 位、中间再随机看几位。不要手打，不要从历史记录里复制。</li>
+            <li><b>需要 Memo / Tag 的币一定要填</b>（见下面）。</li>
+            <li><b>输入数量：</b>注意页面显示的手续费和“实际到账数量”，以及最小提币额。</li>
+            <li><b>完成安全验证</b>（邮箱、短信、2FA），提交。</li>
+            <li><b>第一次先转小额，</b>在接收方确认到账后，再转剩下的。</li>
+            <li><b>复制 TxID 到区块浏览器查状态</b>，到账记录截图保存。</li>
+          </ol>
+
+          <h2>Memo / Tag 是什么？</h2>
+          <p>交易所为了省事，会让很多用户共用同一个充值地址，再用一个“备注号”区分是谁的钱。XRP、XLM、TON、ATOM、EOS 等币充值到交易所时常需要 Memo（也叫 Tag、备注、Destination Tag）。<b>充值页面显示了 Memo，就必须填；漏填可能无法自动到账</b>，只能提交工单申请找回。转到个人钱包通常不需要。</p>
+
+          <h2>内部转账：同平台最省事</h2>
+          <p>如果收发双方都在同一个交易所，可以用“内部转账 / 站内转账”，输入对方的 UID、邮箱或手机号即可，通常<b>免手续费、即时到账、不上链</b>。但同样要确认对方身份，转错人一样很难要回。</p>
+
+          <h2>到账慢、转错了怎么办？</h2>
+          <div class="faq-list">
+            <details><summary>提币显示成功，但对方没到账</summary><p>复制 TxID 到对应的区块浏览器查看：如果还在“确认中”，耐心等待；如果已成功但交易所没入账，带上 TxID 联系接收方平台客服。</p></details>
+            <details><summary>选错了网络</summary><p>如果接收方平台不支持该网络，立即带上 TxID 联系接收方客服询问能否找回，可能收费，也可能无法找回。不要相信网上自称能帮忙找回的“技术员”。</p></details>
+            <details><summary>漏填了 Memo</summary><p>联系接收方交易所客服，提交 TxID、充值地址、币种等信息申请人工找回，通常需要几天，可能收手续费。</p></details>
+            <details><summary>转到了错误的地址</summary><p>如果地址属于别人或骗子，基本无法追回。这也是为什么第一次必须小额测试。</p></details>
+          </div>
+
+          <h2>常用区块浏览器</h2>
+          <div class="link-grid">
+            <a href="https://etherscan.io/" target="_blank" rel="noopener"><b>Etherscan</b><span>以太坊</span></a>
+            <a href="https://tronscan.org/" target="_blank" rel="noopener"><b>Tronscan</b><span>TRON 波场</span></a>
+            <a href="https://bscscan.com/" target="_blank" rel="noopener"><b>BscScan</b><span>BNB Chain</span></a>
+            <a href="https://solscan.io/" target="_blank" rel="noopener"><b>Solscan</b><span>Solana</span></a>
+            <a href="https://arbiscan.io/" target="_blank" rel="noopener"><b>Arbiscan</b><span>Arbitrum</span></a>
+            <a href="https://mempool.space/" target="_blank" rel="noopener"><b>mempool.space</b><span>Bitcoin</span></a>
+          </div>
+        </section>
+
+        <!-- ============ 第 7 课 钱包 ============ -->
+        <section class="chapter" id="wallet" data-short="Web3 钱包" data-stage="第三阶段 · 动手操作" data-minutes="9">
+          <header class="ch-head">
+            <p class="kicker">第 7 课 · 约 9 分钟</p>
+            <h1>Web3 钱包：自己保管，自己负责</h1>
+            <p class="lead">钱包让你真正掌控自己的币，也能使用各种链上应用。代价是：没有客服、没有找回密码，出错全靠自己。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>助记词 = 钱包本身。手写离线保存，不截图、不存云、不发给任何人。</li>
+              <li>钱包里要留一点原生币（ETH、BNB、SOL、TRX）付手续费。</li>
+              <li>看不懂的授权和签名不要点；用不到的授权定期撤销。</li>
+            </ul>
+          </div>
+
+          <div class="callout yellow">
+            <strong>🎁 钱包邀请码</strong>
+            <p>币安钱包和 OKX 钱包都内置在各自交易所 App 中，也可以通过下面的链接进入。</p>
+          </div>
+          <div data-ref="binance-wallet,okx-wallet"></div>
+
+          <h2>钱包有哪几种？</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>类型</th><th>例子</th><th>优点</th><th>注意</th></tr></thead>
+              <tbody>
+                <tr><td>交易所内置 Web3 钱包</td><td>币安钱包、OKX 钱包</td><td>和交易所账户打通，充提方便，适合新手</td><td>部分采用 MPC 方案，恢复方式以 App 说明为准</td></tr>
+                <tr><td>手机 / 浏览器插件钱包</td><td>MetaMask、Trust Wallet、OKX 钱包插件</td><td>通用，支持各种 DApp</td><td>助记词完全由你自己保管</td></tr>
+                <tr><td>硬件钱包（冷钱包）</td><td>Ledger、Trezor 等</td><td>私钥不联网，最安全</td><td>需要购买设备；只从官方渠道买，不买二手</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>助记词：最重要的 12 个单词</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/wallet-seed.svg" alt="助记词备份示意：备份、离线、恢复" loading="lazy" decoding="async" width="936" height="500" /><figcaption>助记词：手写备份 → 离线保存 → 能恢复</figcaption></figure>
+          <p>创建钱包时会给你 12 或 24 个英文单词，这就是<b>助记词</b>。用它可以在任何设备上恢复你的钱包——所以别人拿到它，也能在他的手机上“恢复”出你的钱包，把币转走。</p>
+          <div class="grid-2">
+            <div class="tile ok"><h3>✅ 正确做法</h3><ul><li>用纸笔按顺序抄写，核对一遍</li><li>抄两份，放在不同的安全地方</li><li>有条件的可以用金属助记词板防火防水</li><li>小额测试一次“删除钱包 → 用助记词恢复”</li></ul></div>
+            <div class="tile bad"><h3>❌ 绝对不要</h3><ul><li>截图、拍照、存相册或网盘</li><li>复制到备忘录、微信收藏、邮件</li><li>输入到任何网站或“验证”页面</li><li>告诉任何人，包括“官方客服”</li></ul></div>
+          </div>
+          <p class="fineprint">交易所内置的 MPC 钱包可能不显示传统助记词，而是用云端备份、恢复密码等方式。无论哪种形式，恢复凭证同样不能给任何人。</p>
+
+          <h2>第一次用钱包：小额练习流程</h2>
+          <ol class="steps">
+            <li><b>从官方渠道安装</b>钱包 App 或浏览器插件（或直接用交易所 App 里的 Web3 钱包）。</li>
+            <li><b>创建钱包，抄写助记词</b>，按提示完成验证。设置一个开锁密码（这个密码只保护本机，不能代替助记词）。</li>
+            <li><b>复制收款地址：</b>选好网络，比如 BNB Chain。</li>
+            <li><b>从交易所提一点原生币</b>（如少量 BNB）到这个地址，用作手续费。</li>
+            <li><b>再提小额 USDT</b>，同样的网络，到账后确认余额。</li>
+            <li><b>试着把一部分转回交易所</b>，完整走一遍“出去—回来”。</li>
+          </ol>
+          <div class="callout warn">
+            <strong>为什么我的 USDT 转不出去？</strong>
+            <p>新手最常见的问题：钱包里只有 USDT，没有付手续费用的原生币。在以太坊上转 USDT 要有 ETH，在 BNB Chain 上要有 BNB，在 TRON 上要有 TRX（或能量），在 Solana 上要有 SOL。</p>
+          </div>
+
+          <h2>授权与签名：钱包被盗的头号原因</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/wallet-approval.svg" alt="授权管理示意：签名、额度、撤销" loading="lazy" decoding="async" width="936" height="500" /><figcaption>授权：看清对象 → 控制额度 → 用完撤销</figcaption></figure>
+          <p>当你在去中心化交易所（DEX）兑换币时，钱包会先让你“授权”，允许这个合约动用你的某种币。很多网站默认申请<b>无限额度</b>。如果你授权给的是恶意合约，它可以随时把这种币全部转走。</p>
+          <ul>
+            <li><b>只在你主动访问的官方网站上授权。</b>网址从书签打开，不点群里、推特评论里的链接。</li>
+            <li><b>看清授权对象和额度。</b>可以把额度改成本次需要的数量。</li>
+            <li><b>看不懂的签名不要点</b>，尤其是写着 Permit、SetApprovalForAll、“离线签名”的请求。</li>
+            <li><b>定期检查和撤销授权：</b>用钱包自带的“授权管理”，或 <a href="https://revoke.cash/" target="_blank" rel="noopener">revoke.cash</a> 这类工具（撤销本身也要付一点 Gas）。</li>
+            <li><b>钱包里突然多出来的陌生代币不要碰</b>，不要去它提示的网站“兑换”，那往往是钓鱼诱饵。</li>
+          </ul>
+
+          <h2>进阶：用钱包兑换币（Swap）</h2>
+          <ul>
+            <li><b>认准合约地址：</b>链上任何人都能发一个叫“USDT”的假币。兑换前从 CoinGecko、CoinMarketCap 或项目官网核对代币合约地址。</li>
+            <li><b>滑点：</b>设置能接受的价格偏差，一般 0.5%–1% 足够；动不动要你设 10%+ 的，多半有问题。</li>
+            <li><b>分开放：</b>长期存放的钱包和日常“玩”的钱包分开，玩的钱包只放小额。</li>
+          </ul>
+        </section>
+
+        <!-- ============ 第 8 课 U 卡 ============ -->
+        <section class="chapter" id="card" data-short="U 卡" data-stage="第四阶段 · 进阶" data-minutes="6">
+          <header class="ch-head">
+            <p class="kicker">第 8 课 · 约 6 分钟</p>
+            <h1>U 卡：用 USDT 刷卡消费</h1>
+            <p class="lead">U 卡是把加密资产和日常消费连接起来的银行卡类产品。它能不能用、划不划算，很大程度取决于你在哪、怎么用。</p>
+          </header>
+
+          <div class="callout yellow">
+            <strong>🎁 U 卡邀请码</strong>
+            <p>Bybit Card 可以直接点链接申请；Bitget Card 暂无直达链接，请在 Bitget App 的卡片页面申请时填写邀请码。</p>
+          </div>
+          <div data-ref="bybit-card,bitget-card"></div>
+
+          <h2>U 卡是什么？</h2>
+          <p>U 卡通常是由交易所和持牌的发卡机构合作发行的 Visa 或 Mastercard 卡。你在卡账户里放 USDT 等资产，刷卡时按实时汇率换成当地货币付给商家。</p>
+          <ul>
+            <li><b>虚拟卡：</b>申请快，可绑定 Apple Pay / Google Pay（视地区）或用于网购订阅。</li>
+            <li><b>实体卡：</b>可线下刷卡、ATM 取现，可能要邮寄和付工本费。</li>
+          </ul>
+
+          <h2>申请流程</h2>
+          <figure class="art wide"><img src="./assets/guizang-illustrations/ucard-region.svg" alt="U 卡申请示意：地区、材料、申请、小额测试" loading="lazy" decoding="async" width="936" height="500" /><figcaption>U 卡：确认地区 → 准备材料 → 申请 → 小额测试</figcaption></figure>
+          <ol class="steps">
+            <li><b>确认你所在地区是否支持：</b>在 App 的卡片页面查看。不同国家开放情况差别很大，且会调整。</li>
+            <li><b>完成平台 KYC：</b>部分地区需要额外的地址证明。</li>
+            <li><b>提交申请，填写邀请码</b>，先申请虚拟卡。</li>
+            <li><b>划转少量资产到卡账户</b>，绑定支付方式。</li>
+            <li><b>小额消费测试：</b>看扣款金额、汇率、手续费、返现到账情况是否和说明一致。</li>
+          </ol>
+
+          <h2>申请前，把这张费用清单问清楚</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>费用 / 规则</th><th>要看什么</th></tr></thead>
+              <tbody>
+                <tr><td>开卡费、工本费</td><td>虚拟卡和实体卡是否收费</td></tr>
+                <tr><td>年费 / 月费</td><td>是否有，是否有免年费条件</td></tr>
+                <tr><td>兑换费、充值费</td><td>USDT 换成法币时收多少</td></tr>
+                <tr><td>外汇 / 跨境手续费</td><td>在国外或外币网站消费时额外收多少</td></tr>
+                <tr><td>ATM 取现费</td><td>平台收费 + ATM 运营商收费</td></tr>
+                <tr><td>返现规则</td><td>返现比例、每月上限、是否需要持有平台币或达到 VIP 等级、返现发什么币</td></tr>
+                <tr><td>不支持的商户</td><td>部分类别（如博彩、部分订阅、某些国家商户）可能被拒付</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>U 卡的风险</h2>
+          <ul>
+            <li><b>政策变化：</b>发卡机构、卡组织或当地监管变化，可能导致某地区停卡。历史上（2020 年）英国监管叫停 Wirecard 旗下发卡机构，多家加密卡一度无法使用。</li>
+            <li><b>不是银行存款：</b>卡账户里的资产通常不受存款保险保护。</li>
+            <li><b>风控冻结：</b>异常交易可能被拒付或冻结卡片。</li>
+            <li><b>税务与合规：</b>部分地区用加密资产消费可能被视为“卖出”，涉及申报。</li>
+            <li><b>中国大陆用户：</b>请先看第 1 课的法规说明；能否申请以官方页面为准。</li>
+          </ul>
+          <p>原则：<b>卡里只放近期要花的钱</b>，不要当储蓄账户用。</p>
+
+          <div class="callout">
+            <strong>想对比更多 U 卡？</strong>
+            <p>返现、手续费、地区支持等更细的对比可以看 <a href="https://91vrvd.github.io/ucards-compare/" target="_blank" rel="noopener">U 卡对比百科</a>（同一站长维护，数据以各卡官方页面为准）。</p>
+          </div>
+        </section>
+
+        <!-- ============ 第 9 课 美股 ============ -->
+        <section class="chapter" id="stocks" data-short="用 U 买美股" data-stage="第四阶段 · 进阶" data-minutes="8">
+          <header class="ch-head">
+            <p class="kicker">第 9 课 · 约 8 分钟</p>
+            <h1>用 U 买美股：代币化股票是什么</h1>
+            <p class="lead">现在一些平台可以用 USDT 买“跟踪美股价格的代币”。它方便，但和你在券商买股票不是一回事。这一课只讲清楚产品和风险，不推荐任何股票。</p>
+          </header>
+
+          <div class="tldr">
+            <strong>本课要点</strong>
+            <ul>
+              <li>代币化股票由发行方买入真实股票托管，再在链上发行 1:1 的代币。</li>
+              <li>它<b>通常不等于你直接持有股票</b>，没有股东投票权，也不对美国用户开放。</li>
+              <li>中国大陆的新规明确把“现实世界资产代币”纳入风险提示范围。</li>
+            </ul>
+          </div>
+
+          <figure class="art wide"><img src="./assets/guizang-illustrations/stock-purchase-principle.svg" alt="加密货币购买美股示意：钱包、稳定币、美股产品、股息" loading="lazy" decoding="async" width="936" height="500" /><figcaption>代币化股票：稳定币 → 平台 / 钱包 → 跟踪股价的代币</figcaption></figure>
+
+          <h2>两种主流产品</h2>
+          <div class="grid-2">
+            <div class="tile"><span class="tag">币安</span><h3>bStocks</h3><p>币安 2026 年 6 月推出，发行在 BNB Chain 上。官方说法是由受监管的托管机构持有对应股票，每个代币 1:1 对应一股，可 7×24 小时交易，符合条件的用户可获得股息，代币可提到币安钱包等自托管钱包。上线初期有英伟达、特斯拉等少数几只，仅对可用地区的合格用户开放。</p></div>
+            <div class="tile"><span class="tag">Backed</span><h3>xStocks</h3><p>由 Backed Finance 发行，2025 年 6 月 30 日上线 Bybit、Kraken 和 Solana 上的 DeFi 应用，首批 60 多只美股和 ETF。面向非美国用户。</p></div>
+          </div>
+
+          <h2>和传统券商买股票有什么不同？</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>传统券商</th><th>代币化股票</th></tr></thead>
+              <tbody>
+                <tr><td>你持有的是</td><td>股票本身（登记在你或券商名下）</td><td>发行方发的代币，代表对底层股票的经济权益</td></tr>
+                <tr><td>股东投票权</td><td>有</td><td>通常没有</td></tr>
+                <tr><td>股息</td><td>按规则发放</td><td>看产品规则，可能以代币或 USDT 形式发放</td></tr>
+                <tr><td>交易时间</td><td>交易所开盘时间</td><td>可能 7×24 小时，但休市时价格可能偏离正股</td></tr>
+                <tr><td>投资者保护</td><td>受当地证券法规和投资者保护机制约束</td><td>取决于发行方和托管安排，保护通常更弱</td></tr>
+                <tr><td>门槛</td><td>开户审核、资金出入境限制</td><td>有 USDT 即可，起投金额低</td></tr>
+                <tr><td>地区</td><td>看券商</td><td>不对美国用户开放，其他地区以平台为准</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>如果你想了解 bStocks（一般步骤）</h2>
+          <ol class="steps">
+            <li><b>先确认你所在地区是否可用</b>，阅读币安官方的产品说明和风险披露。</li>
+            <li><b>准备好已完成 KYC 的币安账户和 USDT</b>；如果要提到自托管钱包，还要准备少量 BNB 作手续费。</li>
+            <li><b>搞清楚规则：</b>代币对应哪只股票、股息怎么发、怎么卖出、休市时价格如何确定、费用多少。</li>
+            <li><b>只用小额体验</b>，确认买入、持有、卖出整个流程。</li>
+          </ol>
+          <div data-ref="binance-exchange,binance-wallet"></div>
+          <p class="fineprint">bStocks 的入口、可交易标的和可用地区会变化，以币安官方公告为准。</p>
+
+          <div class="callout danger">
+            <strong>风险提示</strong>
+            <ul>
+              <li><b>价格风险：</b>代币跟踪的是股价，股票本身会涨也会跌。</li>
+              <li><b>发行方与托管风险：</b>你依赖发行方和托管机构真实、足额地持有股票。</li>
+              <li><b>流动性与价差：</b>交易量小的时候，买卖价可能明显偏离正股。</li>
+              <li><b>智能合约风险：</b>放进 DeFi 使用时，还有合约漏洞、清算等风险。</li>
+              <li><b>法律与税务：</b>银发〔2026〕42 号通知写明，投资“现实世界资产代币及相关金融产品”违背公序良俗的，相关民事法律行为无效、损失自担。其他地区也可能有申报义务。</li>
+            </ul>
+          </div>
+
+          <h2>另一条路：传统券商</h2>
+          <p>如果你所在地区允许，通过持牌券商开户买美股，持有的是真正的股票，有更完整的投资者保护。缺点是开户审核更严、资金进出要符合当地外汇规定。中国大陆居民的个人购汇额度有用途限制，不能用于境外证券投资等未开放项目。</p>
+
+          <div class="sources">
+            <strong>参考来源</strong>
+            <a href="https://thedefiant.io/news/tradfi-and-fintech/binance-launches-bstocks-tokenized-us-equities-24-7-onchain-trading" target="_blank" rel="noopener">The Defiant：Binance 推出 bStocks</a>
+            <a href="https://www.livebitcoinnews.com/binance-launches-bstocks-on-bnb-chain-with-self-custody-and-dividends/" target="_blank" rel="noopener">bStocks 上线细节（2026-06）</a>
+            <a href="https://backed.fi/news-updates/xstocks-are-going-live-tokenized-stocks-for-the-defi-era" target="_blank" rel="noopener">Backed：xStocks 上线公告</a>
+            <a href="https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml" target="_blank" rel="noopener">银发〔2026〕42 号通知</a>
+          </div>
+        </section>
+
+        <!-- ============ 第 10 课 工具 ============ -->
+        <section class="chapter" id="tools" data-short="工具箱" data-stage="第四阶段 · 进阶" data-minutes="4">
+          <header class="ch-head">
+            <p class="kicker">第 10 课 · 约 4 分钟</p>
+            <h1>工具箱：查行情、查链上、做研究</h1>
+            <p class="lead">工具帮你查资料、核对信息，不能替你做决定。任何工具上的观点、评分都要交叉验证，不能当买卖建议。</p>
+          </header>
+
+          <h2>行情与币种信息</h2>
+          <div class="link-grid">
+            <a href="https://www.coingecko.com/" target="_blank" rel="noopener"><b>CoinGecko</b><span>币价、市值、官网和合约地址核对</span></a>
+            <a href="https://coinmarketcap.com/" target="_blank" rel="noopener"><b>CoinMarketCap</b><span>币价排行、交易所数据</span></a>
+            <a href="https://www.tradingview.com/" target="_blank" rel="noopener"><b>TradingView</b><span>看 K 线图表</span></a>
+            <a href="https://defillama.com/" target="_blank" rel="noopener"><b>DefiLlama</b><span>DeFi、稳定币、链的数据</span></a>
+          </div>
+
+          <h2>安全与链上</h2>
+          <div class="link-grid">
+            <a href="https://revoke.cash/" target="_blank" rel="noopener"><b>revoke.cash</b><span>检查和撤销钱包授权</span></a>
+            <a href="https://etherscan.io/" target="_blank" rel="noopener"><b>Etherscan</b><span>以太坊区块浏览器</span></a>
+            <a href="https://tronscan.org/" target="_blank" rel="noopener"><b>Tronscan</b><span>TRON 区块浏览器</span></a>
+            <a href="https://bscscan.com/" target="_blank" rel="noopener"><b>BscScan</b><span>BNB Chain 区块浏览器</span></a>
+          </div>
+
+          <h2>美股研究工具</h2>
+          <div class="link-grid">
+            <a href="https://finviz.com/" target="_blank" rel="noopener"><b>Finviz</b><span>热力图、筛选器，快速看市场结构</span></a>
+            <a href="https://stockanalysis.com/" target="_blank" rel="noopener"><b>StockAnalysis</b><span>财报、估值、公司基本数据</span></a>
+            <a href="https://seekingalpha.com/" target="_blank" rel="noopener"><b>Seeking Alpha</b><span>个股分析文章，注意区分观点和事实</span></a>
+            <a href="https://etfdb.com/" target="_blank" rel="noopener"><b>ETF Database</b><span>比较 ETF 的成分和费用</span></a>
+            <a href="https://companiesmarketcap.com/" target="_blank" rel="noopener"><b>CompaniesMarketCap</b><span>全球公司市值排名</span></a>
+            <a href="https://www.koyfin.com/" target="_blank" rel="noopener"><b>Koyfin</b><span>系统看盘，宏观和资产对比</span></a>
+            <a href="https://en.macromicro.me/" target="_blank" rel="noopener"><b>MacroMicro</b><span>宏观数据和周期图表</span></a>
+            <a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener"><b>FRED</b><span>美国官方宏观数据：利率、通胀、就业</span></a>
+            <a href="https://www.reddit.com/r/stocks/" target="_blank" rel="noopener"><b>Reddit r/stocks</b><span>散户讨论，只能参考情绪</span></a>
+            <a href="https://www.analysis.site/" target="_blank" rel="noopener"><b>AnalysisSite</b><span>投研看板，汇总观察</span></a>
+          </div>
+
+          <div class="callout">
+            <strong>怎么用工具核对一个币是不是“真的”</strong>
+            <ol>
+              <li>在 CoinGecko / CoinMarketCap 搜索币名，进入详情页。</li>
+              <li>看“官网”“合约地址”，用这里的链接进入官网，不用搜索广告。</li>
+              <li>在钱包或 DEX 兑换时，核对代币合约地址和这里一致。</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ============ 第 11 课 FAQ ============ -->
+        <section class="chapter" id="faq" data-short="常见问题" data-stage="复习" data-minutes="5">
+          <header class="ch-head">
+            <p class="kicker">第 11 课 · 约 5 分钟</p>
+            <h1>常见问题</h1>
+            <p class="lead">新手问得最多的问题，都在这里。</p>
+          </header>
+          <div class="faq-list">
+            <details open><summary>完全小白应该先看哪一课？</summary><p>按顺序：第 1 课风险 → 第 2 课防骗 → 第 3 课基础概念，然后再注册和操作。不要一上来就转账或申请卡。</p></details>
+            <details><summary>入门需要多少钱？</summary><p>学习阶段不需要钱。第一次实操建议用很小的金额（比如几十到几百元）走通注册、买 U、提币、转回的全流程，熟悉后再决定是否继续。只用闲钱。</p></details>
+            <details><summary>买 U 和买 BTC 是一回事吗？</summary><p>不是。买 U 是买 USDT 这种目标锚定美元的稳定币；BTC 是价格大幅波动的资产。一般先买 U，再用 U 去买其他币。</p></details>
+            <details><summary>交易所账户是不是 Web3 钱包？</summary><p>不是。交易所账户是平台替你保管；Web3 钱包是你自己用助记词 / 私钥保管。交易所 App 里内置的“Web3 钱包”属于后者，和交易所账户余额是分开的。</p></details>
+            <details><summary>邀请码有什么用？注册完还能补填吗？</summary><p>邀请码记录你是谁推荐来的，部分平台会给通过邀请注册的用户手续费返还或新人活动。多数平台只能在注册时填写，注册后通常不能补填。具体返现比例以平台活动页为准。</p></details>
+            <details><summary>邀请码在哪里？</summary><p>点页面顶部的“🎁 邀请码”，或看最后一课“邀请码汇总”。相关课程里也有对应平台的卡片，点“复制”即可。</p></details>
+            <details><summary>可以只注册一家交易所吗？</summary><p>可以。但很多人会注册两家互为备用，避免某一家临时维护、限制地区时没法操作。</p></details>
+            <details><summary>KYC 一直不通过怎么办？</summary><p>检查证件是否在有效期、照片是否清晰无反光、填写信息是否与证件一致。仍不通过就联系 App 内在线客服。不要找人“代认证”。</p></details>
+            <details><summary>P2P 买 U 会不会冻卡？</summary><p>有可能，这是 P2P 最大的风险。选信誉高的商家、小额、同名账户、全程平台内沟通、保留记录可以降低风险，但无法完全避免。详见第 5 课。</p></details>
+            <details><summary>转账选哪条链最好？</summary><p>没有“最好”，只有“收发两边都支持”。先看接收方支持哪些网络，再在其中选手续费合适的。不确定就先小额测试。</p></details>
+            <details><summary>币转错了能找回吗？</summary><p>转错链、漏填 Memo 时，可以带 TxID 找接收方平台客服，有可能人工找回。转到错误的个人地址基本无法找回。网上声称能帮你追回的，基本是骗子。</p></details>
+            <details><summary>助记词丢了怎么办？</summary><p>如果钱包还在手机上能打开，立刻新建一个钱包并好好备份助记词，把资产转过去。如果钱包也打不开了，没有任何人能帮你恢复。</p></details>
+            <details><summary>需要买硬件钱包吗？</summary><p>刚入门、金额很小时不必。长期存放较大金额时可以考虑，一定从官方渠道购买，不买二手、不用别人帮你初始化的设备。</p></details>
+            <details><summary>群里老师说某个币要涨 10 倍，能跟吗？</summary><p>不能。免费带你赚钱的“老师”多半是在找人接盘。本站不推荐任何币种，也建议你不要相信任何喊单。</p></details>
+            <details><summary>U 卡适合所有人吗？</summary><p>不一定。U 卡强依赖地区、材料、费用和平台政策。先确认官方页面，卡里只放近期要花的钱。</p></details>
+            <details><summary>代币化美股是不是投资建议？</summary><p>不是。本站只解释产品形态和风险，不推荐任何股票，也不承诺收益。</p></details>
+            <details><summary>赚了钱要交税吗？</summary><p>多数国家和地区对加密资产买卖收益有纳税或申报要求，规则各不相同。请咨询当地税务专业人士。</p></details>
+          </div>
+        </section>
+
+        <!-- ============ 第 12 课 测验 ============ -->
+        <section class="chapter" id="quiz" data-short="闯关测验" data-stage="复习" data-minutes="5">
+          <header class="ch-head">
+            <p class="kicker">第 12 课 · 约 5 分钟</p>
+            <h1>闯关测验：10 道题检查你学会没</h1>
+            <p class="lead">测验不是考试，是为了防止你真操作时出错。答错的题会告诉你回看哪一课。</p>
+          </header>
+          <div class="quiz" id="quizApp">
+            <div class="quiz-top">
+              <span id="quizStep">第 1 / 10 题</span>
+              <div class="meter"><span id="quizBar"></span></div>
+            </div>
+            <h2 id="quizQ" class="quiz-q">题目加载中…</h2>
+            <p class="quiz-type" id="quizType"></p>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
+            <div class="quiz-actions">
+              <button class="btn primary" type="button" id="quizCheck">检查答案</button>
+              <button class="btn" type="button" id="quizNext" hidden>下一题 →</button>
+            </div>
+          </div>
+          <div class="quiz-result" id="quizResult" hidden></div>
+        </section>
+
+        <!-- ============ 第 13 课 邀请码 & 分享 ============ -->
+        <section class="chapter" id="codes" data-short="邀请码汇总与分享" data-stage="复习" data-minutes="2">
+          <header class="ch-head">
+            <p class="kicker">🎁 邀请码汇总</p>
+            <h1>全部平台邀请码</h1>
+            <p class="lead">8 个平台入口都在这里。点“复制”复制邀请码，点“打开”进入注册 / 申请页（会自动带上邀请码）。</p>
+          </header>
+
+          <div class="howto">
+            <div><span>1</span><p>点卡片上的<b>“打开注册页”</b></p></div>
+            <div><span>2</span><p>注册页检查<b>邀请码栏</b>是否已填好</p></div>
+            <div><span>3</span><p>没填就点<b>“复制”</b>再粘贴进去</p></div>
+          </div>
+
+          <div data-ref="all"></div>
+
+          <div class="callout">
+            <strong>使用前请注意</strong>
+            <p>返现比例、活动内容和地区支持随时可能调整，以平台官方页面为准。邀请码不会让你多付任何费用。注册前请确认所在地区的法律和平台规则（见第 1 课），注册后请完成第 2 课的安全设置。本站含邀请链接，站长可能因此获得平台返佣。</p>
+          </div>
+
+          <h2 id="share">分享给朋友</h2>
+          <p>帮刚入门的朋友少走弯路：先让他们看完第 1、2 课再操作。</p>
+          <div class="share-box">
+            <div class="share-main">
+              <div class="share-link">
+                <input type="text" readonly data-share-url aria-label="本站链接" />
+                <button class="btn yellow" type="button" data-copy-share>复制链接</button>
+              </div>
+              <div class="share-targets" data-share-targets></div>
+            </div>
+            <figure class="share-qr">
+              <div data-qr></div>
+              <figcaption>手机扫码打开本站</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <nav class="pager" id="pager" aria-label="上一课 / 下一课"></nav>
+      </main>
+    </div>
+
+    <nav class="mobile-bar" aria-label="手机端翻页">
+      <button type="button" id="mPrev" aria-label="上一课">‹ 上一课</button>
+      <button type="button" id="mToc" class="mid" aria-label="打开目录"><span id="mStep">1 / 14</span></button>
+      <button type="button" id="mNext" aria-label="下一课">下一课 ›</button>
+    </nav>
+
+    <div class="modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle" hidden>
+      <div class="modal-panel">
+        <button class="icon-btn modal-close" type="button" data-close-share aria-label="关闭">✕</button>
+        <h2 id="shareTitle">📤 分享给朋友</h2>
+        <p class="fineprint">把教程发给刚入门的朋友，帮他们先学安全再操作。</p>
+        <div class="share-link">
+          <input type="text" readonly data-share-url aria-label="本站链接" />
+          <button class="btn yellow" type="button" data-copy-share>复制</button>
         </div>
-
-        <button class="share-native hidden" type="button" id="nativeShare">📤 系统分享</button>
+        <div class="share-targets" data-share-targets></div>
+        <figure class="share-qr small">
+          <div data-qr></div>
+          <figcaption>手机扫码打开</figcaption>
+        </figure>
       </div>
     </div>
 
-    <script>
-      const chapters = [
-        { no: "01", short: "安全", title: "安全与防骗", en: "Security & Anti-Scam Basics", label: "Safety First" },
-        { no: "02", short: "基础", title: "基础概念", en: "Crypto Basics for Beginners", label: "Start Here" },
-        { no: "03", short: "交易所", title: "交易所注册", en: "Exchange Registration", label: "Open Account" },
-        { no: "04", short: "买 U", title: "充值 / 买 U / 提币", en: "Funding, Stablecoins & Withdrawal", label: "Small Test" },
-        { no: "05", short: "钱包", title: "Web3 钱包", en: "Self-Custody Wallets", label: "Wallet Rules" },
-        { no: "06", short: "U 卡", title: "U 卡申请", en: "Crypto Card Application", label: "Card Basics" },
-        { no: "07", short: "美股", title: "美股购买", en: "Tokenized Stock Products", label: "Advanced" },
-        { no: "08", short: "工具", title: "美股工具集", en: "Research Tool Kit", label: "Research" },
-        { no: "09", short: "FAQ", title: "FAQ", en: "Common Questions", label: "Review" },
-        { no: "10", short: "测验", title: "闯关测验", en: "Learning Check", label: "Quiz" },
-        { no: "11", short: "分享", title: "分享给朋友", en: "Share With Friends", label: "Share" }
-      ];
-
-      const images = {
-        securityAccount: "./assets/guizang-illustrations/security-account.svg",
-        securityWallet: "./assets/guizang-illustrations/security-wallet.svg",
-        securityPhishing: "./assets/guizang-illustrations/security-phishing.svg",
-        basicsAssets: "./assets/guizang-illustrations/basics-assets.svg",
-        basicsExchangeWallet: "./assets/guizang-illustrations/basics-exchange-wallet.svg",
-        basicsChainTransfer: "./assets/guizang-illustrations/basics-chain-transfer.svg",
-        exchangeRegister: "./assets/guizang-illustrations/exchange-register.svg",
-        exchangeKyc: "./assets/guizang-illustrations/exchange-kyc.svg",
-        exchangeSecurity: "./assets/guizang-illustrations/exchange-security.svg",
-        fundingDeposit: "./assets/guizang-illustrations/funding-deposit.svg",
-        fundingBuyU: "./assets/guizang-illustrations/funding-buy-u.svg",
-        fundingWithdraw: "./assets/guizang-illustrations/funding-withdraw.svg",
-        walletSeed: "./assets/guizang-illustrations/wallet-seed.svg",
-        walletAddress: "./assets/guizang-illustrations/wallet-address.svg",
-        walletApproval: "./assets/guizang-illustrations/wallet-approval.svg",
-        ucardRegion: "./assets/guizang-illustrations/ucard-region.svg",
-        stockPurchase: "./assets/guizang-illustrations/stock-purchase-principle.svg"
-      };
-
-      const referrals = [
-        {
-          id: "binance-exchange",
-          name: "币安交易所",
-          type: "交易",
-          scene: "注册账户、买 U、现货入门",
-          code: "BTC10888",
-          reward: "返现 20%",
-          link: "https://www.bsmkweb.cc/register?ref=BTC10888",
-          risk: "注册前确认地区规则、KYC 要求和活动说明。"
-        },
-        {
-          id: "binance-wallet",
-          name: "币安钱包",
-          type: "Web3",
-          scene: "链上钱包、美股购买前置入口",
-          code: "BTC10888",
-          reward: "返现 30%",
-          link: "https://web3.binance.com/referral?ref=BTC10888",
-          risk: "助记词和授权需要自己负责，先用小额练习。"
-        },
-        {
-          id: "okx-wallet",
-          name: "OKX 钱包",
-          type: "Web3",
-          scene: "链上钱包、地址和授权练习",
-          code: "YAYA12345",
-          reward: "返现 20%",
-          link: "https://web3.okx.com/join/YAYA12345",
-          risk: "转账前核对链、地址和授权对象。"
-        },
-        {
-          id: "okx-exchange",
-          name: "OKX 交易所",
-          type: "交易",
-          scene: "交易所注册、买 U、基础交易",
-          code: "3604739",
-          reward: "返现 20%",
-          link: "https://www.tzbflgjyscw.org/join/3604739",
-          risk: "活动规则和可用地区以平台页面为准。"
-        },
-        {
-          id: "bitget-exchange",
-          name: "Bitget 交易所",
-          type: "交易",
-          scene: "交易所注册、基础买卖",
-          code: "0LJJYSJ8",
-          reward: "返现 25%",
-          link: "https://www.bitget.org/zh-CN/referral/register?clacCode=0LJJYSJ8&from=%2Fzh-CN%2Fevents%2Freferral-all-program&source=events&utmSource=PremierInviter",
-          risk: "注意活动入口、地区限制和 KYC 要求。"
-        },
-        {
-          id: "bybit-exchange",
-          name: "Bybit 交易所",
-          type: "交易",
-          scene: "交易所注册、进阶产品前置",
-          code: "M881VM",
-          reward: "返现 30%",
-          link: "https://www.bybitglobal.com/invite?ref=M881VM&medium=referral&utm_campaign=evergreen",
-          risk: "产品和活动可用性会随地区变化。"
-        },
-        {
-          id: "bybit-card",
-          name: "Bybit Card",
-          type: "U 卡",
-          scene: "卡申请、消费返现活动",
-          code: "M881VM",
-          reward: "10% 返现和 10 USDT 活动说明",
-          link: "https://www.bybit.com/cards/?ref=M881VM&source=applet_invite",
-          risk: "申请前确认所在地区、材料要求和卡片费用。"
-        },
-        {
-          id: "bitget-card",
-          name: "Bitget Card",
-          type: "U 卡",
-          scene: "卡申请信息参考",
-          code: "btcbtc18",
-          reward: "活动以官方页面为准",
-          link: "",
-          risk: "邀请码可先保存，申请入口和地区规则请以平台页面为准。"
-        }
-      ];
-
-      const basics = [
-        {
-          id: "crypto",
-          title: "什么是加密货币？",
-          plain: "加密货币是一种基于区块链网络运行的数字资产，可以在交易所账户、Web3 钱包和链上地址之间转移。",
-          note: "它不等于银行卡余额，也不等于支付宝余额；价格可能大幅波动，本站只做操作教程，不做投资建议。"
-        },
-        {
-          id: "btc",
-          title: "BTC 是什么？",
-          plain: "BTC 是 Bitcoin 的简称，是最早、最知名的加密货币之一。",
-          note: "BTC 不是稳定币，也不是美元；它的价格会涨跌，不适合当成稳定余额理解。"
-        },
-        {
-          id: "eth",
-          title: "ETH 是什么？",
-          plain: "ETH 是以太坊网络的原生资产，以太坊更像一个能运行应用和合约的网络。",
-          note: "ETH 常用于支付以太坊网络手续费，价格也会波动，新手先知道它和 BTC、USDT 不一样就够了。"
-        },
-        {
-          id: "usdt",
-          title: "USDT 是什么？",
-          plain: "USDT 是 Tether 发行的美元稳定币，目标通常是接近 1 USDT 对应 1 美元。",
-          note: "很多人口中的“买 U”通常指买 USDT；目标锚定不代表没有风险，使用前要看清链、手续费和平台规则。"
-        },
-        {
-          id: "usdc",
-          title: "USDC 是什么？",
-          plain: "USDC 是 Circle 发行的美元稳定币，也是一种在多个区块链网络上流通的数字美元形式。",
-          note: "USDC 和 USDT 的发行方、支持平台、使用场景不同，不能简单理解为哪个一定更适合所有人。"
-        },
-        {
-          id: "stablecoin",
-          title: "什么是稳定币？",
-          plain: "稳定币是目标价格相对稳定的加密资产，常见美元稳定币包括 USDT 和 USDC。",
-          note: "稳定币不等于美元现金，也不等于银行存款，可能受到发行方、监管、流动性、链和平台问题影响。"
-        },
-        {
-          id: "buyu",
-          title: "什么是买 U？",
-          plain: "在中文语境里，U 通常指 USDT，也有时泛指美元稳定币；买 U 就是把法币或其他资产换成稳定币。",
-          note: "买 U 不等于买 BTC。第一次操作先小额，确认平台、价格、手续费和到账状态。"
-        },
-        {
-          id: "exchange",
-          title: "什么是交易所？",
-          plain: "交易所是用来注册账户、买卖加密货币、充值和提币的平台。",
-          note: "交易所账户不是链上钱包，平台余额属于平台账户视角；KYC、地区规则和提现政策可能变化。"
-        },
-        {
-          id: "wallet",
-          title: "什么是 Web3 钱包？",
-          plain: "Web3 钱包是自己管理链上地址和资产的工具，常见形式包括浏览器插件、手机钱包和交易所内置 Web3 钱包。",
-          note: "钱包不是普通手机号账户。助记词和私钥非常重要，谁拿到它们，谁就可能控制资产。"
-        },
-        {
-          id: "chain",
-          title: "什么是链？",
-          plain: "链可以理解为不同的区块链网络，比如 Ethereum、TRON、BNB Chain 等。",
-          note: "同样是 USDT，也可能在 TRC20、ERC20、BEP20 等不同网络上；发送方和接收方选择的链要一致。"
-        },
-        {
-          id: "address",
-          title: "什么是地址？",
-          plain: "地址像链上的收款账户，别人给你转币需要你的地址，你给别人转币需要对方地址。",
-          note: "地址要复制完整，不建议手动输入；有些资产或平台还需要 Memo / Tag，遗漏会增加找回难度。"
-        },
-        {
-          id: "deposit",
-          title: "什么是充值？",
-          plain: "充值是把资产转入交易所或平台账户，例如从外部钱包转到交易所。",
-          note: "它不是银行卡充值那么简单，要确认币种、链、地址、Memo / Tag、到账时间和手续费。"
-        },
-        {
-          id: "withdraw",
-          title: "什么是提币？",
-          plain: "提币是把资产从交易所转到外部钱包或其他平台，本质上可能触发链上转账。",
-          note: "提币必须选对链和地址；第一次先做小额测试，确认到账后再考虑后续操作。"
-        },
-        {
-          id: "small-test",
-          title: "什么是小额测试？",
-          plain: "小额测试就是第一次转账时先用很小的金额试一次，确认地址、链、平台都没问题。",
-          note: "这是新手最重要的安全习惯之一，尤其是第一次提币、第一次用钱包、第一次申请卡或接触新产品时。"
-        }
-      ];
-
-      const tools = [
-        ["Finviz", "热力图、筛选器，适合快速看市场结构。", "https://finviz.com/"],
-        ["StockAnalysis", "基本面初筛，适合看财报、估值和公司数据。", "https://stockanalysis.com/"],
-        ["Seeking Alpha", "深度个股分析和观点参考，注意区分观点和事实。", "https://seekingalpha.com/"],
-        ["ETF Database", "ETF 查询，适合比较成分、费用和分类。", "https://etfdb.com/"],
-        ["CompaniesMarketCap", "全球市值排名，适合看公司体量和排序。", "https://companiesmarketcap.com/"],
-        ["Koyfin", "系统性看盘，适合做宏观和资产对比。", "https://www.koyfin.com/"],
-        ["MacroMicro", "宏观数据和周期图表，适合做大方向观察。", "https://en.macromicro.me/"],
-        ["FRED", "美国官方宏观数据，适合查利率、通胀、就业等数据。", "https://fred.stlouisfed.org/"],
-        ["Reddit r/stocks", "散户讨论情绪参考，不能替代研究。", "https://www.reddit.com/r/stocks/"],
-        ["AnalysisSite", "投研看板类工具，适合汇总观察。", "https://www.analysis.site/"]
-      ];
-
-      const faq = [
-        ["完全小白应该先看哪一章？", "从 01 安全与防骗开始，再看 02 基础概念。不要一上来就注册、转账或申请卡。"],
-        ["买 U 和买 BTC 是一回事吗？", "不是。买 U 通常指购买 USDT 或其他美元稳定币；BTC 是价格波动资产。"],
-        ["交易所账户是不是 Web3 钱包？", "不是。交易所账户是平台账户，Web3 钱包是链上地址和私钥体系，两者管理方式不同。"],
-        ["U 卡适合所有人吗？", "不一定。卡片产品强依赖地区规则、材料要求、费用和活动政策，先确认官方页面再操作。"],
-        ["美股购买是不是投资建议？", "不是。本站只解释产品形态和操作前需要知道的风险，不推荐具体股票，也不承诺收益。"],
-        ["邀请码在哪里看？", "相关章节会出现对应入口，FAQ 下方也有全部平台入口汇总。使用前请确认平台规则和地区限制。"]
-      ];
-
-      const quizQuestions = [
-        {
-          title: "第 1 关：安全",
-          type: "单选",
-          question: "别人让你把助记词发给客服验证，应该怎么做？",
-          options: ["拒绝并停止操作", "只发前半段", "先截图保存再发", "让对方远程指导"],
-          answer: [0],
-          explain: "助记词和私钥不能给任何人，客服也不需要它。回看 01 安全与防骗。"
-        },
-        {
-          title: "第 2 关：基础概念",
-          type: "单选",
-          question: "BTC 和 USDT 最大的区别是什么？",
-          options: ["BTC 是波动资产，USDT 是目标锚定美元的稳定币", "BTC 永远等于 1 美元", "USDT 是以太坊手续费", "两者完全一样"],
-          answer: [0],
-          explain: "BTC 不是稳定币，USDT 的目标是接近美元，但不代表没有风险。回看 02 基础概念。"
-        },
-        {
-          title: "第 3 关：链和地址",
-          type: "多选",
-          question: "第一次提币前需要确认什么？",
-          options: ["币种", "链", "地址", "是否先小额测试"],
-          answer: [0, 1, 2, 3],
-          explain: "币种、链、地址和小额测试都要确认。回看 04 充值 / 买 U / 提币。"
-        },
-        {
-          title: "第 4 关：钱包",
-          type: "判断",
-          question: "Web3 钱包授权陌生网站前，应该先看清授权对象和额度。",
-          options: ["对", "错"],
-          answer: [0],
-          explain: "授权可能影响资产安全，签名前要看清对象、额度和权限。回看 05 Web3 钱包。"
-        },
-        {
-          title: "第 5 关：进阶产品",
-          type: "单选",
-          question: "美股购买类产品最应该先确认什么？",
-          options: ["产品结构、权益、费用和地区限制", "社群热度", "别人买了什么", "名字是否像股票"],
-          answer: [0],
-          explain: "代币化股票类产品不等同传统券商持仓，先读产品说明和风险。回看 07 美股购买。"
-        }
-      ];
-
-      const sources = [
-        ["Bitcoin.org FAQ", "https://bitcoin.org/en/faq"],
-        ["Ethereum.org Technical Intro", "https://ethereum.org/developers/docs/intro-to-ethereum/"],
-        ["Tether How It Works", "https://tether.to/en/how-it-works/"],
-        ["Circle USDC Docs", "https://developers.circle.com/stablecoins/what-is-usdc"],
-        ["Binance Academy: Wallet", "https://www.binance.com/en/academy/glossary/wallet"],
-        ["Binance Academy: Depeg", "https://www.binance.com/en/academy/articles/why-do-stablecoins-depeg"],
-        ["OKX Wallet Guide", "https://www.okx.com/en-us/learn/crypto/okx-wallet-guide"]
-      ];
-
-      const byId = (ids) => ids.map((id) => referrals.find((item) => item.id === id)).filter(Boolean);
-
-      function art(src, caption) {
-        return `
-          <figure class="art-tile">
-            <img src="${src}" alt="${caption}" loading="eager" decoding="async" />
-            <figcaption class="art-caption">${caption}</figcaption>
-          </figure>
-        `;
-      }
-
-      function referralCards(items) {
-        return `
-          <div class="ref-grid">
-            ${items.map((item) => `
-              <article class="ref-tile">
-                <div>
-                  <span class="eyebrow">${item.type}</span>
-                  <h3>${item.name}</h3>
-                  <p>${item.scene}</p>
-                </div>
-                <div class="ref-meta">
-                  <span>邀请码：${item.code}</span>
-                  <span>${item.reward}</span>
-                </div>
-                <p><strong>风险提醒：</strong>${item.risk}</p>
-                <div class="ref-actions">
-                  <button class="btn yellow" type="button" data-copy="${item.code}">复制邀请码</button>
-                  ${item.link ? `<a class="btn primary" href="${item.link}" target="_blank" rel="noreferrer">打开链接</a>` : `<button class="btn" type="button" data-copy="${item.code}">保存邀请码</button>`}
-                </div>
-              </article>
-            `).join("")}
-          </div>
-        `;
-      }
-
-      function steps(items) {
-        return `
-          <div class="steps">
-            ${items.map((item, index) => `
-              <article class="step">
-                <div class="step-no">${String(index + 1).padStart(2, "0")}</div>
-                <div>
-                  <h3>${item[0]}</h3>
-                  <p>${item[1]}</p>
-                </div>
-              </article>
-            `).join("")}
-          </div>
-        `;
-      }
-
-      function slideShell(index, intro, body) {
-        const chapter = chapters[index];
-        const prev = chapters[index - 1];
-        const next = chapters[index + 1];
-        return `
-          <section class="slide" aria-label="${chapter.no} ${chapter.title}">
-            <article class="slide-frame" data-slide-frame>
-              <header class="slide-head">
-                <div class="slide-no">${chapter.no}</div>
-                <div>
-                  <span class="script">${chapter.label}</span>
-                  <h1 class="slide-title">${chapter.title}</h1>
-                  <p class="slide-en">${chapter.en}</p>
-                  <p class="lead">${intro}</p>
-                </div>
-              </header>
-              <div class="content-stack">${body}</div>
-              <footer class="slide-footer">
-                <div class="next-box">
-                  ${prev ? `<button type="button" data-go="${index - 1}"><span>上一章</span><strong>${prev.no} ${prev.title}</strong></button>` : `<span>上一章</span><strong>从安全意识开始</strong>`}
-                </div>
-                <div class="next-box align-right">
-                  ${next ? `<button type="button" data-go="${index + 1}"><span>下一章</span><strong>${next.no} ${next.title}</strong></button>` : `<span>下一步</span><strong>带着清单小额实践</strong>`}
-                </div>
-              </footer>
-            </article>
-          </section>
-        `;
-      }
-
-      function safetySlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="warning">
-                <strong>先把安全放在第一步</strong>
-                <p>新手最容易吃亏的地方，不是不会买卖，而是把验证码、助记词、远程控制、授权和假链接当成普通客服流程。先学会识别风险，再去注册和转账。</p>
-              </div>
-              ${steps([
-                ["账户安全", "邮箱、手机号、登录密码、二次验证和反钓鱼码都要单独管理，不要和其他网站共用密码。"],
-                ["钱包安全", "助记词、私钥和恢复短语只离线备份，不截图、不发给任何人，也不输入到陌生页面。"],
-                ["钓鱼防护", "遇到空投、客服、远程指导、授权签名和加急处理，先停下来核对官方入口。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.securityAccount, "账户安全机制图：登录、验证码、风控。")}
-              ${art(images.securityWallet, "钱包控制权机制图：助记词、私钥、地址。")}
-              ${art(images.securityPhishing, "钓鱼风险机制图：假链接、远程、授权。")}
-            </div>
-          </div>
-          <div>
-            <p class="section-label">常用入口</p>
-            <p class="lead">根据新手学习路径整理的常用平台入口，使用前请确认平台规则和地区限制。</p>
-          </div>
-          ${referralCards(byId(["binance-exchange", "binance-wallet", "bybit-card", "okx-wallet"]))}
-        `;
-        return slideShell(0, "先学会保护账户、助记词和授权，再去注册、买 U、使用钱包或申请卡。", body);
-      }
-
-      function basicsSlide() {
-        const conceptCards = basics.map((item) => `
-          <article class="tile blue-tile" id="concept-${item.id}">
-            <span class="eyebrow">${item.id.toUpperCase()}</span>
-            <h3>${item.title}</h3>
-            <p><strong>小白解释：</strong>${item.plain}</p>
-            <p><strong>注意事项：</strong>${item.note}</p>
-          </article>
-        `).join("");
-
-        const body = `
-          <div class="warning">
-            <strong>先把这些词看懂，再去注册和操作。</strong>
-            <p>这章不是背名词，而是帮你把“币、稳定币、交易所、钱包、链、地址、充值、提币、小额测试”串成一条操作前的安全地图。</p>
-          </div>
-          <div class="local-nav" aria-label="基础概念小目录">
-            ${[
-              ["BTC", "#concept-btc"],
-              ["ETH", "#concept-eth"],
-              ["USDT", "#concept-usdt"],
-              ["USDC", "#concept-usdc"],
-              ["稳定币", "#concept-stablecoin"],
-              ["交易所", "#concept-exchange"],
-              ["钱包", "#concept-wallet"],
-              ["链和地址", "#concept-chain"],
-              ["充值 / 提币", "#concept-deposit"],
-              ["小额测试", "#concept-small-test"]
-            ].map(([label, target]) => `<button class="local-link" type="button" data-local-target="${target}">${label}</button>`).join("")}
-          </div>
-          <div class="grid-3">
-            ${art(images.basicsAssets, "BTC、ETH、USDT、USDC 区别图：BTC / ETH 是波动资产，USDT / USDC 是目标锚定美元的稳定币。")}
-            ${art(images.basicsExchangeWallet, "交易所账户 vs Web3 钱包关系图：平台账户余额和链上钱包地址是两套管理方式。")}
-            ${art(images.basicsChainTransfer, "USDT 不同链转账示意图：TRC20、ERC20、BEP20 等网络要前后一致。")}
-          </div>
-          <div class="risk-box">
-            <strong>稳定币风险提醒</strong>
-            <p>稳定币的目标通常是与美元保持 1:1 锚定，但这不代表没有风险。极端市场、发行方、监管、流动性或平台问题，都可能导致价格偏离或使用受限。新手请先小额测试，不要把不了解的资产当成银行存款。</p>
-            <p>Stablecoins aim to track the US dollar, but they are not risk-free or equivalent to bank deposits. Always verify official rules and test with small amounts first.</p>
-          </div>
-          <div class="grid-2">${conceptCards}</div>
-          <div class="table-wrap">
-            <table aria-label="USDT 和 USDC 新手对比表">
-              <thead>
-                <tr>
-                  <th>对比维度</th>
-                  <th>USDT</th>
-                  <th>USDC</th>
-                  <th>新手怎么理解</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>类型</td>
-                  <td>美元稳定币</td>
-                  <td>美元稳定币</td>
-                  <td>两者目标都是价格相对稳定，不是 BTC / ETH 这类波动资产。</td>
-                </tr>
-                <tr>
-                  <td>锚定目标</td>
-                  <td>目标接近 1 USDT 对应 1 美元</td>
-                  <td>目标接近 1 USDC 对应 1 美元</td>
-                  <td>“目标锚定”不等于没有风险，也不等于银行存款。</td>
-                </tr>
-                <tr>
-                  <td>发行方</td>
-                  <td>Tether</td>
-                  <td>Circle</td>
-                  <td>发行方不同，储备、披露、合规和地区支持会有差异。</td>
-                </tr>
-                <tr>
-                  <td>使用范围</td>
-                  <td>很多交易所和链上场景常见</td>
-                  <td>部分合规、机构和支付场景更常见</td>
-                  <td>先看你使用的平台支持哪个，再看费用和网络。</td>
-                </tr>
-                <tr>
-                  <td>主要风险</td>
-                  <td>脱锚、发行方、平台、链和监管风险</td>
-                  <td>脱锚、发行方、平台、链和监管风险</td>
-                  <td>不写成哪个一定更好，先学会核对规则和小额测试。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <p class="section-label">第一次操作顺序</p>
-            <div class="timeline">
-              ${[
-                ["看币种", "先分清 BTC、ETH、USDT、USDC。"],
-                ["选平台", "确认交易所或钱包是否支持。"],
-                ["买 U", "先看价格、手续费和到账方式。"],
-                ["核链地址", "发送方和接收方网络保持一致。"],
-                ["小额测试", "确认到账后，再考虑下一步。"]
-              ].map((item) => `<div class="timeline-item"><strong>${item[0]}</strong><span>${item[1]}</span></div>`).join("")}
-            </div>
-          </div>
-          <div>
-            <p class="section-label">新手最容易混淆的 8 件事</p>
-            <div class="grid-4">
-              ${[
-                "BTC 不是 USDT",
-                "ETH 不是稳定币",
-                "USDT / USDC 是目标锚定美元，不代表没有风险",
-                "交易所账户不是 Web3 钱包",
-                "充值和提币不是一回事",
-                "链选错可能造成损失",
-                "助记词不能给任何人",
-                "第一次操作先小额测试"
-              ].map((text) => `<article class="tile red-tile"><h3>${text}</h3><p>看不确定的地方，回到上面的概念卡再读一遍。</p></article>`).join("")}
-            </div>
-          </div>
-          <div>
-            <p class="section-label">参考来源</p>
-            <div class="source-list">
-              ${sources.map(([name, url]) => `<a href="${url}" target="_blank" rel="noreferrer">${name}</a>`).join("")}
-            </div>
-          </div>
-        `;
-        return slideShell(1, "先把这些词看懂，再去注册和操作。", body);
-      }
-
-      function exchangeSlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="warning">
-                <strong>交易所注册不是终点</strong>
-                <p>交易所解决的是账户、KYC、买卖和出入金。注册之后，下一步是把身份认证、安全设置、充值和小额测试做完整。</p>
-              </div>
-              ${steps([
-                ["选择平台", "先看所在地区是否可用、是否需要 KYC、是否支持你要用的入金方式。"],
-                ["注册账户", "使用自己的邮箱或手机号，设置独立密码，并保存官方入口。"],
-                ["完成身份认证", "按平台要求提交材料，姓名、证件和地区信息要保持一致。"],
-                ["设置账户安全", "开启二次验证、反钓鱼码、设备管理和提现白名单。"],
-                ["再进入买 U", "不要刚注册就大额操作，先熟悉充值、买 U、提币和小额测试。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.exchangeRegister, "交易所注册机制图：邮箱、手机、密码。")}
-              ${art(images.exchangeKyc, "身份认证机制图：证件、自拍、审核。")}
-              ${art(images.exchangeSecurity, "账户安全设置机制图：二验、设备、反钓鱼。")}
-            </div>
-          </div>
-          <div>
-            <p class="section-label">交易所相关入口</p>
-            ${referralCards(byId(["binance-exchange", "okx-exchange", "bitget-exchange", "bybit-exchange"]))}
-          </div>
-        `;
-        return slideShell(2, "这一章只解决“怎么选择和注册交易所”，买 U 和提币放到下一章。", body);
-      }
-
-      function fundingSlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="risk-box">
-                <strong>第一次转账先小额测试</strong>
-                <p>充值、买 U、提币是最容易因为链、地址、Memo / Tag 或手续费出错的环节。先用小额确认流程，再进行后续操作。</p>
-              </div>
-              ${steps([
-                ["充值", "把资产转入交易所或平台账户时，先确认币种、链、地址和到账规则。"],
-                ["买 U", "买 U 通常指把法币或其他资产换成 USDT / 稳定币，先看价格、手续费和付款方式。"],
-                ["提币", "从交易所转到外部钱包或其他平台时，发送方和接收方选择的链必须一致。"],
-                ["检查到账", "确认到账数量、网络、手续费和时间。如果第一次没有把握，先暂停复盘。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.fundingDeposit, "入金流程机制图：渠道、金额、到账。")}
-              ${art(images.fundingBuyU, "买 U 下单机制图：价格、数量、确认。")}
-              ${art(images.fundingWithdraw, "提币测试机制图：链、地址、小额。")}
-            </div>
-          </div>
-          <div class="table-wrap">
-            <table aria-label="充值 买 U 提币对照表">
-              <thead><tr><th>动作</th><th>你在做什么</th><th>最容易错的地方</th><th>下一步</th></tr></thead>
-              <tbody>
-                <tr><td>充值</td><td>把资产转入交易所或平台账户</td><td>链、地址、Memo / Tag、到账时间</td><td>确认到账记录</td></tr>
-                <tr><td>买 U</td><td>把法币或其他资产换成稳定币</td><td>价格、手续费、付款方式、平台规则</td><td>先少量熟悉订单流程</td></tr>
-                <tr><td>提币</td><td>把资产从交易所转到外部钱包或平台</td><td>网络选择、地址复制、手续费、到账状态</td><td>先小额测试</td></tr>
-              </tbody>
-            </table>
-          </div>
-        `;
-        return slideShell(3, "这一章把充值、买 U、提币三件事拆开讲，核心是核对链和地址。", body);
-      }
-
-      function walletSlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="warning">
-                <strong>钱包是自己管理，不是平台客服帮你管理</strong>
-                <p>Web3 钱包的关键是助记词、私钥、地址和授权。它给你更高自由度，也要求你承担更多安全责任。</p>
-              </div>
-              ${steps([
-                ["创建或导入钱包", "只从官方入口安装钱包，创建时离线保存助记词。"],
-                ["理解地址", "收款地址要复制完整，转账前核对前后几位和网络。"],
-                ["小额测试转账", "第一次从交易所提到钱包，先用小额确认链、地址和到账。"],
-                ["管理授权", "连接网站和签名时，看清授权对象、额度和资产类型，定期检查并撤销不用的授权。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.walletSeed, "助记词备份机制图：备份、离线、恢复。")}
-              ${art(images.walletAddress, "收款地址核对机制图：收款、链、核对。")}
-              ${art(images.walletApproval, "授权管理机制图：签名、额度、撤销。")}
-            </div>
-          </div>
-          <div>
-            <p class="section-label">钱包相关入口</p>
-            ${referralCards(byId(["binance-wallet", "okx-wallet"]))}
-          </div>
-        `;
-        return slideShell(4, "这一章解决“交易所账户”和“自己管理的钱包”到底差在哪里。", body);
-      }
-
-      function cardSlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="risk-box">
-                <strong>U 卡属于进阶模块</strong>
-                <p>U 卡通常和地区、身份材料、卡组织、费用、消费场景和平台活动有关。不同地区限制可能不同，政策也可能变化，具体以官方页面为准。</p>
-              </div>
-              ${steps([
-                ["理解用途", "U 卡可以理解为把加密资产和日常消费场景连接起来的卡类产品，但不是所有地区都可用。"],
-                ["确认地区规则", "申请前先看所在地区是否支持、是否需要额外材料、费用和活动规则。"],
-                ["准备材料", "按平台要求准备身份信息、地址信息或其他材料。"],
-                ["小额测试", "开通后先用小额测试充值、消费、返现和账单显示，不要长期放入不了解的资金。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.ucardRegion, "U 卡申请地区机制图：地区、材料、申请、小额测试。")}
-              <div class="table-wrap">
-                <table aria-label="U 卡申请重点对比">
-                  <thead><tr><th>卡片</th><th>适合先看什么</th><th>提醒</th></tr></thead>
-                  <tbody>
-                    <tr><td>Bybit Card</td><td>地区、申请材料、返现和 10 USDT 活动说明</td><td>活动规则以官方页面为准。</td></tr>
-                    <tr><td>Bitget Card</td><td>申请入口、邀请码和地区支持</td><td>可先保存邀请码，申请前确认官方说明。</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="section-label">U 卡相关入口</p>
-            ${referralCards(byId(["bybit-card", "bitget-card"]))}
-          </div>
-        `;
-        return slideShell(5, "先确认地区规则和费用，再考虑申请 Bybit Card 或 Bitget Card。", body);
-      }
-
-      function stockSlide() {
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="warning">
-                <strong>美股购买（bStocks / RWA）属于进阶内容</strong>
-                <p>bStocks 可以理解为一种和美股相关的代币化产品形式，具体规则以平台官方说明为准。它不等同于传统券商账户，也不代表适合所有人。</p>
-              </div>
-              ${steps([
-                ["先理解产品", "确认产品结构、底层资产、托管、交易时间、费用、股息规则和地区限制。"],
-                ["准备钱包和稳定币", "优先把币安钱包作为学习入口，先理解钱包、稳定币、链和授权。"],
-                ["小额体验", "如果平台规则允许，先用小额理解下单、持仓、股息和退出流程。"],
-                ["不推荐具体股票", "本站不推荐标的，不承诺收益，只提醒你看懂规则和风险。"]
-              ])}
-            </div>
-            <div class="content-stack">
-              ${art(images.stockPurchase, "加密货币购买美股机制图：钱包、稳定币、美股产品、股息。")}
-              <div class="risk-box">
-                <strong>风险提示</strong>
-                <p>代币化股票类产品可能涉及价格波动、流动性、托管、地区限制、费用、税务、股息规则和产品结构风险。请以平台官方说明为准。</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p class="section-label">美股购买相关入口</p>
-            ${referralCards(byId(["binance-wallet", "binance-exchange"]))}
-          </div>
-        `;
-        return slideShell(6, "这一章只解释产品形态、操作前准备和风险，不做投资建议。", body);
-      }
-
-      function toolsSlide() {
-        const body = `
-          <div class="warning">
-            <strong>工具只能帮你研究，不能替你判断</strong>
-            <p>美股工具集适合做资料查询、基本面初筛、宏观数据观察和市场情绪参考。工具结论要交叉验证，不能当作买卖建议。</p>
-          </div>
-          <div class="grid-2">
-            ${tools.map(([name, desc, url]) => `
-              <article class="tile">
-                <span class="eyebrow">Tool</span>
-                <h3>${name}</h3>
-                <p>${desc}</p>
-                <a class="btn" href="${url}" target="_blank" rel="noreferrer">打开工具</a>
-              </article>
-            `).join("")}
-          </div>
-        `;
-        return slideShell(7, "这一章整理研究工具，帮助你看数据、查资料、做交叉验证。", body);
-      }
-
-      function faqSlide() {
-        const allReferrals = referralCards(referrals);
-        const body = `
-          <div class="faq-list">
-            ${faq.map(([question, answer], index) => `
-              <details class="faq-item" ${index === 0 ? "open" : ""}>
-                <summary>${question}</summary>
-                <p>${answer}</p>
-              </details>
-            `).join("")}
-          </div>
-          <div>
-            <p class="section-label">全部平台入口汇总</p>
-            <p class="lead">以下信息仅供教程学习时参考，活动规则、返现比例和地区限制以平台官方页面为准。</p>
-          </div>
-          ${allReferrals}
-        `;
-        return slideShell(8, "把最常见的问题和所有平台入口放在这里，方便回查。", body);
-      }
-
-      function quizSlide() {
-        const body = `
-          <div class="split">
-            <div class="quiz-panel">
-              <span class="eyebrow" id="quizLevel">第 1 关</span>
-              <h3 id="quizTitle">题目加载中</h3>
-              <p id="quizQuestion"></p>
-              <div class="quiz-options" id="quizOptions"></div>
-              <div class="quiz-result" id="quizResult">选完后点击检查答案。</div>
-              <div class="ref-actions" style="margin-top: 16px;">
-                <button class="btn primary" type="button" id="checkQuiz">检查答案</button>
-                <button class="btn" type="button" id="nextQuiz">下一题</button>
-              </div>
-            </div>
-            <div class="content-stack">
-              <div class="warning">
-                <strong>测验不是考试，是防止误操作</strong>
-                <p>如果答错，说明对应章节还没真正理解。回看章节比直接操作更稳。</p>
-              </div>
-              <div class="tile">
-                <h3>过关目标</h3>
-                <p>你应该能分清 BTC / ETH / USDT / USDC，知道交易所和钱包区别，理解链、地址、授权和小额测试的重要性。</p>
-              </div>
-              <div class="tile">
-                <h3>完成后下一步</h3>
-                <p>只在自己理解的范围内小额实践。遇到地区限制、产品规则或费用不清楚，先停下来查官方说明。</p>
-              </div>
-            </div>
-          </div>
-        `;
-        return slideShell(9, "用几道题检查你是否真的理解安全、基础概念、转账、钱包和进阶产品风险。", body);
-      }
-
-      function shareSlide() {
-        const shareUrl = window.location.href;
-        const shareTitle = "币圈新手入门完全指南 — 先学安全，再学注册";
-        const shareDesc = "一个给新手的安全第一课：安全、基础概念、交易所、钱包、U 卡、美股，10 步入门不踩坑。";
-
-        const platformLinks = [
-          { name: "微信", icon: "💬", tip: "点击复制链接后粘贴到微信发送给朋友", color: "wechat" },
-          { name: "Telegram", icon: "✈️", tip: "通过 Telegram 发送给朋友或群组", color: "telegram", href: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}` },
-          { name: "Twitter / X", icon: "𝕏", tip: "发推分享给你的关注者", color: "twitter", href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}` },
-          { name: "WhatsApp", icon: "📱", tip: "通过 WhatsApp 发送给联系人", color: "whatsapp", href: `https://wa.me/?text=${encodeURIComponent(shareTitle + " " + shareUrl)}` },
-          { name: "邮件", icon: "📧", tip: "通过邮件发送给朋友", color: "email", href: `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareDesc + "\\n\\n" + shareUrl)}` },
-          { name: "复制链接", icon: "📋", tip: "复制后粘贴到任意聊天或社交平台", color: "copy" }
-        ];
-
-        const platformCards = platformLinks.map((p) => {
-          if (p.href) {
-            return `
-              <a class="share-platform" href="${p.href}" target="_blank" rel="noreferrer">
-                <span class="icon ${p.color}">${p.icon}</span>
-                <span>${p.name}</span>
-              </a>`;
-          }
-          return `
-            <button class="share-platform" type="button" data-share="${p.name === "微信" ? "wechat" : "copy"}">
-              <span class="icon ${p.color}">${p.icon}</span>
-              <span>${p.name}</span>
-            </button>`;
-        }).join("");
-
-        const body = `
-          <div class="split">
-            <div class="content-stack">
-              <div class="warning">
-                <strong>把这个教程分享给刚入门的朋友</strong>
-                <p>币圈对新手最大的问题不是学不会，而是不知道从哪开始。帮朋友省掉试错成本，先看完安全再操作。</p>
-              </div>
-
-              <div class="share-link-row">
-                <input type="text" id="slideShareLink" readonly value="${shareUrl}" aria-label="页面链接" />
-                <button class="btn yellow" type="button" id="slideCopyLink">复制</button>
-              </div>
-
-              <p class="share-divider">选择分享方式</p>
-
-              <div class="share-platforms">
-                ${platformCards}
-              </div>
-
-              <button class="share-native hidden" type="button" id="slideNativeShare">📤 系统分享（支持的系统会自动显示）</button>
-            </div>
-
-            <div class="content-stack">
-              <div class="share-qr" id="qrContainer">
-                <canvas id="qrCanvas" width="200" height="200"></canvas>
-                <span>扫描二维码打开教程</span>
-              </div>
-
-              <div class="tile yellow-tile">
-                <h3>💡 分享小技巧</h3>
-                <p>微信可以直接发送链接；Telegram / Twitter 点击按钮即可；如果朋友打不开，提醒他们用浏览器打开。</p>
-              </div>
-
-              <div class="tile blue-tile">
-                <h3>🔗 邀请朋友一起学</h3>
-                <p>你也可以把教程里的邀请码页面分享给朋友，大家一起走完 10 章学习路径，互相提醒注意安全。</p>
-              </div>
-            </div>
-          </div>
-        `;
-        return slideShell(10, "帮朋友省掉试错成本——把这个教程分享出去。", body);
-      }
-
-      const slideHtml = [
-        safetySlide(),
-        basicsSlide(),
-        exchangeSlide(),
-        fundingSlide(),
-        walletSlide(),
-        cardSlide(),
-        stockSlide(),
-        toolsSlide(),
-        faqSlide(),
-        quizSlide(),
-        shareSlide()
-      ];
-
-      const deck = document.querySelector("#deck");
-      const chapterRail = document.querySelector("#chapterRail");
-      const mobileTabs = document.querySelector("#mobileTabs");
-      const progress = document.querySelector("#deckProgress");
-      const prevButton = document.querySelector("#prevSlide");
-      const nextButton = document.querySelector("#nextSlide");
-      const toast = document.querySelector("#toast");
-      let currentIndex = 0;
-      let touchStartX = 0;
-      let touchStartY = 0;
-      let quizIndex = 0;
-      let mobileBottomHinted = false;
-
-      deck.innerHTML = slideHtml.join("");
-
-      chapterRail.innerHTML = chapters.map((chapter, index) => `
-        <button class="chapter-tab" type="button" data-go="${index}" aria-label="${chapter.no} ${chapter.title}">
-          <span class="no">${chapter.no}</span>
-          <span>${chapter.short}</span>
-        </button>
-      `).join("");
-
-      mobileTabs.innerHTML = chapters.map((chapter, index) => `
-        <button class="mobile-tab" type="button" data-go="${index}">${chapter.no} ${chapter.short}</button>
-      `).join("");
-
-      function goTo(index) {
-        const next = Math.max(0, Math.min(chapters.length - 1, index));
-        currentIndex = next;
-        deck.style.transform = `translate3d(${-currentIndex * 100}vw, 0, 0)`;
-        deck.querySelectorAll(".slide").forEach((slide, slideIndex) => {
-          slide.classList.toggle("is-active", slideIndex === currentIndex);
-        });
-        progress.textContent = `${chapters[currentIndex].no} / ${String(chapters.length).padStart(2, "0")}`;
-        prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === chapters.length - 1;
-        document.querySelectorAll("[data-go]").forEach((button) => {
-          const active = Number(button.dataset.go) === currentIndex;
-          button.classList.toggle("is-active", active);
-          if (active) {
-            button.setAttribute("aria-current", "true");
-            if (button.classList.contains("mobile-tab")) {
-              button.scrollIntoView({ inline: "center", block: "nearest" });
-            }
-          } else {
-            button.removeAttribute("aria-current");
-          }
-        });
-        const frame = deck.children[currentIndex]?.querySelector("[data-slide-frame]");
-        if (window.matchMedia("(max-width: 760px)").matches) {
-          mobileBottomHinted = false;
-          window.scrollTo({ top: 0, behavior: "auto" });
-        } else if (frame) {
-          frame.scrollTop = 0;
-        }
-      }
-
-      function showToast(message) {
-        toast.textContent = message;
-        toast.classList.remove("hidden");
-        window.clearTimeout(showToast.timer);
-        showToast.timer = window.setTimeout(() => toast.classList.add("hidden"), 1700);
-      }
-
-      function setupBottomHints() {
-        document.querySelectorAll("[data-slide-frame]").forEach((frame, index) => {
-          frame.addEventListener("scroll", () => {
-            if (window.matchMedia("(max-width: 760px)").matches) return;
-            const canScroll = frame.scrollHeight > frame.clientHeight + 8;
-            const atBottom = frame.scrollTop + frame.clientHeight >= frame.scrollHeight - 6;
-            if (canScroll && atBottom && frame.dataset.bottomHinted !== "true") {
-              frame.dataset.bottomHinted = "true";
-              showToast(index < chapters.length - 1 ? "已经到底，向右滑进入下一章" : "已经到底，可以用章节导航回看");
-            }
-            if (!atBottom) {
-              frame.dataset.bottomHinted = "";
-            }
-          }, { passive: true });
-        });
-
-        window.addEventListener("scroll", () => {
-          if (!window.matchMedia("(max-width: 760px)").matches) return;
-          const doc = document.documentElement;
-          const canScroll = doc.scrollHeight > window.innerHeight + 8;
-          const atBottom = window.scrollY + window.innerHeight >= doc.scrollHeight - 8;
-          if (canScroll && atBottom && !mobileBottomHinted) {
-            mobileBottomHinted = true;
-            showToast(currentIndex < chapters.length - 1 ? "已经到底，向左滑或点底部进入下一章" : "已经到底，可以用底部章节回看");
-          }
-          if (!atBottom) {
-            mobileBottomHinted = false;
-          }
-        }, { passive: true });
-      }
-
-      setupBottomHints();
-
-      prevButton.addEventListener("click", () => goTo(currentIndex - 1));
-      nextButton.addEventListener("click", () => goTo(currentIndex + 1));
-
-      deck.addEventListener("touchstart", (event) => {
-        touchStartX = event.touches[0].clientX;
-        touchStartY = event.touches[0].clientY;
-      }, { passive: true });
-
-      deck.addEventListener("touchend", (event) => {
-        const touch = event.changedTouches[0];
-        const diffX = touch.clientX - touchStartX;
-        const diffY = touch.clientY - touchStartY;
-        if (Math.abs(diffX) > 54 && Math.abs(diffX) > Math.abs(diffY)) {
-          goTo(currentIndex + (diffX < 0 ? 1 : -1));
-        }
-      }, { passive: true });
-
-      function renderQuiz() {
-        const item = quizQuestions[quizIndex];
-        document.querySelector("#quizLevel").textContent = `${item.title} · ${quizIndex + 1}/${quizQuestions.length}`;
-        document.querySelector("#quizTitle").textContent = item.type;
-        document.querySelector("#quizQuestion").textContent = item.question;
-        document.querySelector("#quizResult").textContent = "选完后点击检查答案。";
-        const inputType = item.type === "多选" ? "checkbox" : "radio";
-        document.querySelector("#quizOptions").innerHTML = item.options.map((option, index) => `
-          <label class="quiz-option">
-            <input type="${inputType}" name="quiz" value="${index}" />
-            <span>${option}</span>
-          </label>
-        `).join("");
-      }
-
-      document.querySelector("#checkQuiz").addEventListener("click", () => {
-        const selected = Array.from(document.querySelectorAll("input[name='quiz']:checked")).map((input) => Number(input.value));
-        const item = quizQuestions[quizIndex];
-        const ok = selected.length === item.answer.length && selected.every((value) => item.answer.includes(value));
-        document.querySelector("#quizResult").textContent = ok ? `答对了。${item.explain}` : `还差一点。${item.explain}`;
-      });
-
-      document.querySelector("#nextQuiz").addEventListener("click", () => {
-        quizIndex = (quizIndex + 1) % quizQuestions.length;
-        renderQuiz();
-      });
-
-      /* ── Share Module Logic ── */
-      const shareOverlay = document.querySelector("#shareOverlay");
-      const shareLinkInput = document.querySelector("#shareLinkInput");
-      const copyLinkBtn = document.querySelector("#copyLinkBtn");
-      const nativeShareBtn = document.querySelector("#nativeShare");
-
-      function getShareUrl() {
-        return window.location.href;
-      }
-
-      function openShareModal() {
-        shareLinkInput.value = getShareUrl();
-        shareOverlay.classList.remove("hidden");
-        if (navigator.share) {
-          nativeShareBtn.classList.remove("hidden");
-        }
-      }
-
-      function closeShareModal() {
-        shareOverlay.classList.add("hidden");
-      }
-
-      function copyShareLink(inputEl) {
-        const url = (inputEl || shareLinkInput).value;
-        navigator.clipboard?.writeText(url).then(() => {
-          showToast("链接已复制，去粘贴给朋友吧！");
-        }).catch(() => {
-          showToast("复制失败，请手动选择链接");
-        });
-      }
-
-      function shareTo(platform) {
-        const url = getShareUrl();
-        const title = "币圈新手入门完全指南 — 先学安全，再学注册";
-        const desc = "一个给新手的安全第一课：安全、基础概念、交易所、钱包、U 卡、美股，10 步入门不踩坑。";
-        let shareUrl = "";
-
-        switch (platform) {
-          case "telegram":
-            shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-            break;
-          case "twitter":
-            shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-            break;
-          case "whatsapp":
-            shareUrl = `https://wa.me/?text=${encodeURIComponent(title + " " + url)}`;
-            break;
-          case "email":
-            shareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(desc + "\\n\\n" + url)}`;
-            break;
-          case "wechat":
-            navigator.clipboard?.writeText(url).then(() => {
-              showToast("链接已复制，打开微信粘贴发送给朋友！");
-            }).catch(() => {
-              showToast("链接：" + url);
-            });
-            closeShareModal();
-            return;
-          case "copy":
-            copyShareLink();
-            closeShareModal();
-            return;
-        }
-
-        if (shareUrl) {
-          window.open(shareUrl, "_blank", "noreferrer");
-        }
-      }
-
-      document.querySelector("#openShare").addEventListener("click", openShareModal);
-      document.querySelector("#closeShare").addEventListener("click", closeShareModal);
-
-      shareOverlay.addEventListener("click", (event) => {
-        if (event.target === shareOverlay) closeShareModal();
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !shareOverlay.classList.contains("hidden")) {
-          closeShareModal();
-          return;
-        }
-        if (event.key === "ArrowLeft") goTo(currentIndex - 1);
-        if (event.key === "ArrowRight") goTo(currentIndex + 1);
-      });
-
-      copyLinkBtn.addEventListener("click", () => copyShareLink());
-
-      nativeShareBtn.addEventListener("click", () => {
-        navigator.share?.({
-          title: "币圈新手入门完全指南",
-          text: "先学安全，再学注册——一个给新手的币圈入门教程。",
-          url: getShareUrl()
-        }).catch(() => {});
-      });
-
-      shareOverlay.querySelectorAll("[data-share]").forEach((btn) => {
-        btn.addEventListener("click", () => shareTo(btn.dataset.share));
-      });
-
-      /* ── Slide Share Handlers (delegated) ── */
-      document.addEventListener("click", (event) => {
-        const slideCopyBtn = event.target.closest("#slideCopyLink");
-        if (slideCopyBtn) {
-          const input = document.querySelector("#slideShareLink");
-          if (input) copyShareLink(input);
-          return;
-        }
-
-        const slideNativeBtn = event.target.closest("#slideNativeShare");
-        if (slideNativeBtn) {
-          navigator.share?.({
-            title: "币圈新手入门完全指南",
-            text: "先学安全，再学注册——一个给新手的币圈入门教程。",
-            url: getShareUrl()
-          }).catch(() => {});
-          return;
-        }
-
-        const copyButton = event.target.closest("[data-copy]");
-        if (copyButton) {
-          navigator.clipboard?.writeText(copyButton.dataset.copy).then(() => {
-            showToast(`已复制：${copyButton.dataset.copy}`);
-          }).catch(() => {
-            showToast(`邀请码：${copyButton.dataset.copy}`);
-          });
-          return;
-        }
-
-        const goButton = event.target.closest("[data-go]");
-        if (goButton) {
-          goTo(Number(goButton.dataset.go));
-          return;
-        }
-
-        const localButton = event.target.closest("[data-local-target]");
-        if (localButton) {
-          const target = document.querySelector(localButton.dataset.localTarget);
-          target?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-
-      /* ── QR Code Generator ── */
-      function generateQR(text, canvas) {
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        const size = canvas.width;
-        ctx.fillStyle = "#fff";
-        ctx.fillRect(0, 0, size, size);
-
-        function qrMatrix(data, modules) {
-          const matrix = Array.from({ length: modules }, () => Array(modules).fill(0));
-
-          function placeFinder(row, col) {
-            for (let r = -1; r <= 7; r++) {
-              for (let c = -1; c <= 7; c++) {
-                const rr = row + r, cc = col + c;
-                if (rr < 0 || rr >= modules || cc < 0 || cc >= modules) continue;
-                const inOuter = r >= 0 && r <= 6 && c >= 0 && c <= 6;
-                const inInner = r >= 2 && r <= 4 && c >= 2 && c <= 4;
-                matrix[rr][cc] = inOuter && !inInner ? 1 : 0;
-              }
-            }
-          }
-          placeFinder(0, 0);
-          placeFinder(0, modules - 7);
-          placeFinder(modules - 7, 0);
-
-          for (let i = 8; i < modules - 8; i++) {
-            matrix[6][i] = i % 2 === 0 ? 1 : 0;
-            matrix[i][6] = i % 2 === 0 ? 1 : 0;
-          }
-
-          const bytes = new TextEncoder().encode(data);
-          let bitIdx = 0;
-          for (let col = modules - 1; col >= 0; col -= 2) {
-            if (col === 6) col = 5;
-            for (let row = 0; row < modules; row++) {
-              for (let c = 0; c < 2; c++) {
-                const cc = col - c;
-                if (cc < 0) continue;
-                if (matrix[row][cc] !== 0) continue;
-                if (bitIdx / 8 < bytes.length) {
-                  const byteIdx = Math.floor(bitIdx / 8);
-                  const bitPos = 7 - (bitIdx % 8);
-                  matrix[row][cc] = (bytes[byteIdx] >> bitPos) & 1;
-                  bitIdx++;
-                }
-              }
-            }
-          }
-          return matrix;
-        }
-
-        const matrix = qrMatrix(text, 25);
-        const moduleSize = size / 25;
-
-        ctx.fillStyle = "#17172a";
-        for (let r = 0; r < 25; r++) {
-          for (let c = 0; c < 25; c++) {
-            if (matrix[r][c]) {
-              ctx.fillRect(c * moduleSize, r * moduleSize, moduleSize, moduleSize);
-            }
-          }
-        }
-      }
-
-      function initSlideQR() {
-        const canvas = document.querySelector("#qrCanvas");
-        if (canvas) {
-          generateQR(getShareUrl(), canvas);
-        }
-      }
-
-      function initSlideNativeShare() {
-        const btn = document.querySelector("#slideNativeShare");
-        if (btn && navigator.share) {
-          btn.classList.remove("hidden");
-        }
-      }
-
-      /* Init QR after slide rendered */
-      const origGoTo = goTo;
-      goTo = function(index) {
-        origGoTo(index);
-        setTimeout(() => {
-          if (index === 10) {
-            initSlideQR();
-            initSlideNativeShare();
-          }
-        }, 100);
-      };
-
-      renderQuiz();
-      goTo(0);
-    </script>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/qr.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
